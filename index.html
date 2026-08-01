@@ -3,24 +3,46 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>Stories by GSB | Saraswat Heritage & Temples</title>
-  
-  <!-- Tailwind CSS & Google Fonts -->
+  <title>Stories by GSB | Sacred Saraswat Heritage & Temples</title>
+  <meta name="description" content="An unbroken lineage of Vedic scholarship, restored temple sanctums, annual Rathotsavam chariot festivals, and living cultural traditions across Goa, Konkan, and Coastal Karnataka."/>
+
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-  
-  <script id="tailwind-config">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+
+  <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
         extend: {
           colors: {
             'primary': '#D4AF37',
-            'background': '#07060A',
-            'surface': '#100E17',
-            'surface-variant': '#181522',
+            'primary-light': '#F0D060',
+            'primary-dark': '#A88820',
+            'background': '#05040A',
+            'surface': '#0E0C16',
+            'surface-variant': '#161322',
+            'surface-raised': '#1E1A2E',
             'on-surface': '#FAF8F5',
-            'on-surface-variant': '#B8B3C3'
+            'on-surface-variant': '#B8B3C3',
+          },
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            'serif-alt': ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'shimmer': 'shimmer 2.5s linear infinite',
+            'marquee': 'marquee 35s linear infinite',
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' } },
+            shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
+            marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-50%)' } },
+            fadeUp: { '0%': { opacity: '0', transform: 'translateY(32px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+            glowPulse: { '0%,100%': { boxShadow: '0 0 12px #D4AF3740' }, '50%': { boxShadow: '0 0 32px #D4AF3799, 0 0 64px #D4AF3730' } },
           }
         }
       }
@@ -28,114 +50,356 @@
   </script>
 
   <style>
-    /* Sharp, crisp rendering - No blur filters */
-    * { backdrop-filter: none !important; filter: none !important; }
+    /* ── Base Reset ────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    .crisp-img { image-rendering: -webkit-optimize-contrast; object-fit: cover; }
+    body { background: #05040A; color: #FAF8F5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+    /* ── No blur policy ────────────────────────────────── */
+    .no-blur { backdrop-filter: none !important; filter: none !important; }
+
+    /* ── Scrollbar ─────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
+    ::-webkit-scrollbar-track { background: #05040A; }
+    ::-webkit-scrollbar-thumb { background: #D4AF3760; border-radius: 999px; }
+
+    /* ── Gold gradient text ────────────────────────────── */
+    .gold-text {
+      background: linear-gradient(135deg, #F0D060, #D4AF37, #A88820, #D4AF37);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s linear infinite;
+    }
+
+    /* ── Crisp images ──────────────────────────────────── */
+    .crisp-img { object-fit: cover; image-rendering: -webkit-optimize-contrast; display: block; width: 100%; height: 100%; }
+
+    /* ── Section divider line ──────────────────────────── */
+    .divider-gold {
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+      margin: 0 auto;
+    }
+
+    /* ── Section label pill ────────────────────────────── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 14px; border-radius: 999px;
+      border: 1px solid #D4AF3750;
+      background: #D4AF3712;
+      font-size: 10px; font-family: 'Playfair Display', serif;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: #D4AF37; font-weight: 700;
+    }
+    .section-label::before { content: '✦'; font-size: 8px; }
+
+    /* ── Glowing gold border card ──────────────────────── */
+    .gold-card {
+      border: 1px solid #D4AF3730;
+      border-radius: 20px;
+      background: #161322;
+      transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+    }
+    .gold-card:hover {
+      border-color: #D4AF37AA;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px #D4AF3718, 0 2px 12px #00000060;
+    }
+
+    /* ── Temple card image zoom ────────────────────────── */
+    .temple-img-wrap { overflow: hidden; border-radius: 14px 14px 0 0; }
+    .temple-img-wrap img { transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .gold-card:hover .temple-img-wrap img { transform: scale(1.06); }
+
+    /* ── Navigation ────────────────────────────────────── */
+    .nav-link {
+      position: relative; padding: 6px 14px; border-radius: 999px;
+      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: #B8B3C3; font-weight: 500;
+      transition: color 0.25s, background 0.25s;
+    }
+    .nav-link:hover { color: #D4AF37; background: #D4AF3712; }
+    .nav-link.active { color: #D4AF37; background: #D4AF3718; }
+
+    /* ── Marquee Strip ─────────────────────────────────── */
+    .marquee-track { display: flex; gap: 0; white-space: nowrap; animation: marquee 35s linear infinite; }
+    .marquee-item { padding: 0 40px; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: #D4AF3780; font-family: 'Playfair Display', serif; flex-shrink: 0; }
+    .marquee-item span { color: #D4AF37; margin-right: 40px; }
+
+    /* ── Hero particle dots (CSS only) ────────────────── */
+    .hero-particles { position: absolute; inset: 0; pointer-events: none; }
+    .hero-particles::before, .hero-particles::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, #D4AF3740 0%, transparent 70%);
+    }
+    .hero-particles::before { width: 400px; height: 400px; top: -100px; right: -80px; }
+    .hero-particles::after  { width: 300px; height: 300px; bottom: -60px; left: -60px; }
+
+    /* ── Stat counter ──────────────────────────────────── */
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: #D4AF37; line-height: 1; }
+
+    /* ── Scroll reveal ─────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Month tab scrollbar hide ──────────────────────── */
+    .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+
+    /* ── Portfolio masonry layout ──────────────────────── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 240px 240px;
+      gap: 16px;
+    }
+    .portfolio-grid .item-tall { grid-row: span 2; }
+    @media (max-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr; grid-template-rows: unset; }
+      .portfolio-grid .item-tall { grid-row: unset; height: 280px; }
+    }
+
+    /* ── Gold shimmer button ───────────────────────────── */
+    .btn-gold {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #D4AF37, #A88820);
+      color: #000; font-weight: 700; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 12px 28px; border-radius: 999px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px #D4AF3740;
+    }
+    .btn-gold:hover { transform: scale(1.04); box-shadow: 0 8px 30px #D4AF3760; }
+    .btn-gold::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, #ffffff30, transparent);
+      transition: left 0.5s;
+    }
+    .btn-gold:hover::after { left: 150%; }
+
+    /* ── Gold outline button ───────────────────────────── */
+    .btn-outline {
+      border: 1px solid #D4AF3770;
+      color: #D4AF37; font-weight: 700; font-size: 11px;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 28px; border-radius: 999px;
+      transition: background 0.25s, border-color 0.25s, transform 0.2s;
+    }
+    .btn-outline:hover { background: #D4AF3715; border-color: #D4AF37; transform: scale(1.03); }
+
+    /* ── Restoration toggle ────────────────────────────── */
+    #restoration-view-img { transition: opacity 0.5s ease; }
+    #restoration-view-img.switching { opacity: 0; }
   </style>
 </head>
-<body class="bg-background text-on-surface min-h-screen">
+<body>
 
-  <!-- UNIFIED TOP NAVIGATION HEADER -->
-  <nav class="fixed top-0 left-0 right-0 z-[999] bg-background/95 border-b border-primary/20 px-6 py-4 flex justify-between items-center max-w-container-max mx-auto">
-    <a href="#hero" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-amber-700 flex items-center justify-center text-black font-bold font-serif text-lg shadow-lg group-hover:scale-105 transition-transform">
-        ॐ
+  <!-- ════════════════════════════════════
+       FIXED NAVIGATION
+  ════════════════════════════════════ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-[999] transition-all duration-500" style="background:transparent;">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full flex items-center justify-center text-black font-bold font-serif text-xl shadow-lg transition-transform duration-300 group-hover:scale-110 animate-glow-pulse"
+             style="background: linear-gradient(135deg,#F0D060,#A88820);">
+          ॐ
+        </div>
+        <div>
+          <span class="font-serif text-base tracking-[0.22em] uppercase text-white font-bold block leading-none">Stories by GSB</span>
+          <span class="text-[9px] tracking-[0.3em] text-primary/70 uppercase font-sans">Sacred Heritage Archive</span>
+        </div>
+      </a>
+
+      <!-- Nav Links -->
+      <div class="hidden md:flex items-center gap-1 rounded-full border border-primary/20 p-1.5"
+           style="background:#161322cc;">
+        <a href="#temples"     class="nav-link">Temples</a>
+        <a href="#portfolio"   class="nav-link">Portfolio</a>
+        <a href="#rituals"     class="nav-link">Calendar</a>
+        <a href="#restoration" class="nav-link">Restoration</a>
+        <a href="#about"       class="nav-link">About</a>
       </div>
-      <div>
-        <span class="font-serif text-xl tracking-widest uppercase text-white font-bold block">Stories by GSB</span>
-      </div>
-    </a>
 
-    <!-- Scroll Section Links -->
-    <div class="hidden md:flex items-center gap-2 bg-surface-variant p-1.5 rounded-full border border-primary/20">
-      <a href="#temples" class="px-4 py-1.5 rounded-full text-xs tracking-wider uppercase text-gray-300 hover:text-primary hover:bg-primary/10 transition-all font-medium">Temples</a>
-      <a href="#portfolio" class="px-4 py-1.5 rounded-full text-xs tracking-wider uppercase text-gray-300 hover:text-primary hover:bg-primary/10 transition-all font-medium">Portfolio</a>
-      <a href="#rituals" class="px-4 py-1.5 rounded-full text-xs tracking-wider uppercase text-gray-300 hover:text-primary hover:bg-primary/10 transition-all font-medium">Events & Calendar</a>
-      <a href="#restoration" class="px-4 py-1.5 rounded-full text-xs tracking-wider uppercase text-gray-300 hover:text-primary hover:bg-primary/10 transition-all font-medium">Restoration</a>
-      <a href="#about" class="px-4 py-1.5 rounded-full text-xs tracking-wider uppercase text-gray-300 hover:text-primary hover:bg-primary/10 transition-all font-medium">About</a>
-    </div>
-
-    <div>
-      <a href="#temples" class="px-5 py-2 bg-primary text-black font-bold text-xs uppercase tracking-wider rounded-full shadow-lg hover:brightness-110 transition-all">Explore Shrines</a>
+      <!-- CTA -->
+      <a href="#temples" class="btn-gold hidden md:inline-flex">Explore Shrines</a>
     </div>
   </nav>
 
-  <!-- MAIN SCROLLABLE SECTIONS CONTAINER -->
-  <main class="pt-20">
+  <main>
 
-    <!-- SECTION 1: HERO SHOWCASE -->
-    <section id="hero" class="relative min-h-[85vh] flex items-center justify-center px-6 overflow-hidden border-b border-primary/20">
-      <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1920&q=90" alt="Saraswat Heritage Temple" class="absolute inset-0 w-full h-full crisp-img opacity-40">
-      <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30"></div>
-      
-      <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
-        <span class="text-xs font-serif tracking-[0.3em] uppercase text-primary font-bold mb-3 block">Saraswat Spiritual & Architectural Archive</span>
-        <h1 class="font-serif text-4xl md:text-6xl text-white font-bold mb-6 leading-tight drop-shadow-lg">
-          Sacred Lens of Gowd Saraswat Heritage
-        </h1>
-        <p class="text-base md:text-lg text-gray-300 font-serif leading-relaxed mb-8 max-w-2xl mx-auto">
-          An unbroken lineage of Vedic scholarship, restored temple sanctums, annual Rathotsavam chariot festivals, and living cultural traditions across Goa, Konkan, and Coastal Karnataka.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href="#temples" class="px-6 py-3 bg-primary text-black font-bold text-xs uppercase tracking-widest rounded-full shadow-xl hover:scale-105 transition-all">Browse Temples</a>
-          <a href="#rituals" class="px-6 py-3 bg-surface-variant border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest rounded-full hover:bg-primary/20 transition-all">12-Month Calendar</a>
+    <!-- ════════════════════════════════════
+         SECTION 1 — HERO
+    ════════════════════════════════════ -->
+    <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+
+      <!-- Background image -->
+      <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1920&q=90"
+             alt="Saraswat Heritage Temple"
+             class="crisp-img absolute inset-0" style="opacity:0.35;">
+        <div style="background:linear-gradient(to top, #05040A 15%, #05040A66 55%, #05040A20 100%); position:absolute;inset:0;"></div>
+      </div>
+
+      <!-- Glowing particles -->
+      <div class="hero-particles no-blur"></div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 text-center max-w-5xl mx-auto px-6 pt-24">
+        <div class="section-label mx-auto mb-6 animate-fade-up" style="animation-delay:0.1s;">
+          Saraswat Spiritual & Architectural Archive
         </div>
-      </div>
-    </section>
 
-    <!-- SECTION 2: TEMPLES DIRECTORY & GEO-LOCATION LINKS -->
-    <section id="temples" class="max-w-container-max mx-auto px-6 py-20 border-b border-primary/20">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-serif tracking-widest text-primary uppercase font-bold block mb-2">Architectural Sanctums</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4">Historic GSB Temples & Mathas</h2>
-        <p class="text-sm text-gray-300 font-serif leading-relaxed">
-          Click any temple card to view detailed architectural restoration details, deity specifications, and direct Google Maps geo-location links.
+        <h1 class="font-serif font-bold mb-6 leading-[1.12]" style="font-size:clamp(2.6rem,6vw,5rem);">
+          <span class="text-white block">Sacred Lens of</span>
+          <span class="gold-text block">Gowd Saraswat Heritage</span>
+        </h1>
+
+        <p class="text-gray-300 font-serif leading-relaxed mb-10 max-w-2xl mx-auto" style="font-size:clamp(0.95rem,2vw,1.15rem);">
+          An unbroken lineage of Vedic scholarship, restored temple sanctums,<br class="hidden md:block">
+          annual Rathotsavam chariot festivals, and living cultural traditions<br class="hidden md:block">
+          across Goa, Konkan, and Coastal Karnataka.
         </p>
-      </div>
 
-      <!-- Temples Cards Grid (Rendered dynamically from TEMPLES_DATA in js/data.js) -->
-      <div id="unified-temples-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- JS populated -->
-      </div>
-    </section>
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+          <a href="#temples"  class="btn-gold">Browse Temples</a>
+          <a href="#rituals"  class="btn-outline">12-Month Calendar</a>
+        </div>
 
-    <!-- SECTION 3: PORTFOLIO GALLERY (CRISP PHOTOGRAPHY) -->
-    <section id="portfolio" class="max-w-container-max mx-auto px-6 py-20 border-b border-primary/20 bg-surface/50">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-serif tracking-widest text-primary uppercase font-bold block mb-2">Visual Heritage</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4">Crisp Photography & Cinema</h2>
-        <p class="text-sm text-gray-300 font-serif">
-          Museum-grade high resolution photography documenting golden brass lamps, teakwood chariots, and sacred altars with 100% clarity.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="relative h-80 rounded-2xl overflow-hidden border border-primary/20 group">
-          <img src="assets/images/master_experience.png" alt="Master Showcase" class="w-full h-full crisp-img group-hover:scale-105 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <span class="text-xs text-primary font-serif uppercase tracking-widest">Master Unified Showcase</span>
-              <h3 class="text-lg text-white font-serif font-bold">Chariot & Lamp Sanctum</h3>
-            </div>
+        <!-- Animated Stats Row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div class="text-center p-4 rounded-2xl border border-primary/20" style="background:#161322cc;">
+            <div class="stat-num" data-target="6">6</div>
+            <div class="text-[10px] tracking-widest uppercase text-gray-400 mt-1 font-sans">Heritage Temples</div>
+          </div>
+          <div class="text-center p-4 rounded-2xl border border-primary/20" style="background:#161322cc;">
+            <div class="stat-num" data-target="12">12</div>
+            <div class="text-[10px] tracking-widest uppercase text-gray-400 mt-1 font-sans">Annual Festivals</div>
+          </div>
+          <div class="text-center p-4 rounded-2xl border border-primary/20" style="background:#161322cc;">
+            <div class="stat-num" data-target="500">500+</div>
+            <div class="text-[10px] tracking-widest uppercase text-gray-400 mt-1 font-sans">Years of Heritage</div>
+          </div>
+          <div class="text-center p-4 rounded-2xl border border-primary/20" style="background:#161322cc;">
+            <div class="stat-num" data-target="3">3</div>
+            <div class="text-[10px] tracking-widest uppercase text-gray-400 mt-1 font-sans">Coastal States</div>
           </div>
         </div>
+      </div>
 
-        <div class="relative h-80 rounded-2xl overflow-hidden border border-primary/20 group">
-          <img src="assets/images/rituals_festivals.png" alt="Festivals Showcase" class="w-full h-full crisp-img group-hover:scale-105 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <span class="text-xs text-primary font-serif uppercase tracking-widest">Annual Rathotsavam</span>
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+        <span class="text-[10px] tracking-[0.3em] uppercase text-gray-400 font-sans">Scroll to Explore</span>
+        <div class="w-px h-12 bg-gradient-to-b from-primary to-transparent"></div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         HERITAGE MARQUEE STRIP
+    ════════════════════════════════════ -->
+    <div class="border-y border-primary/20 overflow-hidden py-3" style="background:#D4AF3708;">
+      <div class="marquee-track">
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span>✦</span>Mangeshi Temple — Goa</span>
+        <span class="marquee-item"><span>✦</span>Shanta Durga — Kavlem</span>
+        <span class="marquee-item"><span>✦</span>Kodial Teru Rathotsavam — Mangalore</span>
+        <span class="marquee-item"><span>✦</span>Kashi Math Samsthan</span>
+        <span class="marquee-item"><span>✦</span>Kochi Thirumala Devaswom</span>
+        <span class="marquee-item"><span>✦</span>Gokarna Partagali Jeevottam Math</span>
+        <span class="marquee-item"><span>✦</span>Navratri Maharathotsavam</span>
+        <span class="marquee-item"><span>✦</span>Ganesh Chaturthi — Chavoth</span>
+        <span class="marquee-item"><span>✦</span>Mangeshi Temple — Goa</span>
+        <span class="marquee-item"><span>✦</span>Shanta Durga — Kavlem</span>
+        <span class="marquee-item"><span>✦</span>Kodial Teru Rathotsavam — Mangalore</span>
+        <span class="marquee-item"><span>✦</span>Kashi Math Samsthan</span>
+        <span class="marquee-item"><span>✦</span>Kochi Thirumala Devaswom</span>
+        <span class="marquee-item"><span>✦</span>Gokarna Partagali Jeevottam Math</span>
+        <span class="marquee-item"><span>✦</span>Navratri Maharathotsavam</span>
+        <span class="marquee-item"><span>✦</span>Ganesh Chaturthi — Chavoth</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════
+         SECTION 2 — TEMPLES DIRECTORY
+    ════════════════════════════════════ -->
+    <section id="temples" class="py-24 border-b border-primary/15">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal">
+          <div class="section-label mx-auto mb-5">Architectural Sanctums</div>
+          <h2 class="font-serif text-white font-bold mb-4" style="font-size:clamp(2rem,4vw,3.5rem);">
+            Historic GSB Temples &amp; Mathas
+          </h2>
+          <div class="divider-gold mb-5"></div>
+          <p class="text-gray-400 font-serif max-w-xl mx-auto text-sm leading-relaxed">
+            Click any temple card to view restoration details, deity specifications,<br>
+            and open the direct geo-location link in Google Maps.
+          </p>
+        </div>
+
+        <!-- Temples Cards Grid (Populated by JS from TEMPLES_DATA in js/data.js) -->
+        <div id="unified-temples-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Loading state -->
+          <div class="col-span-full flex justify-center py-12">
+            <div class="text-primary/40 text-sm font-serif animate-pulse">Loading sacred temples...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         SECTION 3 — PORTFOLIO GALLERY
+    ════════════════════════════════════ -->
+    <section id="portfolio" class="py-24 border-b border-primary/15" style="background:#0E0C1680;">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-14 reveal">
+          <div class="section-label mx-auto mb-5">Visual Heritage</div>
+          <h2 class="font-serif text-white font-bold mb-4" style="font-size:clamp(2rem,4vw,3.5rem);">
+            Crisp Photography &amp; Cinema
+          </h2>
+          <div class="divider-gold mb-5"></div>
+          <p class="text-gray-400 font-serif text-sm max-w-lg mx-auto">
+            Museum-grade high resolution photography documenting golden brass lamps,<br>
+            teakwood chariots, and sacred altars with total clarity.
+          </p>
+        </div>
+
+        <!-- Masonry-style portfolio grid -->
+        <div class="portfolio-grid reveal">
+
+          <!-- Tall left card -->
+          <div class="item-tall relative rounded-2xl overflow-hidden border border-primary/20 group gold-card" style="border-radius:20px;">
+            <img src="assets/images/master_experience.png" alt="Master Showcase" class="crisp-img absolute inset-0 group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 flex flex-col justify-end p-6" style="background:linear-gradient(to top,#05040Aee 0%,transparent 60%);">
+              <span class="text-[10px] text-primary font-serif uppercase tracking-widest mb-1">Master Unified Showcase</span>
+              <h3 class="text-xl text-white font-serif font-bold">Chariot &amp; Lamp Sanctum</h3>
+              <p class="text-xs text-gray-400 mt-1 font-serif leading-relaxed">Heritage photography of brass Deepstambha and sacred chariot processions.</p>
+            </div>
+          </div>
+
+          <!-- Top right -->
+          <div class="relative rounded-2xl overflow-hidden border border-primary/20 group gold-card" style="border-radius:20px;">
+            <img src="assets/images/rituals_festivals.png" alt="Festivals Showcase" class="crisp-img absolute inset-0 group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 flex flex-col justify-end p-5" style="background:linear-gradient(to top,#05040Aee 0%,transparent 60%);">
+              <span class="text-[10px] text-primary font-serif uppercase tracking-widest mb-1">Annual Rathotsavam</span>
               <h3 class="text-lg text-white font-serif font-bold">Kodial Teru Chariot</h3>
             </div>
           </div>
-        </div>
 
-        <div class="relative h-80 rounded-2xl overflow-hidden border border-primary/20 group">
-          <img src="assets/images/temple_detail.png" alt="Restoration Showcase" class="w-full h-full crisp-img group-hover:scale-105 transition-transform duration-700">
-          <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <span class="text-xs text-primary font-serif uppercase tracking-widest">Restored Architecture</span>
+          <!-- Bottom right -->
+          <div class="relative rounded-2xl overflow-hidden border border-primary/20 group gold-card" style="border-radius:20px;">
+            <img src="assets/images/temple_detail.png" alt="Restoration Showcase" class="crisp-img absolute inset-0 group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 flex flex-col justify-end p-5" style="background:linear-gradient(to top,#05040Aee 0%,transparent 60%);">
+              <span class="text-[10px] text-primary font-serif uppercase tracking-widest mb-1">Restored Architecture</span>
               <h3 class="text-lg text-white font-serif font-bold">Sanctum Precision</h3>
             </div>
           </div>
@@ -143,179 +407,319 @@
       </div>
     </section>
 
-    <!-- SECTION 4: RITUALS, FESTIVALS & 12-MONTH CALENDAR -->
-    <section id="rituals" class="max-w-container-max mx-auto px-6 py-20 border-b border-primary/20">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6">
-        <div>
-          <span class="text-xs font-serif tracking-widest text-primary uppercase font-bold block mb-1">Annual Sacred Almanac</span>
-          <h2 class="font-serif text-3xl md:text-5xl text-white font-bold">12-Month Festival & Ritual Calendar</h2>
-          <p class="text-sm text-gray-300 mt-2 max-w-2xl font-serif">
-            Filter celebrations across the entire year (January through December) or search for specific Vedic pujas, chariot festivals, and oil lamp ceremonies.
-          </p>
-        </div>
+    <!-- ════════════════════════════════════
+         SECTION 4 — 12-MONTH CALENDAR
+    ════════════════════════════════════ -->
+    <section id="rituals" class="py-24 border-b border-primary/15">
+      <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Search Input -->
-        <div class="relative w-full md:w-80">
-          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">🔍</span>
-          <input type="text" id="event-search-input" placeholder="Search events, tithi, shrines..." class="w-full bg-surface-variant border border-primary/30 rounded-full pl-10 pr-4 py-2.5 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-all">
-        </div>
-      </div>
-
-      <!-- 12-Month Selector Bar -->
-      <div class="mb-6 pb-2 overflow-x-auto scrollbar-none flex items-center gap-2" id="month-selector-bar">
-        <!-- Populated by js/events-calendar.js -->
-      </div>
-
-      <!-- Category Filter Tabs -->
-      <div class="flex items-center gap-2 mb-8 flex-wrap">
-        <button data-category="all" class="event-cat-btn active-cat px-4 py-1.5 rounded-full text-xs font-bold bg-primary text-black shadow-md transition-all">All Events</button>
-        <button data-category="rathotsavam" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant border border-primary/20 text-gray-300 hover:text-primary transition-all">Rathotsavam (Chariots)</button>
-        <button data-category="pujas" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant border border-primary/20 text-gray-300 hover:text-primary transition-all">Vedic Pujas</button>
-        <button data-category="deepotsav" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant border border-primary/20 text-gray-300 hover:text-primary transition-all">Deepotsavam (Lamps)</button>
-        <button data-category="seasonal" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant border border-primary/20 text-gray-300 hover:text-primary transition-all">Seasonal Festivals</button>
-      </div>
-
-      <!-- Events Cards Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="events-cards-grid">
-        <!-- Populated from YEAR_EVENTS_DATA in js/data.js -->
-      </div>
-    </section>
-
-    <!-- SECTION 5: TEMPLE RESTORATION SHOWCASE -->
-    <section id="restoration" class="max-w-container-max mx-auto px-6 py-20 border-b border-primary/20 bg-surface/50">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="text-xs font-serif tracking-widest text-primary uppercase font-bold block mb-2">Preservation & Science</span>
-        <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-4">Architectural Restoration</h2>
-        <p class="text-sm text-gray-300 font-serif">
-          Toggle between original vintage archival state and 2025 restored precision condition for historic GSB sanctums.
-        </p>
-      </div>
-
-      <div class="bg-surface-variant border border-primary/30 rounded-3xl p-8 max-w-5xl mx-auto shadow-2xl">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+        <!-- Header + Search -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-10 reveal">
           <div>
-            <h3 class="font-serif text-2xl text-white font-bold" id="restoration-temple-name">Shri Mangeshi Temple Sanctum</h3>
-            <p class="text-xs text-primary font-mono mt-1">Priol, Ponda, Goa • Established 1560 AD</p>
-          </div>
-          <button id="toggle-restoration" class="px-6 py-2.5 bg-primary text-black font-bold text-xs uppercase tracking-wider rounded-full shadow-lg hover:brightness-110 transition-all">
-            Toggle Vintage / Restored State
-          </button>
-        </div>
-
-        <div class="relative h-[420px] rounded-2xl overflow-hidden border border-primary/30">
-          <img id="restoration-view-img" src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=90" alt="Temple Sanctum Restoration" class="w-full h-full crisp-img">
-          <div id="restoration-status-tag" class="absolute top-4 left-4 bg-black/90 border border-primary px-4 py-1.5 rounded-full text-xs font-mono text-primary font-bold shadow-lg">
-            RESTORED (2025 Precision State)
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-          <div class="bg-background/60 p-6 rounded-2xl border border-primary/20">
-            <h4 class="font-serif text-primary font-bold text-base mb-2">16th-Century Inscriptions</h4>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              Preserved Devanagari copper plate grants and granite stonework inscriptions recording land endowments by Maratha and Saraswat chieftains.
+            <div class="section-label mb-5">Annual Sacred Almanac</div>
+            <h2 class="font-serif text-white font-bold mb-3" style="font-size:clamp(1.8rem,3.5vw,3rem);">
+              12-Month Festival &amp; Ritual Calendar
+            </h2>
+            <div class="divider-gold" style="margin:0 0 14px 0;"></div>
+            <p class="text-gray-400 font-serif text-sm max-w-xl leading-relaxed">
+              Filter celebrations across the entire year or search for specific Vedic pujas,<br>
+              chariot festivals (Rathotsavam), and oil lamp ceremonies.
             </p>
           </div>
-          <div class="bg-background/60 p-6 rounded-2xl border border-primary/20">
-            <h4 class="font-serif text-primary font-bold text-base mb-2">Fiber-Optic Sanctum Lighting</h4>
-            <p class="text-xs text-gray-300 leading-relaxed">
-              Custom warm fiber-optic illumination designed to accentuate gold leaf ceiling gilding and carved teakwood without heat damage.
-            </p>
+
+          <!-- Search -->
+          <div class="relative w-full md:w-72 flex-shrink-0">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">🔍</span>
+            <input type="text" id="event-search-input"
+                   placeholder="Search events, tithi, shrines..."
+                   class="w-full rounded-full pl-11 pr-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-all font-sans"
+                   style="background:#161322; border:1px solid #D4AF3740;">
+          </div>
+        </div>
+
+        <!-- 12-Month Bar -->
+        <div class="mb-5 pb-1 overflow-x-auto scrollbar-none flex items-center gap-2" id="month-selector-bar">
+          <!-- Populated by js/events-calendar.js -->
+        </div>
+
+        <!-- Category Pills -->
+        <div class="flex items-center gap-2 mb-10 flex-wrap">
+          <button data-category="all" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-bold transition-all"
+                  style="background:#D4AF37; color:#000;">All Events</button>
+          <button data-category="rathotsavam" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-primary/20"
+                  style="background:#161322; color:#B8B3C3;">Rathotsavam (Chariots)</button>
+          <button data-category="pujas" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-primary/20"
+                  style="background:#161322; color:#B8B3C3;">Vedic Pujas</button>
+          <button data-category="deepotsav" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-primary/20"
+                  style="background:#161322; color:#B8B3C3;">Deepotsavam (Lamps)</button>
+          <button data-category="seasonal" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-primary/20"
+                  style="background:#161322; color:#B8B3C3;">Seasonal Festivals</button>
+        </div>
+
+        <!-- Events Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="events-cards-grid">
+          <!-- Populated by js/events-calendar.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════
+         SECTION 5 — RESTORATION SHOWCASE
+    ════════════════════════════════════ -->
+    <section id="restoration" class="py-24 border-b border-primary/15" style="background:#0E0C1680;">
+      <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-12 reveal">
+          <div class="section-label mx-auto mb-5">Preservation &amp; Science</div>
+          <h2 class="font-serif text-white font-bold mb-4" style="font-size:clamp(2rem,4vw,3.5rem);">
+            Architectural Restoration
+          </h2>
+          <div class="divider-gold mb-5"></div>
+          <p class="text-gray-400 font-serif text-sm max-w-lg mx-auto">
+            Toggle between original vintage archival state and 2025 restored precision condition.
+          </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto rounded-3xl p-8 border border-primary/30 shadow-2xl reveal"
+             style="background:#161322;">
+
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+            <div>
+              <h3 class="font-serif text-2xl text-white font-bold" id="restoration-temple-name">Shri Mangeshi Temple Sanctum</h3>
+              <p class="text-xs text-primary font-sans mt-1 tracking-wider">Priol, Ponda, Goa &nbsp;•&nbsp; Established 1560 AD</p>
+            </div>
+            <button id="toggle-restoration" class="btn-gold">
+              Toggle Vintage / Restored
+            </button>
+          </div>
+
+          <div class="relative rounded-2xl overflow-hidden border border-primary/20" style="height:420px;">
+            <img id="restoration-view-img"
+                 src="https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=90"
+                 alt="Temple Sanctum Restoration"
+                 class="crisp-img absolute inset-0">
+            <div id="restoration-status-tag"
+                 class="absolute top-4 left-4 px-4 py-1.5 rounded-full text-xs font-sans font-bold shadow-lg"
+                 style="background:#000000cc; border:1px solid #D4AF37; color:#D4AF37;">
+              RESTORED — 2025 Precision State
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mt-7">
+            <div class="p-5 rounded-2xl border border-primary/20" style="background:#05040A;">
+              <h4 class="font-serif text-primary font-bold text-sm mb-2">16th-Century Inscriptions</h4>
+              <p class="text-xs text-gray-400 leading-relaxed font-sans">
+                Preserved Devanagari copper plate grants and granite stonework inscriptions
+                recording land endowments by Maratha and Saraswat chieftains.
+              </p>
+            </div>
+            <div class="p-5 rounded-2xl border border-primary/20" style="background:#05040A;">
+              <h4 class="font-serif text-primary font-bold text-sm mb-2">Fiber-Optic Sanctum Lighting</h4>
+              <p class="text-xs text-gray-400 leading-relaxed font-sans">
+                Custom warm fiber-optic illumination designed to accentuate gold leaf ceiling
+                gilding and carved teakwood without heat damage.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: ABOUT & HERITAGE NARRATIVE -->
-    <section id="about" class="max-w-container-max mx-auto px-6 py-20">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div>
-          <span class="text-xs font-serif tracking-widest text-primary uppercase font-bold block mb-2">History & Migration</span>
-          <h2 class="font-serif text-3xl md:text-5xl text-white font-bold mb-6 leading-tight">
-            The Saraswat Lineage
-          </h2>
-          <p class="text-sm text-gray-300 font-serif leading-relaxed mb-6">
-            Originating along the sacred Sarasvati river, Gowd Saraswat Brahmins migrated to Goa (Gomantak) and Coastal Karnataka, establishing iconic temples, mathas, and an enduring legacy of devotion.
-          </p>
-          <div class="border-l-2 border-primary pl-4 py-2 italic text-primary font-serif text-base mb-6">
-            "Preserving divine heritage through the precision of modern light and shadow."
-          </div>
-        </div>
+    <!-- ════════════════════════════════════
+         SECTION 6 — ABOUT / HERITAGE
+    ════════════════════════════════════ -->
+    <section id="about" class="py-24">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
 
-        <div class="bg-surface-variant p-8 rounded-3xl border border-primary/20 shadow-xl">
-          <h3 class="font-serif text-xl text-white font-bold mb-4">Historical Pillars</h3>
-          <ul class="space-y-4 text-xs text-gray-300">
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold text-base">✦</span>
-              <div><strong class="text-white">Sarasvati River Valley:</strong> Vedic origins and Rigvedic scholarship.</div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold text-base">✦</span>
-              <div><strong class="text-white">Gomantak (Goa):</strong> Shrines of Mangeshi, Shanta Durga, Nagueshi.</div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="text-primary font-bold text-base">✦</span>
-              <div><strong class="text-white">Canara & Malabar:</strong> Venkataramana Mangalore & Ernakulam TD Kochi.</div>
-            </li>
-          </ul>
+          <!-- Text side -->
+          <div class="reveal">
+            <div class="section-label mb-5">History &amp; Migration</div>
+            <h2 class="font-serif text-white font-bold mb-5 leading-tight" style="font-size:clamp(2rem,4vw,3.2rem);">
+              The Saraswat<br><span class="gold-text">Lineage</span>
+            </h2>
+            <div class="divider-gold" style="margin:0 0 20px 0;"></div>
+            <p class="text-gray-300 font-serif leading-relaxed text-sm mb-6">
+              Originating along the sacred Sarasvati river, Gowd Saraswat Brahmins migrated
+              to Goa (Gomantak) and Coastal Karnataka, establishing iconic temples, mathas,
+              and an enduring legacy of devotion spanning over five centuries.
+            </p>
+            <blockquote class="border-l-2 border-primary pl-5 py-1 italic text-primary font-serif-alt text-base mb-8">
+              "Preserving divine heritage through the precision of modern light and shadow."
+            </blockquote>
+            <a href="#temples" class="btn-gold inline-flex">Explore Temples →</a>
+          </div>
+
+          <!-- Pillars card -->
+          <div class="rounded-3xl p-8 border border-primary/25 shadow-2xl reveal" style="background:#161322;">
+            <h3 class="font-serif text-xl text-white font-bold mb-6">Historical Pillars</h3>
+            <ul class="space-y-5">
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-black"
+                     style="background:linear-gradient(135deg,#F0D060,#A88820);">✦</div>
+                <div>
+                  <strong class="text-white text-sm font-sans font-semibold block">Sarasvati River Valley</strong>
+                  <span class="text-xs text-gray-400 font-sans">Vedic origins and Rigvedic scholarship dating to antiquity.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-black"
+                     style="background:linear-gradient(135deg,#F0D060,#A88820);">✦</div>
+                <div>
+                  <strong class="text-white text-sm font-sans font-semibold block">Gomantak (Goa)</strong>
+                  <span class="text-xs text-gray-400 font-sans">Shrines of Mangeshi, Shanta Durga, Nagueshi, Ramnathi.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-black"
+                     style="background:linear-gradient(135deg,#F0D060,#A88820);">✦</div>
+                <div>
+                  <strong class="text-white text-sm font-sans font-semibold block">Canara &amp; Malabar</strong>
+                  <span class="text-xs text-gray-400 font-sans">Venkataramana Mangalore &amp; Kochi Thirumala Devaswom.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
-  <footer class="border-t border-primary/20 bg-background py-8 text-center text-xs text-gray-500">
-    <div class="w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mb-4"></div>
-    <p class="font-serif text-white font-bold tracking-widest uppercase mb-1">STORIES BY GSB</p>
-    <p>Repository: https://github.com/prabhu-07/stories-of-gsb</p>
+  <!-- ════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════ -->
+  <footer class="border-t border-primary/20 py-10 text-center" style="background:#05040A;">
+    <div class="w-20 h-px mx-auto mb-5" style="background:linear-gradient(90deg,transparent,#D4AF37,transparent);"></div>
+    <p class="font-serif text-white font-bold tracking-[0.3em] uppercase text-sm mb-2">STORIES BY GSB</p>
+    <p class="text-[11px] text-gray-600 font-sans">Sacred Saraswat Heritage Archive · github.com/prabhu-07/stories-of-gsb</p>
   </footer>
 
-  <!-- Centralized Backend Data & Calendar Scripts -->
+  <!-- ════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════ -->
   <script src="js/data.js"></script>
   <script src="js/events-calendar.js"></script>
   <script>
+    /* ── Nav scroll effect ─────────────────────────────────── */
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        nav.style.background = '#05040Af5';
+        nav.style.borderBottom = '1px solid #D4AF3730';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.borderBottom = 'none';
+      }
+    });
+
+    /* ── Active nav link on scroll ─────────────────────────── */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => observer.observe(s));
+
+    /* ── Scroll reveal ─────────────────────────────────────── */
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+    /* ── Render Temples Grid ───────────────────────────────── */
     document.addEventListener('DOMContentLoaded', () => {
-      // Render Unified Temples Grid with numerical image naming & geo-location links
       const grid = document.getElementById('unified-temples-grid');
       if (grid && typeof TEMPLES_DATA !== 'undefined') {
-        grid.innerHTML = TEMPLES_DATA.map(t => {
-          // Primary image format: assets/images/{templename}1.jpg with fallback
-          const primaryImg = t.images && t.images.length > 0 ? t.images[0] : t.fallbackImage;
-          const secondaryImg = t.images && t.images.length > 1 ? t.images[1] : primaryImg;
-
+        grid.innerHTML = TEMPLES_DATA.map((t, i) => {
+          const primaryImg   = t.images && t.images[0] ? t.images[0] : t.fallbackImage;
           return `
-            <div class="luxury-temple-card bg-surface-variant border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col justify-between group">
-              <div>
-                <div class="relative h-64 overflow-hidden">
-                  <img src="${primaryImg}" onerror="this.onerror=null; this.src='${t.fallbackImage}'" alt="${t.name}" class="w-full h-full crisp-img group-hover:scale-105 transition-transform duration-700">
-                  <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-3 py-1 rounded-full text-[11px] font-mono text-primary font-bold">
-                    Est. ${t.established}
-                  </div>
-                </div>
-                <div class="p-6">
-                  <div class="text-[11px] font-serif tracking-widest text-primary uppercase mb-1 font-semibold">${t.location}</div>
-                  <h3 class="font-serif text-xl text-white font-bold mb-2 group-hover:text-primary transition-colors">${t.name}</h3>
-                  <p class="text-xs text-gray-300 leading-relaxed mb-4 font-serif">${t.description}</p>
-                </div>
+            <div class="gold-card flex flex-col reveal" style="animation-delay:${i * 0.08}s;">
+
+              <!-- Image -->
+              <div class="temple-img-wrap" style="height:220px; border-radius:20px 20px 0 0;">
+                <img src="${primaryImg}"
+                     onerror="this.onerror=null; this.src='${t.fallbackImage}'"
+                     alt="${t.name}" class="crisp-img"
+                     style="height:220px; border-radius:20px 20px 0 0;">
               </div>
 
-              <div class="px-6 pb-6 pt-2 flex flex-col gap-2.5 border-t border-primary/10">
-                <!-- Geo Location Link Button -->
-                <a href="${t.geoLocationUrl}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 bg-primary/15 border border-primary/50 text-primary font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-primary hover:text-black transition-all text-center flex items-center justify-center gap-2">
-                  <span>📍</span>
-                  <span>View Geo Location</span>
+              <!-- Badge row -->
+              <div class="px-5 pt-4 flex items-center justify-between">
+                <span class="text-[10px] font-sans font-semibold tracking-widest uppercase"
+                      style="color:#D4AF37; background:#D4AF3712; border:1px solid #D4AF3740; border-radius:999px; padding:3px 10px;">
+                  Est. ${t.established}
+                </span>
+                <span class="text-[10px] text-gray-500 font-sans">${t.deity}</span>
+              </div>
+
+              <!-- Text -->
+              <div class="p-5 flex-1">
+                <div class="text-[10px] font-sans tracking-widest uppercase mb-1" style="color:#D4AF3799;">
+                  📍 ${t.location}
+                </div>
+                <h3 class="font-serif text-lg text-white font-bold mb-2 leading-snug">${t.name}</h3>
+                <p class="text-xs text-gray-400 leading-relaxed font-sans">${t.description}</p>
+              </div>
+
+              <!-- Buttons -->
+              <div class="px-5 pb-5 pt-2 flex flex-col gap-2.5 border-t border-primary/10">
+                <a href="${t.geoLocationUrl}" target="_blank" rel="noopener noreferrer"
+                   class="w-full text-center py-2.5 rounded-xl font-sans font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2"
+                   style="background:#D4AF3715; border:1px solid #D4AF3750; color:#D4AF37;"
+                   onmouseover="this.style.background='#D4AF37'; this.style.color='#000';"
+                   onmouseout="this.style.background='#D4AF3715'; this.style.color='#D4AF37';">
+                  <span>📍</span><span>View Geo Location</span>
                 </a>
-                <!-- Detail View Link -->
-                <a href="temple-detail.html?id=${t.id}" class="w-full py-2 bg-surface border border-primary/20 text-gray-300 font-medium text-xs rounded-xl hover:text-white hover:border-primary/50 transition-all text-center">
-                  Inspect Restoration & Details →
+                <a href="temple-detail.html?id=${t.id}"
+                   class="w-full text-center py-2 rounded-xl text-xs font-sans font-medium transition-all"
+                   style="background:#0E0C16; border:1px solid #D4AF3725; color:#B8B3C3;"
+                   onmouseover="this.style.color='#fff'; this.style.borderColor='#D4AF3760';"
+                   onmouseout="this.style.color='#B8B3C3'; this.style.borderColor='#D4AF3725';">
+                  Inspect Restoration &amp; Details →
                 </a>
               </div>
             </div>
           `;
         }).join('');
+
+        /* Re-observe newly added cards */
+        grid.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
       }
     });
+
+    /* ── Restoration Toggle ────────────────────────────────── */
+    const toggleBtn = document.getElementById('toggle-restoration');
+    const viewImg   = document.getElementById('restoration-view-img');
+    const statusTag = document.getElementById('restoration-status-tag');
+    let isRestored  = true;
+    const vintageImg  = "https://images.unsplash.com/photo-1601042879364-b8f6a1039de5?auto=format&fit=crop&w=1200&q=80";
+    const restoredImg = "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=90";
+
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        viewImg.classList.add('switching');
+        setTimeout(() => {
+          isRestored = !isRestored;
+          viewImg.src = isRestored ? restoredImg : vintageImg;
+          statusTag.textContent = isRestored
+            ? "RESTORED — 2025 Precision State"
+            : "VINTAGE ARCHIVE — Pre-Restoration";
+          statusTag.style.color       = isRestored ? "#D4AF37" : "#94a3b8";
+          statusTag.style.borderColor = isRestored ? "#D4AF37" : "#475569";
+          viewImg.classList.remove('switching');
+        }, 450);
+      });
+    }
   </script>
+
 </body>
 </html>
