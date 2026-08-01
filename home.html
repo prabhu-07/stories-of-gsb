@@ -119,12 +119,12 @@
             transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .gallery-image {
-            filter: grayscale(100%) blur(10px);
+            filter: grayscale(100%) (10px);
             transition: filter 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
             opacity: 0.8;
         }
         .gallery-item:hover .gallery-image {
-            filter: grayscale(0%) blur(0px);
+            filter: grayscale(0%) (0px);
             transform: scale(1.05);
             opacity: 1;
         }
@@ -180,8 +180,8 @@
         
         /* Sacred Narrative Animation */
         @keyframes narrativeReveal {
-            0% { opacity: 0; letter-spacing: 0.5em; transform: translateY(-10px); filter: blur(10px); }
-            100% { opacity: 1; letter-spacing: 0.3em; transform: translateY(0); filter: blur(0); }
+            0% { opacity: 0; letter-spacing: 0.5em; transform: translateY(-10px); filter: (10px); }
+            100% { opacity: 1; letter-spacing: 0.3em; transform: translateY(0); filter: (0); }
         }
         .narrative-animation {
             animation: narrativeReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -190,8 +190,8 @@
         /* Nav Glassmorphism */
         .glass-nav {
             background: rgba(19, 19, 21, 0.6);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            backdrop-filter: (24px) saturate(180%);
+            -webkit-backdrop-filter: (24px) saturate(180%);
             border-bottom: 1px solid rgba(255, 183, 128, 0.15);
         }
     </style>
@@ -417,13 +417,13 @@
 <img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A high-end, minimalist Instagram-style shot of a single incense stick burning in a bronze holder. The smoke creates a graceful, swirling pattern against a pure black background. The lighting is sharp and dramatic, highlighting the texture of the grey ash and the glowing orange tip. The aesthetic is extremely clean and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjP0qxUeSrc5mn897-KSENImH3MijReMD9nWS_iySiMPNTB2FTF0xCD7_ttDDO-O1Gp1tA_BpeNzaXeO2piyY1FERqv-YY4drdCMVPqjDVN_1Hr5XQFZ4LNNyLx23IV6yQu2pZFZMSNFGbVYe-J-QWRlZtdEswnGBIH4I0jrokaP1QOB1rIImgAIwzNZGcUYde5UiA5B4-xMZloSIi7DOQ5a7LHZx3K6ATGi5FW1LuHec2-ZHpOAFJLA"/>
 </div>
 <div class="aspect-square bg-surface-container overflow-hidden group">
-<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A minimalist overhead shot of a bronze ritual bell resting on a silk cloth. The focus is incredibly sharp on the intricate handle carvings, while the background is a soft, deep charcoal blur. The lighting is low-key, with a slight amber glow reflecting off the polished bronze surface, creating a sense of quiet sanctity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuSxNsXsztuO3_zmOmpo1COgy8VcKz-UXtr9eJSiGfrd-qF6UZzwO9GNc8NjCLtj6JIO9dCcK3lfeI_-_447bsP84iZIjmdS-fVg51LUQtm4wQcCkiBz8uSWKQ6UafexXIodEVPPC_yD2AP5TOH4S9GRANBIWawgMj4fhvJNw-CgNTtmheaIR0P30x5l6UWC_ifLd_-ekMsg-X0TxMwuqu-dqkoCsAVAadxun6hqFrDPBNYL1keKmT8Q"/>
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A minimalist overhead shot of a bronze ritual bell resting on a silk cloth. The focus is incredibly sharp on the intricate handle carvings, while the background is a soft, deep charcoal . The lighting is low-key, with a slight amber glow reflecting off the polished bronze surface, creating a sense of quiet sanctity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuSxNsXsztuO3_zmOmpo1COgy8VcKz-UXtr9eJSiGfrd-qF6UZzwO9GNc8NjCLtj6JIO9dCcK3lfeI_-_447bsP84iZIjmdS-fVg51LUQtm4wQcCkiBz8uSWKQ6UafexXIodEVPPC_yD2AP5TOH4S9GRANBIWawgMj4fhvJNw-CgNTtmheaIR0P30x5l6UWC_ifLd_-ekMsg-X0TxMwuqu-dqkoCsAVAadxun6hqFrDPBNYL1keKmT8Q"/>
 </div>
 <div class="aspect-square bg-surface-container overflow-hidden group">
 <img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A dramatic, close-up shot of a temple elephant's eye, showing extreme detail in the texture of the skin and the long lashes. The mood is powerful and empathetic, captured in a monochromatic dark-mode style. The lighting is side-lit, emphasizing the ancient, wise character of the subject in a cinematic, artistic manner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu3h9kvcXRNfWydbXqSECC97Xqwx7EU2uxTdSj2blVOzks7mZeMxyALoC_WG6wwcpqoeva5LHS_xSt7OLKrecEvIonQMKB1azdWZ_cjtFJJabiJKDytlsn03w3QHR21eIVPPsrxjr_LI7WfLFsTGSDYfoGOEM_3QWLUVYip5H8ufAN-m1sA5Mh2kzhY6qXC9afCfzvAxTt3czsCr-ZMCio3PvGSrRD2M3T31DZovGPy8htvVeMNgueUg"/>
 </div>
 <div class="aspect-square bg-surface-container overflow-hidden group">
-<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A poetic capture of saffron silk fabric flowing in the wind against a dark stone wall. The movement is captured with a slight motion blur, creating a sense of ethereal grace. The vibrant orange of the silk stands out as the only color in a dark, minimalist composition, symbolizing spiritual energy and life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02la5viYEc2OvizeQaI2kMTfA0zJL1s0ooM6BjRDSX7i18n3m-aPGL91fBEGJMEYITof7xSEUugb31_RUbXtCQkDK9DxJvT7BI8a1rS7V3Y3KvXS8Xkh6J0Ldjy2C3Pf9lwE0FzwAGr6KkXYCdWXMLMr6RAmgqLl2Uf4n6Uf5AtyhHck46m7JycjUPmVWKrCGP_lyqqNLS7hTaotD62QV53e7J7NmTH0Eh01uYyIKa4Q9AjxQGMM0Xg"/>
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A poetic capture of saffron silk fabric flowing in the wind against a dark stone wall. The movement is captured with a slight motion , creating a sense of ethereal grace. The vibrant orange of the silk stands out as the only color in a dark, minimalist composition, symbolizing spiritual energy and life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02la5viYEc2OvizeQaI2kMTfA0zJL1s0ooM6BjRDSX7i18n3m-aPGL91fBEGJMEYITof7xSEUugb31_RUbXtCQkDK9DxJvT7BI8a1rS7V3Y3KvXS8Xkh6J0Ldjy2C3Pf9lwE0FzwAGr6KkXYCdWXMLMr6RAmgqLl2Uf4n6Uf5AtyhHck46m7JycjUPmVWKrCGP_lyqqNLS7hTaotD62QV53e7J7NmTH0Eh01uYyIKa4Q9AjxQGMM0Xg"/>
 </div>
 <div class="aspect-square bg-surface-container overflow-hidden group">
 <img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A minimalist architectural shot of a single stone archway in a South Indian temple. A small oil lamp burns on a pedestal in the center of the frame, casting a warm bronze light that illuminates the surrounding stone carvings. The composition is perfectly symmetrical and quiet, emphasizing the meditative space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAffGpPy3hrnPuGxyICgZCrozbRIxfTowA_FVGRguTlN7XAkekhAm1JPjgyZ1vfYoxO35bOIieof8kXTYORqU7G3fQCWfK_E3I4GyUfwTT-9dXBII8MztZazk7GUUz82K75YHV6P1g2OLxS7hMjj4k5oycPWYXB2YHQ8-yD-Wnvs9R7eKwyGMhAZ-ZHJqOCpQTXlJ7UoWVbe0xjkyhYwu4TfVzV4DLftQD2v2AeD0_FLXHeXMweZW1_rg"/>

@@ -1,42 +1,65 @@
 /**
- * STORIES BY GSB - CENTRALIZED BACKEND DATA CONFIGURATION
+ * STORIES BY GSB - CENTRALIZED DATA CONFIGURATION
  * 
- * You can easily edit any temple images, details, or full-year calendar events
- * directly in this file!
+ * Image Naming Convention:
+ *   assets/images/{templename}{numerical}.jpg
+ *   e.g. assets/images/kochitirumaladevesowm1.jpg, assets/images/kochitirumaladevesowm2.jpg
+ * 
+ * Easily edit images, descriptions, and geo-location links in this file!
  */
 
 const TEMPLES_DATA = [
   {
+    id: "kochi-tirumala",
+    name: "Kochi Thirumala Devaswom Temple",
+    subtitle: "Malabar Saraswat Cultural & Spiritual Center",
+    location: "Gosripuram, Mattancherry, Kochi, Kerala",
+    established: "1568 AD",
+    deity: "Lord Gosripuram Venkatachalapathy",
+    architecture: "Kerala & Saraswat Temple Architecture Fusion",
+    restorationYear: "2024 Copper Roof & Sanctum Restoration",
+    images: [
+      "assets/images/kochitirumaladevesowm1.jpg",
+      "assets/images/kochitirumaladevesowm2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Ernakulam+Thirumala+Devaswom+Kochi",
+    description: "The crown jewel of Kerala GSB heritage, hosting annual Arattu festivals, gold-plated Garuda vehicles, and traditional Panchavadyam cultural performances.",
+    restorationDetails: "Replacement of heritage copper roof tiles, gold gilding of temple flagstaff (Dhwaja Stambha), and preservation of 16th-century murals."
+  },
+  {
     id: "mangeshi",
     name: "Shri Mangeshi Temple",
-    subtitle: "Sacred Kuladevata Shrine of Saraswats",
+    subtitle: "Ancestral Kuladevata Shrine of Saraswats",
     location: "Priol, Ponda, Goa",
-    established: "1560 AD (Restored 2025)",
+    established: "1560 AD",
     deity: "Lord Mangesh (Shiva)",
     architecture: "Goan Saraswat & Granite Sanctum",
     restorationYear: "2025 Sanctum Precision",
-    image: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "7-Storey White Octagonal Tower",
-    tankName: "Pramod Tirth (Sacred Tank)",
-    description: "The ancestral Kuladevata shrine of thousands of Saraswat Brahmins, famous for its magnificent seven-storey octagonal Deepstambha, intricate wood carvings, and serene lotus pool.",
+    images: [
+      "assets/images/shrimangeshi1.jpg",
+      "assets/images/shrimangeshi2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Shri+Mangeshi+Temple+Priol+Goa",
+    description: "The revered ancestral Kuladevata shrine of thousands of Saraswat Brahmins, world-renowned for its magnificent 7-storey white Deepstambha and serene water tank.",
     restorationDetails: "Precision cleaning of 16th-century granite sanctum, fiber-optic gold leaf ceiling gilding, and preservation of ancient Devanagari copper plate inscriptions."
   },
   {
     id: "shantadurga",
     name: "Shri Shanta Durga Temple",
-    subtitle: "Goddess of Peace & Harmony",
+    subtitle: "Goddess of Universal Peace & Harmony",
     location: "Kavlem, Ponda, Goa",
     established: "1738 AD",
     deity: "Goddess Shantadurga (Mahamaya)",
     architecture: "Indo-Portuguese Vastu Fusion",
     restorationYear: "2024 Golden Chariot Preservation",
-    image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "Golden Maharath & Chariot Tower",
-    tankName: "Kavlem Sacred Sarovar",
+    images: [
+      "assets/images/shrishantadurga1.jpg",
+      "assets/images/shrishantadurga2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Shri+Shanta+Durga+Temple+Kavlem+Goa",
     description: "Dedicated to Goddess Shantadurga who mediated between Lord Shiva and Lord Vishnu. Features golden palanquins, vaulted assembly halls, and grand annual Jatra processions.",
     restorationDetails: "Structural reinforcement of vaulted roof domes, hand-polished teakwood pillars, and LED illumination accentuating brass artwork."
   },
@@ -49,28 +72,30 @@ const TEMPLES_DATA = [
     deity: "Lord Veera Venkatesha",
     architecture: "Coastal Karnataka Dravidian & Brass Sanctum",
     restorationYear: "2025 Silver Chariot Sanctum",
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "Grand Silver Chariot (Kodial Teru)",
-    tankName: "Temple Pushkarani",
+    images: [
+      "assets/images/mangalorevenkataramana1.jpg",
+      "assets/images/mangalorevenkataramana2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Srinivasa+Venkataramana+Temple+Car+Street+Mangalore",
     description: "The spiritual center of Coastal Karnataka GSB Saraswats, renowned worldwide for the 6-day Kodial Teru (Rathotsavam) where thousands pull the sacred teakwood and silver chariot.",
     restorationDetails: "Restoration of intricate silver cladding around the Garbhagriha, new teakwood carved chariot wheels, and climate-controlled altar preservation."
   },
   {
     id: "kashi-math",
     name: "Shri Kashi Math Samsthan",
-    subtitle: "Vedic Guru Parampara & Heritage",
+    subtitle: "Vedic Guru Parampara & Heritage Seat",
     location: "Varanasi / Walkeshwar Mumbai / Kochi",
     established: "1542 AD",
     deity: "Lord Vyasa Raghupati",
     architecture: "Ancient Vedic Ashram Style",
     restorationYear: "2024 Vrindavan Sanctum",
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "Sacred Vrindavan Samadhi Shrines",
-    tankName: "Ganga Ghat & Sacred Tanks",
+    images: [
+      "assets/images/kashimath1.jpg",
+      "assets/images/kashimath2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Shri+Kashi+Math+Varanasi",
     description: "The revered spiritual seat of Gowd Saraswat Brahmins, guiding the community in Dvaita Vedanta philosophy, daily Yajna, Vedic education, and charitable Annadhanam.",
     restorationDetails: "Conservation of ancient palm-leaf manuscripts, marble Vrindavan sanctum polishing, and digital archival of Guru Parampara lineages."
   },
@@ -83,36 +108,19 @@ const TEMPLES_DATA = [
     deity: "Lord Ramachandra & Viravittal",
     architecture: "Traditional Goan Matha Courtyard",
     restorationYear: "2025 Banyan Quadrangle Preservation",
-    image: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "500-Year Ancient Banyan Vatavriksha",
-    tankName: "Kushavati River Bank",
+    images: [
+      "assets/images/gokarnapartagali1.jpg",
+      "assets/images/gokarnapartagali2.jpg"
+    ],
+    fallbackImage: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=1200&q=80",
+    geoLocationUrl: "https://maps.google.com/?q=Shri+Gokarna+Partagali+Jeevottam+Math+Goa",
     description: "The historic matha located on the tranquil banks of Kushavati river, famous for its centuries-old sacred Banyan tree where Swamijis conduct daily Vedic discourses.",
     restorationDetails: "Restoration of wooden courtyard pillars, restoration of heritage guest quarters, and eco-conservation of surrounding sacred groves."
-  },
-  {
-    id: "ernakulam-td",
-    name: "Ernakulam Thirumala Devaswom",
-    subtitle: "Malabar Saraswat Cultural Gem",
-    location: "Kochi, Kerala",
-    established: "1568 AD",
-    deity: "Lord Gosripuram Venkatachalapathy",
-    architecture: "Kerala & Saraswat Temple Fusion",
-    restorationYear: "2024 Copper Roof Restoration",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    vintageImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=60&sat=-100",
-    restoredImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
-    deepstambha: "Brass Lamp Tower & Garuda Vahanam",
-    tankName: "Gosripuram Temple Pond",
-    description: "The crown jewel of Kerala GSB heritage, hosting annual Arattu festivals, gold-plated Garuda vehicles, and traditional Kerala Panchavadyam cultural performances.",
-    restorationDetails: "Replacement of copper roof tiles, gold gilding of temple flagstaff (Dhwaja Stambha), and restoration of centuries-old mural paintings."
   }
 ];
 
 /**
  * FULL YEAR CALENDAR EVENTS DATA (12 MONTHS: JAN - DEC)
- * Easily add/edit any event for any month!
  */
 const YEAR_EVENTS_DATA = [
   // JANUARY
@@ -154,18 +162,6 @@ const YEAR_EVENTS_DATA = [
     image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=600&q=80",
     description: "All-night Vedic chanting, Rudrabhishekam, and midnight chariot procession of Lord Mangesh amidst thousands of glowing lamps."
   },
-  {
-    id: "feb-2",
-    month: "February",
-    monthNum: 2,
-    date: "Feb 24",
-    tithi: "Phalguna Krishna Dviteeya",
-    title: "Gokarna Partagali Punyathithi",
-    category: "pujas",
-    location: "Partagali Math, Goa",
-    image: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=600&q=80",
-    description: "Sacred Aradhana rituals honoring former Swamijis of the Partagali lineage with Veda Patha and community feast."
-  },
 
   // MARCH
   {
@@ -179,18 +175,6 @@ const YEAR_EVENTS_DATA = [
     location: "Goa & Konkan Temples",
     image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=600&q=80",
     description: "Vibrant Saraswat spring carnival with traditional Ghodemodni folk dances, color offerings, and deity chariot processions."
-  },
-  {
-    id: "mar-2",
-    month: "March",
-    monthNum: 3,
-    date: "Mar 30",
-    tithi: "Chaitra Shuddha Pratipada",
-    title: "Samvatsar Padvo (GSB New Year / Ugadi)",
-    category: "seasonal",
-    location: "Home & Temple Altars",
-    image: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80",
-    description: "Saraswat New Year celebration featuring Neem-Jaggery prashan, hoisting of the sacred Dhwaja (Gudhi), and Panchanga Shravanam."
   },
 
   // APRIL
@@ -261,18 +245,6 @@ const YEAR_EVENTS_DATA = [
     location: "Household & Tulsi Vrindavan",
     image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?auto=format&fit=crop&w=600&q=80",
     description: "Cherished Saraswat ritual performed every Friday and Sunday of Shravana by married women offering wild flower bouquets to Tulsi and elders."
-  },
-  {
-    id: "aug-2",
-    month: "August",
-    monthNum: 8,
-    date: "Aug 19",
-    tithi: "Shravana Purnima",
-    title: "Rigupakarma & Sutradharana (Upakarma)",
-    category: "pujas",
-    location: "Temple Tanks & River Banks",
-    image: "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80",
-    description: "Renewal of the sacred thread (Yajnopavita / Janve) by GSB men with Vedic Tarpanam and Gayatri Japa."
   },
 
   // SEPTEMBER
