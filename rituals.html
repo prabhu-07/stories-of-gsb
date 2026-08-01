@@ -149,10 +149,10 @@
 <span class="font-headline-sm text-headline-sm tracking-tighter text-on-surface">Stories by GSB</span>
 </div>
 <div class="hidden md:flex gap-margin-mobile items-center">
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="rituals.html">Gallery</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="rituals.html">About</a>
-<a class="font-label-lg text-label-lg text-primary font-bold border-b-2 border-primary pb-1" href="rituals.html">Events</a>
-<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="rituals.html">Inquiry</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="home.html">Gallery</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="home.html">About</a>
+<a class="font-label-lg text-label-lg text-primary font-bold border-b-2 border-primary pb-1" href="home.html">Events</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="home.html">Inquiry</a>
 </div>
 <button class="border border-primary-container px-6 py-2 font-label-lg text-label-lg text-primary-container hover:bg-primary-container hover:text-surface-container-lowest transition-all duration-300 active:scale-95">
                 Book a Story
@@ -237,13 +237,52 @@
 </section>
 </main>
 <!-- Footer -->
+
+    <!-- FULL YEAR CALENDAR & EVENTS SYSTEM (JAN - DEC) -->
+    <section class="max-w-container-max mx-auto px-margin-desktop py-12 border-t border-primary/20">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4">
+        <div>
+          <span class="text-xs font-serif tracking-widest text-[#D4AF37] uppercase font-bold block mb-1">Annual Sacred Almanac</span>
+          <h2 class="font-serif text-3xl md:text-4xl text-white font-bold">12-Month Festival & Ritual Calendar</h2>
+          <p class="text-sm text-gray-400 mt-2 max-w-2xl">
+            Filter celebrations across the entire year (January through December) or search for specific Vedic pujas, chariot festivals (Rathotsavam), and oil lamp ceremonies.
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="relative w-full md:w-80">
+          <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm">🔍</span>
+          <input type="text" id="event-search-input" placeholder="Search events, tithi, shrines..." class="w-full bg-surface-variant/80 border border-primary/30 rounded-full pl-10 pr-4 py-2 text-xs text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-all">
+        </div>
+      </div>
+
+      <!-- 12-Month Selector Bar -->
+      <div class="mb-6 pb-2 overflow-x-auto scrollbar-none flex items-center gap-2" id="month-selector-bar">
+        <!-- Dynamically rendered by js/events-calendar.js -->
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center gap-2 mb-8 flex-wrap">
+        <button data-category="all" class="event-cat-btn active-cat px-4 py-1.5 rounded-full text-xs font-bold bg-[#D4AF37] text-black shadow-md transition-all">All Events</button>
+        <button data-category="rathotsavam" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant/60 border border-primary/20 text-gray-300 hover:text-primary transition-all">Rathotsavam (Chariots)</button>
+        <button data-category="pujas" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant/60 border border-primary/20 text-gray-300 hover:text-primary transition-all">Vedic Pujas</button>
+        <button data-category="deepotsav" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant/60 border border-primary/20 text-gray-300 hover:text-primary transition-all">Deepotsavam (Lamps)</button>
+        <button data-category="seasonal" class="event-cat-btn px-4 py-1.5 rounded-full text-xs font-medium bg-surface-variant/60 border border-primary/20 text-gray-300 hover:text-primary transition-all">Seasonal Festivals</button>
+      </div>
+
+      <!-- Events Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="events-cards-grid">
+        <!-- Dynamically populated from YEAR_EVENTS_DATA in js/data.js -->
+      </div>
+    </section>
+    
 <footer class="w-full mt-section-gap bg-surface-container-lowest border-t border-primary/25">
 <div class="flex flex-col items-center gap-unit py-section-gap px-margin-desktop w-full text-center max-w-container-max mx-auto">
 <div class="font-headline-md text-headline-md text-primary mb-4 tracking-tighter">Stories by GSB</div>
 <div class="flex gap-8 mb-8">
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="rituals.html">Privacy Policy</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="rituals.html">Terms of Service</a>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="rituals.html">Studio Location</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="home.html">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="home.html">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="home.html">Studio Location</a>
 </div>
 <p class="font-body-md text-body-md text-on-surface-variant/60">
                 © 2024 Stories by GSB. Captured with Reverence.
@@ -281,20 +320,7 @@
         });
     </script>
 
-<!-- STITCH SACRED LENS FLOATING UNIFIED SCREEN NAVIGATOR -->
-<div id="stitch-screen-navigator" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] bg-black/90 backdrop-blur-xl border border-[#D4AF37]/40 rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-4 text-xs font-sans text-white max-w-[95vw] overflow-x-auto">
-  <div class="flex items-center gap-2 pr-4 border-r border-[#D4AF37]/30 flex-shrink-0">
-    <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
-    <span class="font-bold tracking-widest text-[#D4AF37] uppercase font-serif">Stories by GSB</span>
-  </div>
-  <div class="flex items-center gap-2 whitespace-nowrap">
-    <a href="index.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Master</a>
-    <a href="home.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Home Vision</a>
-    <a href="rituals.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] bg-[#D4AF37] text-black font-bold shadow-md">Rituals</a>
-    <a href="ritual-detail.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Ritual Detail</a>
-    <a href="temples.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Temples</a>
-    <a href="temple-detail.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Restored Temple</a>
-  </div>
-</div>
-
+    <script src="js/data.js"></script>
+    <script src="js/events-calendar.js"></script>
+    
 </body></html>
