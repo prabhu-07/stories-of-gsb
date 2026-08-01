@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Events | Stories by GSB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Playfair+Display:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#fbba6a",
+                    "on-tertiary-fixed": "#1b1b1f",
+                    "on-surface": "#e5e1e4",
+                    "on-primary": "#4e2600",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#1b1b1d",
+                    "surface-container": "#201f21",
+                    "on-tertiary-fixed-variant": "#47464b",
+                    "on-secondary-container": "#ffbd6d",
+                    "surface-tint": "#ffb780",
+                    "surface-container-lowest": "#0e0e10",
+                    "surface-container-high": "#2a2a2c",
+                    "secondary-fixed": "#ffddb8",
+                    "outline-variant": "#544338",
+                    "tertiary": "#c8c5cb",
+                    "on-tertiary": "#303034",
+                    "on-primary-fixed-variant": "#6f3800",
+                    "on-error": "#690005",
+                    "on-background": "#e5e1e4",
+                    "secondary-container": "#794b00",
+                    "on-tertiary-container": "#37363b",
+                    "surface-dim": "#131315",
+                    "on-primary-fixed": "#2f1400",
+                    "surface-container-highest": "#353437",
+                    "inverse-on-surface": "#313032",
+                    "tertiary-container": "#a19fa4",
+                    "tertiary-fixed": "#e4e1e7",
+                    "outline": "#a28d7f",
+                    "secondary-fixed-dim": "#fbba6a",
+                    "error": "#ffb4ab",
+                    "primary-fixed": "#ffdcc4",
+                    "on-secondary-fixed": "#2b1700",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e1e4",
+                    "background": "#131315",
+                    "surface-bright": "#39393b",
+                    "surface-variant": "#353437",
+                    "surface": "#131315",
+                    "on-primary-container": "#582b00",
+                    "on-secondary": "#472a00",
+                    "tertiary-fixed-dim": "#c8c5cb",
+                    "primary-fixed-dim": "#ffb780",
+                    "primary": "#ffb780",
+                    "inverse-primary": "#924c00",
+                    "primary-container": "#e58a3c",
+                    "on-surface-variant": "#dac2b2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "32px",
+                    "section-gap": "160px",
+                    "unit": "8px",
+                    "margin-desktop": "80px",
+                    "container-max": "1440px",
+                    "margin-mobile": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "display-lg": ["Playfair Display"],
+                    "headline-sm": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["72px", {"lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0E0E10;
+            color: #F5F5F7;
+            overflow-x: hidden;
+        }
+        .gallery-item img {
+            filter: grayscale(100%);
+            transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        .hero-zoom {
+            animation: slowZoom 20s infinite alternate linear;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+        .amber-glow {
+            box-shadow: 0 0 40px rgba(229, 138, 60, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-dot::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 4px;
+            background: #E58A3C;
+            border-radius: 50%;
+            margin: 4px auto 0;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/25">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Stories by GSB Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxajnZiA062qKeF9FaK33Ohu6hSaelAJJpo9xysIgJt-54mgjUFd07qfE0atrJhtxve7cQEeg-7AVI9eR4vAxSneipSsHWNMO5WG6Nw5FsBEgkV4qCu6bH8sEvMO7llkJ15D-_SEpDomrK7W-0fqyUfCDQpeF6xVhIsza-wSecdOY298aZY1dPb0MKF6oQypf3jw9ZjbEzdiZOO4EMTriNe8sgA-Nyp1LC6An3kvS5MLwmnrVdnnOYpMWwylAOMbWB-3A"/>
+<span class="font-headline-sm text-headline-sm tracking-tighter text-on-surface">Stories by GSB</span>
+</div>
+<div class="hidden md:flex gap-margin-mobile items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="#">Gallery</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="#">About</a>
+<a class="font-label-lg text-label-lg text-primary font-bold border-b-2 border-primary pb-1" href="#">Events</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="#">Inquiry</a>
+</div>
+<button class="border border-primary-container px-6 py-2 font-label-lg text-label-lg text-primary-container hover:bg-primary-container hover:text-surface-container-lowest transition-all duration-300 active:scale-95">
+                Book a Story
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="w-full h-full hero-zoom grayscale opacity-60" data-alt="A cinematic, high-resolution monochrome photograph of a traditional Indian wedding ceremony. A couple sits before a sacred fire, hands intertwined, as jasmine petals fall softly around them. The lighting is dramatic and moody, capturing the reverence of the moment in a minimalist luxury aesthetic with deep obsidian shadows and luminous highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe-8p5_LCqjoYndKFQlVct0NH7kdoB_Gh6TnkpSKvneJ4NcxQrZv9FmQ1q_-7fqIoQP46st-fRFBEOCityGY14OsFTMK-WJBnpK8_HSLaN_fheih3nzMSXB0Z47zSjHta62pw0GqNoVIourDdbO4bDIgVhBUbGLbcJcBpxg2VjMVDR1r2C659MWqBjKVXzRWNMx8eAPqMnfirOqlQ7g0gZDluByx67c84nSaQ8hJjpV5wNUr8_U-pRKQ')">
+</div>
+</div>
+<div class="relative z-20 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-headline-lg-mobile text-on-surface mb-6">Sacred Celebrations</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">
+                    Capturing the eternal essence of your most revered milestones.
+                </p>
+<div class="mt-12 flex justify-center">
+<span class="material-symbols-outlined text-primary text-4xl animate-bounce">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="py-12 bg-surface-container-lowest sticky top-[88px] z-40 border-b border-primary/10">
+<div class="max-w-container-max mx-auto px-margin-desktop overflow-x-auto">
+<div class="flex md:justify-center items-center gap-12 whitespace-nowrap min-w-max"><button class="font-label-lg text-label-lg text-primary active-dot">All Rituals</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Kodiyettam</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Aarat</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Rathotsavam</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Pujas &amp; Veshams</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Pallakki Utsav</button></div>
+</div>
+</section>
+<!-- Event Gallery -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Bento Item 1 -->
+<div class="md:col-span-8 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[16/9] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A breathtaking wide-angle shot of a Royal Union wedding in Mysore." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9zZNfzp0z2oyaMb3duUyV4l6ZxmYbBJCNGhRiUjl3Y90QEgmrzVt7VE84jP_RDiwgu3y-2YvirrZdZQdYo4wyNEmil2q5xJPCuzTtzJkkpAU6Pfz8hRhTV0mWKV6WQMV_UtMbowTbPuXD4aQybgPhSA3i766UxnqdUn7Uilz34UpTOglEh8uySD5UB2l3Lu256VLgGNse5uhpNJyXGWOxU4XH-VyciiiL0fEvJzvONzRkEH_Q0bzHvg"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: KODIYETTAM CEREMONY</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Shree Venkatramana Temple</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Annual Rathotsavam &amp; Aarat</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">Documenting the divine moments of the ritual marking the beginning of the annual temple festival...</p></div></div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-4 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[4/5] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A minimalist close-up shot of hands performing a Divine Puja." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcPyQRy3dAr9uBfDyw-nMMpbuRniiNSshoDA7Ij78bXHnkXQcXLR-mHy2NZtlOQt_OqO121oUVg4aQBkZY8_Bh8XicQVhZR75ig2c_378hN50giGAMqWjssMdQ7EV0AHUI3MW9oGTH5pbQZcRYs4ZM5BIVvzq3Hehgp9RDbPVcnChyP68Sl3cGxr7S_SSrzpN3MnJw7BegyyOYWdbSZ20c3eSkSGD80T7tOF_hIeEeiDjogp9eHckGFw"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: DIVINE PUJA</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Hampi Heritage Site</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Maha Mangalarati Rituals</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">Capturing the sacred light and devotion during the evening rituals at the ancient temple...</p></div></div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[4/5] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="An atmospheric candid photograph of a traditional Upanayana ceremony." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoX6t1e5hRRcNZsyQL1TJ_Ct4vsWBt-5MsUygMYYB51V10gwnrSAicJ01wIAxhVkStnP2avgiCU5azvWHKGrcrrZ7PPZIAzFvmmlzIf5XuAwDCsky0rSDq2giLz3M1xvoqb7tVll1MiHC0Ken4Ig732rl8LPKad3THyoLJr0ouN0pUPiGkk-68Cm_PvvJxgfqs15DByBLhEZzAnKty4eAr4jhLFasUqW2zD-_HV3nqrGv105rh4Ge8kQ"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: PALLAKKI UTSAV</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Bengaluru Ashrams</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Sacred Palanquin Procession</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">The rhythmic movement of the deity through the temple grounds, a testament to timeless faith...</p></div></div>
+<!-- Bento Item 4 -->
+<div class="md:col-span-8 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[16/9] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A cinematic wide shot of a sunset wedding on the banks of the Ganges in Varanasi." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUh3zK1hrd4bj1VQCvm6JOqBB5iDxfl76F3V10oYjKdDaIaiP9DmiCLK32PmvS5OgQDDh94jAfnD6gh2W4vxLHIdWIxLz9AiHGMsupJbkWIsG2YY70NwZadjPtmBERasu--RzuwcFyqI5uoVx1FFLI7whOdkB-0viQoz5kuV_VBMmQo0uq0dDJhLcCX-BqZ63YO-Tb85WWIabEoken_QlYX1shqBBjG3WMtkwdSpyAj-AKv8n23oITYw"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: GANGA ARATI</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Varanasi Ghats</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Eternal Light Ceremony</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">A cinematic documentation of the evening prayers where fire and water meet in spiritual harmony...</p></div></div>
+</div>
+</section>
+<!-- Feature Section -->
+<section class="py-section-gap bg-surface-container-low border-y border-primary/10">
+<div class="max-w-4xl mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg mb-12 italic">A Narrative Crafted for You</h2>
+<div class="space-y-8 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                        At Stories by GSB, we believe that an event is more than a gathering; it is a sacred tapestry of moments that deserve to be preserved with the highest degree of artistry and reverence. Our approach is quiet, observant, and deeply respectful of the rituals we document.
+                    </p>
+<p>
+                        We strip away the noise of conventional event photography to focus on the raw, unspoken emotions—the flicker of a lamp, the weight of a tradition, the silent gaze of a loved one. Each frame is a testament to the milestone it captures, rendered in a cinematic style that transcends time.
+                    </p>
+</div>
+<div class="mt-16 h-px w-32 bg-primary/30 mx-auto"></div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-section-gap px-margin-desktop text-center relative">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Begin Your Story</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 max-w-xl mx-auto">
+                    Let us capture the quiet majesty of your upcoming celebration. Reach out for a bespoke consultation with our studio lead.
+                </p>
+<form class="max-w-md mx-auto space-y-8">
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md text-body-md transition-all placeholder:text-on-surface-variant/50" placeholder="Full Name" type="text"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md text-body-md transition-all placeholder:text-on-surface-variant/50" placeholder="Email Address" type="email"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="pt-8">
+<button class="w-full border border-primary text-primary font-label-lg text-label-lg py-5 hover:bg-primary hover:text-surface-container-lowest transition-all duration-500 tracking-[0.2em] uppercase" type="submit">
+                            Inquire for Date
+                        </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-surface-container-lowest border-t border-primary/25">
+<div class="flex flex-col items-center gap-unit py-section-gap px-margin-desktop w-full text-center max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary mb-4 tracking-tighter">Stories by GSB</div>
+<div class="flex gap-8 mb-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="#">Studio Location</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/60">
+                © 2024 Stories by GSB. Captured with Reverence.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('img').style.transform = 'scale(1.1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('img').style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple scroll reveal for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

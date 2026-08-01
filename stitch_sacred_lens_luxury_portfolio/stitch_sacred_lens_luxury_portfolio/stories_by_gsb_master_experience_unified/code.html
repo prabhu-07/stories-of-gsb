@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stories by GSB | Sacred Photography &amp; Cinema</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffddb8",
+                        "on-tertiary-container": "#37363b",
+                        "primary-fixed": "#ffdcc4",
+                        "primary": "#ffb780",
+                        "on-primary": "#4e2600",
+                        "secondary-container": "#794b00",
+                        "surface-tint": "#ffb780",
+                        "primary-fixed-dim": "#ffb780",
+                        "on-background": "#e5e1e4",
+                        "error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#47464b",
+                        "error": "#ffb4ab",
+                        "surface": "#131315",
+                        "on-primary-container": "#582b00",
+                        "on-primary-fixed-variant": "#6f3800",
+                        "primary-container": "#e58a3c",
+                        "on-secondary-container": "#ffbd6d",
+                        "on-tertiary": "#303034",
+                        "surface-variant": "#353437",
+                        "surface-container-lowest": "#0e0e10",
+                        "on-tertiary-fixed": "#1b1b1f",
+                        "tertiary-fixed-dim": "#c8c5cb",
+                        "tertiary": "#c8c5cb",
+                        "on-secondary": "#472a00",
+                        "on-primary-fixed": "#2f1400",
+                        "on-secondary-fixed": "#2b1700",
+                        "surface-dim": "#131315",
+                        "on-surface": "#e5e1e4",
+                        "surface-bright": "#39393b",
+                        "inverse-on-surface": "#313032",
+                        "surface-container-high": "#2a2a2c",
+                        "on-surface-variant": "#dac2b2",
+                        "background": "#131315",
+                        "inverse-surface": "#e5e1e4",
+                        "surface-container": "#201f21",
+                        "inverse-primary": "#924c00",
+                        "surface-container-low": "#1b1b1d",
+                        "outline": "#a28d7f",
+                        "secondary-fixed-dim": "#fbba6a",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#653e00",
+                        "outline-variant": "#544338",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353437",
+                        "secondary": "#fbba6a",
+                        "tertiary-fixed": "#e4e1e7",
+                        "tertiary-container": "#a19fa4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "unit": "8px",
+                        "margin-desktop": "80px",
+                        "margin-mobile": "24px",
+                        "gutter": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "display-lg": ["72px", {"lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e10;
+            color: #e5e1e4;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(19, 19, 21, 0.6);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 183, 128, 0.15);
+        }
+
+        /* Gallery Transitions (Grayscale to Color) */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background-color: #131315;
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .gallery-image {
+            filter: grayscale(100%);
+            transition: filter 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
+            opacity: 0.7;
+        }
+        .gallery-item:hover .gallery-image {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        .gallery-overlay {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-in-out;
+            background: linear-gradient(0deg, rgba(14,14,16,0.95) 0%, rgba(14,14,16,0) 60%);
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease-out;
+        }
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .etched-border { border: 1px solid rgba(229, 138, 60, 0.25); }
+        .amber-glow { box-shadow: 0 0 40px 0 rgba(229, 138, 60, 0.1); }
+        
+        @keyframes narrativeReveal {
+            0% { opacity: 0; letter-spacing: 0.5em; transform: translateY(-10px); filter: blur(10px); }
+            100% { opacity: 1; letter-spacing: 0.3em; transform: translateY(0); filter: blur(0); }
+        }
+        .narrative-animation {
+            animation: narrativeReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { height: 2px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(229, 138, 60, 0.05); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E58A3C; }
+    </style>
+</head>
+<body class="font-body-md text-body-md selection:bg-primary/30">
+<!-- Global Header: Apple-Glass inspired -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="hidden md:flex gap-10 items-center flex-1 justify-start">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative" href="#">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">Bookings</a>
+</div>
+<a class="flex flex-col items-center group flex-none mx-8 narrative-animation" href="/">
+<img alt="Stories by GSB Logo" class="h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDhTlyzg65b-mgJ-Y98w6fP4_k1tWDPHyEVKdLrjgbUD82TxbU0OZ-Nr8FAQGg3FjLxsaLhOO5_MtqfuJMXGjtlpKYj1vtKqdoorst6y8YPitgpMvlE7mSbbsYKwiBMQJ50P3UNLINk8gvc7KwTOa3j4LzvtOWYVpAIjz9D9zIv_rRj5RBNKKpSQd-Re19lsFchNDecs5rHMqQenSATHRa3rUi66gPbquhE2o0QLZhYKTqPd_kC_ky5bJ4aWpMVeisYI"/>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.3em] mt-2 opacity-80">Stories by GSB</span>
+</a>
+<div class="hidden md:flex gap-10 items-center flex-1 justify-end">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">Client Portal</a>
+<button class="ml-4 px-6 py-2 border border-primary/40 text-label-sm font-label-lg uppercase tracking-widest hover:bg-primary/10 transition-all duration-500 rounded-full">Inquire</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-40">
+<!-- Hero Section: Sacred Celebrations Vision -->
+<section class="relative h-[80vh] flex items-center justify-center overflow-hidden mb-section-gap">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center grayscale opacity-50 scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe-8p5_LCqjoYndKFQlVct0NH7kdoB_Gh6TnkpSKvneJ4NcxQrZv9FmQ1q_-7fqIoQP46st-fRFBEOCityGY14OsFTMK-WJBnpK8_HSLaN_fheih3nzMSXB0Z47zSjHta62pw0GqNoVIourDdbO4bDIgVhBUbGLbcJcBpxg2VjMVDR1r2C659MWqBjKVXzRWNMx8eAPqMnfirOqlQ7g0gZDluByx67c84nSaQ8hJjpV5wNUr8_U-pRKQ')"></div>
+<div class="relative z-20 text-center px-margin-mobile">
+<span class="font-label-lg text-label-lg uppercase tracking-[0.4em] text-primary mb-6 block reveal-on-scroll">The Cinematic Pilgrimage</span>
+<h1 class="font-display-lg text-display-lg md:text-[84px] text-on-surface leading-tight mb-8 reveal-on-scroll">Sacred Celebrations</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic reveal-on-scroll">Capturing the eternal essence of your most revered milestones through a lens of devotion.</p>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+<div class="w-[1px] h-16 bg-gradient-to-b from-primary/60 to-transparent"></div>
+</div>
+</section>
+<!-- Venerable Venues: Temple Gallery -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+<div class="flex justify-between items-end mb-16 reveal-on-scroll">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Archive</span>
+<h2 class="font-display-lg text-headline-lg text-on-surface">Venerable Venues</h2>
+</div>
+<div class="flex gap-8 border-b border-primary/10 pb-4">
+<button class="font-label-lg text-label-lg text-primary uppercase tracking-widest border-b border-primary pb-2">ALL TEMPLES</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors tracking-widest">UNESCO</button>
+</div>
+</div>
+<!-- Bento Grid for Temples with Grayscale Hover -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Large Feature Item -->
+<div class="md:col-span-8 group gallery-item aspect-[16/10] reveal-on-scroll">
+<img class="gallery-image w-full h-full object-cover" data-alt="Brihadisvara Temple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAayoRBT-kf_urFDTB4BSZNZVOVevmeHOzEf4fJQKxPbLdAJ0bv0Rp6SlVQ3dG-1In4iN-03LhKXYjm0cW8MZedOrScFwlYYOVs7CZd4iVhDqdIEZogwQr-8qYXXCD7yAEwoogqaMVONZa1AIF2RC8tEHFXURZnUvsQ8WXCQlIqHGH3TaCKmbDbpK2Hc3QhRUIh9jWJfd6nDxABdf5Hz8hMA72rdKWjFBCclag5kPdt--7iMgGLwQ3Bg"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-10">
+<span class="font-label-sm text-label-sm text-primary tracking-widest mb-2">TAMIL NADU</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Brihadisvara, Thanjavur</h3>
+</div>
+</div>
+<!-- Portrait Item -->
+<div class="md:col-span-4 group gallery-item aspect-[3/4] mt-0 md:mt-24 reveal-on-scroll">
+<img class="gallery-image w-full h-full object-cover" data-alt="Virupaksha Temple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4M0ewoI-wQbboK-HofJTyxj7U4gwB6sYuvXPZ5H2OD94-2mbXePl5wFMmD3KhypPCPvhuk104LIh-UmnzMXwstC9loGnZ0M1b19Rqqv5RPTcK8-oxt0uLAeMIUxcDqSetfZw0ztXHdErASFljXOVgyRLzRbEn-R6Xq-k9GrW83C_uEJ0Q7IUfXhWGVVMYVAMt5TwM8kxuiopbNaXvhevjJtX7QZFrVYLafFZHcXIgFeT9LKQr5SSctg"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<span class="font-label-sm text-label-sm text-primary tracking-widest mb-2">KARNATAKA</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Virupaksha, Hampi</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Ritual Storytelling: The Sequence of the Sacred -->
+<section class="bg-surface-container-low py-section-gap mb-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-12 sticky top-48">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Cinematic Ethos</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">The Sequence of the Sacred</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
+                        Our ritual documentation is a meticulously preserved sequence of devotion. We focus on the raw, unspoken emotions—the flicker of a lamp, the weight of a tradition, the silent gaze of a loved one.
+                    </p>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<span class="font-display-lg text-headline-lg text-primary/20 group-hover:text-primary transition-colors duration-500">01</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Avahana</h4>
+<p class="text-on-surface-variant opacity-80">The divine invitation. Capturing the intensity of Vedic chanting and traditional trumpet blasts.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<span class="font-display-lg text-headline-lg text-primary/20 group-hover:text-primary transition-colors duration-500">02</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Ratha Yatra</h4>
+<p class="text-on-surface-variant opacity-80">The celestial movement. Documenting the collective journey of the soul towards divinity.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-6 lg:col-start-7 space-y-16 mt-12 lg:mt-0">
+<div class="relative amber-glow gallery-item reveal-on-scroll">
+<img class="gallery-image w-full aspect-[4/5] object-cover" data-alt="Ritual detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc5Nyaz_2J7_a6TRg_2waNPY3E6LjyUpKg5MlWIVzv1rmDvZgG_9ROurW74q3JaX-wCtmx2D4kAHZAvQZf4egj0I9mfXoUi24dS_jjEGM2L3RuL8Vyo-2wPM6TdiwNYG_De2V2oB4Mw7azRIa3RSYczblrvDLLYCNDC6JDW7u3eyGaxvNb-w7q4c47CE3QSh9OC_Ugk44FeYBhwRK86DcSP6NVrF2nq4e7biGIbhEWsDXmbhnUZPAuWw"/>
+<div class="absolute -bottom-8 -right-8 p-12 bg-surface-container etched-border max-w-sm hidden md:block">
+<p class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-4">Golden Hour Ritual</p>
+<p class="font-body-md text-on-surface-variant italic">"The light at 6:14 PM hits the chariot's crest, creating a moment of pure transcendence."</p>
+</div>
+</div>
+<!-- Photography Protocol -->
+<div class="bg-surface-container-high p-12 etched-border space-y-8 reveal-on-scroll">
+<h3 class="font-headline-sm text-headline-sm border-b border-primary/20 pb-4 uppercase tracking-widest">Photography Protocol</h3>
+<div class="space-y-6">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase block mb-2">Garbhagriha (Sanctum)</span>
+<p class="text-on-surface-variant">Strictly prohibited. We observe a moment of silent reverence. No digital capture permitted.</p>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase block mb-2">Recommended Gear</span>
+<p class="text-on-surface-variant">35mm f/1.4 or 50mm f/1.2 primes are ideal for capturing low-light atmosphere without disturbance.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Related Festival Moments: Gallery Layout from SCREEN_8/10 -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+<div class="text-center mb-16 reveal-on-scroll">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Visual Diary</span>
+<h2 class="font-display-lg text-headline-lg text-on-surface">Related Festival Moments</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Moment 1 -->
+<div class="group gallery-item aspect-[3/4] reveal-on-scroll">
+<img class="gallery-image w-full h-full object-cover" data-alt="Pallakki Utsav" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV6TiVFo7K0asdXcobcbyToxGhkflHOdv-3x_L5Nxs7dMN6Gsy2kDeBf8SBuMRcQXRo3YEfoh97X91yYC3_1QXcsdcm3uz8Yy0SVO1ZteqX3wCrj2lbI8vuCgC1SdOH5eLqbzhDNAzijorJ8A8zOVNWwvIjtmxoplCloDqnG0yp-QHbYwvX7fhZ3NpuTC06cb25e6xO0lfx_BPo3x6Jxi11CUrWApPS7QoLGNxSrdbglUtwvS2qYzspA"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h3 class="font-headline-sm text-on-surface mb-1">Pallakki Utsav</h3>
+<p class="font-label-sm text-primary uppercase tracking-widest">Evening Ritual</p>
+</div>
+</div>
+<!-- Moment 2 -->
+<div class="group gallery-item aspect-[3/4] reveal-on-scroll" style="transition-delay: 100ms;">
+<img class="gallery-image w-full h-full object-cover" data-alt="Aarat Ceremony" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzpM6s27iyXjBiqVGPiNfoRqbFeJlLNAAPto3ntn2wGJI6c3YoYt1pQsSFdn6yMqy23WZB_WV2q5X0mTSMbrCaFU9WKj-zkxGSCehtEzRtzHau7Eql3v4zJabwbabwsmDILKcnASS7RzcMksYoNQk2LlJQAVwAJ6Zv_ty-drFSiH3nvtwKADgAZQify5wWVyEyLFG-oO8g8ZZIC2Rh2M-MIzm6KDiodw9WYHWE00sLCUegxdyaA7DHLg"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h3 class="font-headline-sm text-on-surface mb-1">Aarat Ceremony</h3>
+<p class="font-label-sm text-primary uppercase tracking-widest">Waterside Ritual</p>
+</div>
+</div>
+<!-- Moment 3 -->
+<div class="group gallery-item aspect-[3/4] reveal-on-scroll" style="transition-delay: 200ms;">
+<img class="gallery-image w-full h-full object-cover" data-alt="Veda Parayana" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0F6bEY6-Okpj3oMb5-AcNPnvvcTIHcxblcc5HNZlDUBG11an9fgvAuApkSswxvsLNFCrHFYbKKY6nkP0Rs2SkBRdzr_hdl7QaezN_pS_F0BElCePeprjsCYzkgiIYzGxreC8rWxPu882E8e03g2EWdaq7YqjHI-lNAYuRTgPaXFno-KBWwkutvnEkV0o8UQFHZr7dJcDdGFbaCGLWfu7_Qyb3rJ7D43H50CquEKcdqeeLNx1MiZBQg"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h3 class="font-headline-sm text-on-surface mb-1">Veda Parayana</h3>
+<p class="font-label-sm text-primary uppercase tracking-widest">Main Hall Performance</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA: Schedule Consultation -->
+<section class="max-w-4xl mx-auto px-margin-mobile md:px-margin-desktop py-section-gap text-center reveal-on-scroll">
+<h2 class="font-display-lg text-headline-lg text-on-surface mb-8">Begin Your Story</h2>
+<p class="font-body-lg text-on-surface-variant mb-12 max-w-xl mx-auto">Let us capture the quiet majesty of your upcoming celebration. Reach out for a bespoke consultation.</p>
+<form class="space-y-12 text-left max-w-lg mx-auto">
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md transition-all placeholder:text-on-surface-variant/30" placeholder="Full Name" type="text"/>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md transition-all placeholder:text-on-surface-variant/30" placeholder="Email Address" type="email"/>
+</div>
+<button class="w-full py-6 border border-primary text-primary font-label-lg uppercase tracking-[0.4em] hover:bg-primary hover:text-surface-container-lowest transition-all duration-700">Submit Inquiry</button>
+</form>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-primary/10 py-20 mt-section-gap">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
+<div class="mb-12">
+<h4 class="font-headline-md text-primary uppercase tracking-[0.4em] mb-2">Stories by GSB</h4>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-60">Sacred Photography &amp; Cinema</p>
+</div>
+<div class="flex flex-wrap justify-center gap-10 mb-12">
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">FACEBOOK</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">VIMEO</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="#">PRIVACY</a>
+</div>
+<p class="font-label-sm text-on-surface-variant/40 tracking-wider">© 2024 Stories by GSB. Captured with Reverence.</p>
+</div>
+</footer>
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+</script>
+</body></html>
