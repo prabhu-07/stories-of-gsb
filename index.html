@@ -1,194 +1,93 @@
 <!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Stories by GSB | Sacred Lens Luxury Portfolio</title>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Stories by GSB | Sacred Photography &amp; Cinema</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "secondary-fixed": "#ffddb8",
-                        "on-tertiary-container": "#37363b",
-                        "primary-fixed": "#ffdcc4",
-                        "primary": "#ffb780",
-                        "on-primary": "#4e2600",
-                        "secondary-container": "#794b00",
-                        "surface-tint": "#ffb780",
-                        "primary-fixed-dim": "#ffb780",
-                        "on-background": "#e5e1e4",
-                        "error-container": "#93000a",
-                        "on-tertiary-fixed-variant": "#47464b",
-                        "error": "#ffb4ab",
-                        "surface": "#131315",
-                        "on-primary-container": "#582b00",
-                        "on-primary-fixed-variant": "#6f3800",
-                        "primary-container": "#e58a3c",
-                        "on-secondary-container": "#ffbd6d",
-                        "on-tertiary": "#303034",
-                        "surface-variant": "#353437",
-                        "surface-container-lowest": "#0e0e10",
-                        "on-tertiary-fixed": "#1b1b1f",
-                        "tertiary-fixed-dim": "#c8c5cb",
-                        "tertiary": "#c8c5cb",
-                        "on-secondary": "#472a00",
-                        "on-primary-fixed": "#2f1400",
-                        "on-secondary-fixed": "#2b1700",
-                        "surface-dim": "#131315",
-                        "on-surface": "#e5e1e4",
-                        "surface-bright": "#39393b",
-                        "inverse-on-surface": "#313032",
-                        "surface-container-high": "#2a2a2c",
-                        "on-surface-variant": "#dac2b2",
-                        "background": "#131315",
-                        "inverse-surface": "#e5e1e4",
-                        "surface-container": "#201f21",
-                        "inverse-primary": "#924c00",
-                        "surface-container-low": "#1b1b1d",
-                        "outline": "#a28d7f",
-                        "secondary-fixed-dim": "#fbba6a",
-                        "on-error": "#690005",
-                        "on-secondary-fixed-variant": "#653e00",
-                        "outline-variant": "#544338",
-                        "on-error-container": "#ffdad6",
-                        "surface-container-highest": "#353437",
-                        "secondary": "#fbba6a",
-                        "tertiary-fixed": "#e4e1e7",
-                        "tertiary-container": "#a19fa4"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "section-gap": "160px",
-                        "unit": "8px",
-                        "margin-desktop": "80px",
-                        "margin-mobile": "24px",
-                        "gutter": "32px",
-                        "container-max": "1440px"
-                    },
-                    "fontFamily": {
-                        "label-lg": ["Inter"],
-                        "display-lg": ["Playfair Display"],
-                        "body-md": ["Inter"],
-                        "label-sm": ["Inter"],
-                        "headline-lg-mobile": ["Playfair Display"],
-                        "body-lg": ["Inter"],
-                        "headline-sm": ["Playfair Display"],
-                        "headline-md": ["Playfair Display"],
-                        "headline-lg": ["Playfair Display"]
-                    },
-                    "fontSize": {
-                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "display-lg": ["72px", {"lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
-                        "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "500"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
-                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "500"}],
-                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "500"}]
-                    }
-                },
-            },
+  <!-- Tailwind CSS & Fonts -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#D4AF37',
+            'background': '#07060A',
+            'surface': '#100E17',
+            'surface-variant': '#181522',
+            'on-surface': '#FAF8F5',
+            'on-surface-variant': '#B8B3C3'
+          }
         }
-    </script>
-<style>
-        body {
-            background-color: #0e0e10;
-            color: #e5e1e4;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
-        }
-        
-        /* Glassmorphism Navigation */
-        .glass-nav {
-            background: rgba(19, 19, 21, 0.6);
-            backdrop-filter: blur(24px) saturate(180%);
-            -webkit-backdrop-filter: blur(24px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 183, 128, 0.15);
-        }
+      }
+    };
+  </script>
 
-        /* Gallery Transitions (Grayscale to Color) */
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            background-color: #131315;
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .gallery-image {
-            filter: grayscale(100%);
-            transition: filter 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
-            opacity: 0.7;
-        }
-        .gallery-item:hover .gallery-image {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-            opacity: 1;
-        }
-        .gallery-overlay {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.5s ease-in-out;
-            background: linear-gradient(0deg, rgba(14,14,16,0.95) 0%, rgba(14,14,16,0) 60%);
-        }
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease-out;
-        }
-        .reveal-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .etched-border { border: 1px solid rgba(229, 138, 60, 0.25); }
-        .amber-glow { box-shadow: 0 0 40px 0 rgba(229, 138, 60, 0.1); }
-        
-        @keyframes narrativeReveal {
-            0% { opacity: 0; letter-spacing: 0.5em; transform: translateY(-10px); filter: blur(10px); }
-            100% { opacity: 1; letter-spacing: 0.3em; transform: translateY(0); filter: blur(0); }
-        }
-        .narrative-animation {
-            animation: narrativeReveal 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar { height: 2px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(229, 138, 60, 0.05); }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #E58A3C; }
-    </style>
+  <style>
+    .spa-screen { display: none; opacity: 0; transition: opacity 0.4s ease; }
+    .spa-screen.active-screen { opacity: 1; }
+  </style>
 </head>
-<body class="font-body-md text-body-md selection:bg-primary/30">
+<body class="bg-background text-on-surface min-h-screen">
+
+  <!-- TOP JS NAVIGATION BAR -->
+  <nav class="fixed top-0 left-0 right-0 z-[999] bg-background/90 backdrop-blur-xl border-b border-primary/20 px-6 py-4 flex justify-between items-center max-w-container-max mx-auto">
+    <a href="#" data-route="master" class="flex items-center gap-3 group">
+      <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-primary to-amber-700 flex items-center justify-center text-black font-bold font-serif shadow-lg group-hover:scale-105 transition-transform">
+        ॐ
+      </div>
+      <div>
+        <span class="font-serif text-lg tracking-widest uppercase text-white font-bold block">Stories by GSB</span>
+        <span class="text-[10px] tracking-widest uppercase text-primary block">Sacred Lens Luxury Portfolio</span>
+      </div>
+    </a>
+
+    <!-- JS SPA Navigation Links -->
+    <div class="hidden md:flex items-center gap-1 bg-surface-variant/80 p-1.5 rounded-full border border-primary/20">
+      <button data-route="master" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Master</button>
+      <button data-route="home" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Home Vision</button>
+      <button data-route="rituals" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Rituals</button>
+      <button data-route="ritual-detail" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Ritual Detail</button>
+      <button data-route="temples" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Temples</button>
+      <button data-route="temple-detail" class="spa-nav-link px-4 py-1.5 rounded-full text-xs tracking-wider uppercase transition-all duration-300">Restored Temple</button>
+    </div>
+
+    <!-- Active Screen Badge Info -->
+    <div class="flex items-center gap-3">
+      <span id="active-stitch-id" class="px-3 py-1 bg-primary/10 border border-primary/40 rounded-full text-[11px] font-mono text-primary" title="Stitch Screen ID">f3fcd509...</span>
+      <a href="https://github.com/prabhu-07/stories-of-gsb" target="_blank" class="px-4 py-2 bg-gradient-to-r from-primary to-amber-600 text-black font-bold text-xs uppercase tracking-wider rounded-full shadow-lg hover:brightness-110 transition-all">GitHub</a>
+    </div>
+  </nav>
+
+  <!-- MAIN SPA SCREEN CONTAINER (MARGined for fixed nav) -->
+  <main class="pt-24 min-h-screen">
+    
+        <!-- SPA SCREEN SECTION: Master Experience (Unified) (ID: f3fcd509ec1248b29098051306b5ba3b) -->
+        <section id="spa-screen-master" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>f3fcd509ec1248b29098051306b5ba3b</strong> (Master Experience (Unified))</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
 <!-- Global Header: Apple-Glass inspired -->
 <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
 <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
 <div class="hidden md:flex gap-10 items-center flex-1 justify-start">
-<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative" href="index.html">Portfolio</a>
-<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="index.html">Temples</a>
-<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="index.html">Bookings</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative" href="javascript:void(0)">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Bookings</a>
 </div>
-<a class="flex flex-col items-center group flex-none mx-8 narrative-animation" href="index.html">
+<a class="flex flex-col items-center group flex-none mx-8 narrative-animation" href="javascript:void(0)" data-route="master">
 <img alt="Stories by GSB Logo" class="h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDhTlyzg65b-mgJ-Y98w6fP4_k1tWDPHyEVKdLrjgbUD82TxbU0OZ-Nr8FAQGg3FjLxsaLhOO5_MtqfuJMXGjtlpKYj1vtKqdoorst6y8YPitgpMvlE7mSbbsYKwiBMQJ50P3UNLINk8gvc7KwTOa3j4LzvtOWYVpAIjz9D9zIv_rRj5RBNKKpSQd-Re19lsFchNDecs5rHMqQenSATHRa3rUi66gPbquhE2o0QLZhYKTqPd_kC_ky5bJ4aWpMVeisYI"/>
 <span class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.3em] mt-2 opacity-80">Stories by GSB</span>
 </a>
 <div class="hidden md:flex gap-10 items-center flex-1 justify-end">
-<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="index.html">About</a>
-<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="index.html">Client Portal</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Client Portal</a>
 <button class="ml-4 px-6 py-2 border border-primary/40 text-label-sm font-label-lg uppercase tracking-widest hover:bg-primary/10 transition-all duration-500 rounded-full">Inquire</button>
 </div>
 <button class="md:hidden text-primary">
@@ -350,10 +249,10 @@
 <p class="font-label-sm text-on-surface-variant uppercase tracking-widest opacity-60">Sacred Photography &amp; Cinema</p>
 </div>
 <div class="flex flex-wrap justify-center gap-10 mb-12">
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="index.html">INSTAGRAM</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="index.html">FACEBOOK</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="index.html">VIMEO</a>
-<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="index.html">PRIVACY</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="javascript:void(0)">INSTAGRAM</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="javascript:void(0)">FACEBOOK</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="javascript:void(0)">VIMEO</a>
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors tracking-widest" href="javascript:void(0)">PRIVACY</a>
 </div>
 <p class="font-label-sm text-on-surface-variant/40 tracking-wider">© 2024 Stories by GSB. Captured with Reverence.</p>
 </div>
@@ -375,20 +274,987 @@
     document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
 </script>
 
-<!-- STITCH SACRED LENS FLOATING UNIFIED SCREEN NAVIGATOR -->
-<div id="stitch-screen-navigator" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] bg-black/90 backdrop-blur-xl border border-[#D4AF37]/40 rounded-full px-6 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center gap-4 text-xs font-sans text-white max-w-[95vw] overflow-x-auto">
-  <div class="flex items-center gap-2 pr-4 border-r border-[#D4AF37]/30 flex-shrink-0">
-    <span class="w-2.5 h-2.5 rounded-full bg-[#D4AF37] animate-pulse"></span>
-    <span class="font-bold tracking-widest text-[#D4AF37] uppercase font-serif">Stories by GSB</span>
-  </div>
-  <div class="flex items-center gap-2 whitespace-nowrap">
-    <a href="index.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] bg-[#D4AF37] text-black font-bold shadow-md">Master</a>
-    <a href="home.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Home Vision</a>
-    <a href="rituals.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Rituals</a>
-    <a href="ritual-detail.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Ritual Detail</a>
-    <a href="temples.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Temples</a>
-    <a href="temple-detail.html" class="px-3 py-1.5 rounded-full transition-all duration-300 hover:bg-[#D4AF37]/20 hover:text-[#D4AF37] text-gray-300">Restored Temple</a>
-  </div>
+        </section>
+        
+        <!-- SPA SCREEN SECTION: Home (Vision Integrated) (ID: a3f89b9d75084a6cb84ca24f94a327f9) -->
+        <section id="spa-screen-home" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>a3f89b9d75084a6cb84ca24f94a327f9</strong> (Home (Vision Integrated))</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="hidden md:flex gap-10 items-center flex-1 justify-start">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative" href="javascript:void(0)">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Bookings</a>
 </div>
+<a class="flex flex-col items-center group flex-none mx-8 narrative-animation" href="javascript:void(0)" data-route="master">
+<img alt="Stories by GSB Logo" class="h-14 w-auto object-contain transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDhTlyzg65b-mgJ-Y98w6fP4_k1tWDPHyEVKdLrjgbUD82TxbU0OZ-Nr8FAQGg3FjLxsaLhOO5_MtqfuJMXGjtlpKYj1vtKqdoorst6y8YPitgpMvlE7mSbbsYKwiBMQJ50P3UNLINk8gvc7KwTOa3j4LzvtOWYVpAIjz9D9zIv_rRj5RBNKKpSQd-Re19lsFchNDecs5rHMqQenSATHRa3rUi66gPbquhE2o0QLZhYKTqPd_kC_ky5bJ4aWpMVeisYI"/>
+<span class="font-label-sm text-label-sm text-on-surface uppercase tracking-[0.3em] mt-2 opacity-80">Stories by GSB</span>
+</a>
+<div class="hidden md:flex gap-10 items-center flex-1 justify-end">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Client Portal</a>
+<button class="ml-4 px-6 py-2 border border-primary/40 text-label-sm font-label-lg uppercase tracking-widest hover:bg-primary/10 transition-all duration-500 rounded-full">Inquire</button>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-48">
+<!-- Hero / Portfolio Grid -->
+<section class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature -->
+<div class="md:col-span-8 gallery-item aspect-[16/9] group reveal-on-scroll">
+<img class="gallery-image w-full h-full object-cover" data-alt="A grand, high-resolution cinematic shot of a sacred Hindu temple ceremony at dusk. Golden oil lamps illuminate the ornate stone carvings and the vibrant saffron robes of the priests. The air is thick with ceremonial smoke, creating a mystical, ethereal atmosphere. The style is deeply minimalist with high contrast between deep obsidian shadows and warm bronze highlights, capturing the ancient reverence of the moment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcaQre_Ec7_lO1m_PqUectcr4cP8hzyHe1y1o6FeRCK1QuvMuM601X1xVWcjc_NNdONUg3Od3kquQ2oGajrdIee6ErdN_3qLjv50RfysBduyaRGZU3Rx691lbdlnfdfkx7V5-qfvINSFLwgfD9R_NW4dyJKG2l0R80hdfdXnXUnc9AdMpjfO9MzFhJUq1wTnVuxVrR88t7KhQS_6dyXhe7hnSrekAQSzd2h2pAlzKw4LCE7JwZDdfP4w"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-10">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Sacred Spaces</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Eternal Flame | Madurai</h2>
+</div>
+</div>
+<!-- Vertical Tall -->
+<div class="md:col-span-4 gallery-item aspect-[3/4] group reveal-on-scroll" style="transition-delay: 100ms;">
+<img class="gallery-image w-full h-full object-cover" data-alt="A striking vertical portrait of an elderly temple devotee in Chennai, captured in a minimalist, gallery-like style. The subject's face is weathered with deep lines of wisdom, partially veiled in a translucent silk shawl. The lighting is dramatic and low-key, focusing on the texture of the skin and the subtle glint of a bronze ritual plate. The color palette is restricted to deep blacks and muted amber tones, evoking a timeless, cinematic quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmmbdwZ9z_40Zft2n0biSkrvuR73yd7xkR_xSLXlL3M0iLi486stnp_zDhUKYpm3gJtlEEhEe-VEm3kYm8vkTfUiARLhjQsNlL44ii_ITE3PVGnQqMePbEX4Fw76dm5ya7WoofYNgbqld2QfyT9jym5aIQuvABY71HNWoRGqajMzjdvoVRpIYbYx2KsFAhcDQoOIr2Kwvw2VVLsd266909K-KTCatmuSB_7snibS2GIbDQigdIzjSAlw"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Ceremonies</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Wisdom in Silence</h2>
+</div>
+</div>
+<!-- Three Small Horizontal -->
+<div class="md:col-span-4 gallery-item aspect-square group reveal-on-scroll">
+<img class="gallery-image w-full h-full object-cover" data-alt="A minimalist close-up shot of hands performing a sacred ritual with jasmine flowers and water. The composition is clean and centered, emphasizing the delicate interaction between the hands and the ceremonial objects. High-contrast lighting highlights the crystalline water droplets against the dark obsidian background, with a subtle bronze glow emanating from a nearby lamp. The mood is serene and focused on the tactile details of the ritual." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTmbkI9qYHjqNN39jU-xPpwA4PWfFKhS8RX_Tn7ACA3LnYa1VLH44XQ5JRsYMCbT70refknqGdAWLqO-dPg4eaHKtlMreQ6T_sHtcp3PF4PXLnx54Jh6PoKKmS3YBNG7KlDDSyuAXKpaH_bXZvzyMd-p9fx1QeFg-KlaiQGOzq_4kPHwyf0evYocqoOtcFwseWRAjjzis4OmcemgzUXJR2oYFpWRov34cKN2RcttLdFYno4qqFD0htmQ"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">The Ritual Gaze</h2>
+</div>
+</div>
+<div class="md:col-span-4 gallery-item aspect-square group reveal-on-scroll" style="transition-delay: 150ms;">
+<img class="gallery-image w-full h-full object-cover" data-alt="An expansive, symmetrical view of a temple corridor with repeating stone pillars stretching into the distance. The lighting is architectural and dramatic, casting long, sharp shadows across the polished floor. The minimalist dark mode aesthetic is maintained through a monochromatic palette with subtle warm undertones in the highlights. The shot feels both ancient and contemporary, emphasizing the rhythmic precision of sacred architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxtwTcnNNRTMIfKRsflW_zjlMPrP6tHixAnF1Uq9SE0C41YH3AGQvoLkH78DccNxU903pVx23sZQw4EUJdG6Lib3Rfutm-U1pz53FrzKyjDqXCoOIUf8AY3Au5pKvrOJtok4VRVw0L1hUoTWft6BsuF9zOGArLrPlOudO83mWWPdd8hT3EMVRDUIAw_1k6miPnzay7ySRvFjDglXq0L4KS2iLiUZ_M1p2AFpIs0v14boSFkIy7BUAzDA"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Pillars of Time</h2>
+</div>
+</div>
+<div class="md:col-span-4 gallery-item aspect-square group reveal-on-scroll" style="transition-delay: 300ms;">
+<img class="gallery-image w-full h-full object-cover" data-alt="A cinematic capture of a temple rooftop during a festival, with thousands of small terracotta oil lamps creating a sea of golden light against the black night sky. The scene is shot with a shallow depth of field, causing distant lights to bloom into soft, warm circles of light. The atmosphere is celebratory yet deeply spiritual, captured in a sophisticated, minimalist style that frames the light as the primary subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdoo-HH6ofrdazYB4p0Uw8pk8OOUSHPLU3t3kbFVP5ThHkqop7CBA6SgKX1tQEd8RiQj6GlddxNVCAM-oZ7FGCaX77fnJ15DfNQUBI6iwkckFdgZtayHpy-WQMr8U1lfStZ4XeJUenkZTOw6nIAtWZP59Kklj5sviAIewDdTo1aoz0P9mr7mwkwQM6SPuXIIsl_MCqS2-dKbELXoK7WrUaCyUYnvt9rvGNy8_3OU9EjSICA6S8eU914w"/>
+<div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-8">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Festival of Lights</h2>
+</div>
+</div>
+</div>
+</section>
+<!-- Venerable Venues -->
+<section class="mt-section-gap">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-12 flex justify-between items-end">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Curation</span>
+<h2 class="font-display-lg text-display-lg text-on-surface">Venerable Venues</h2>
+</div>
+<div class="flex gap-4 border-b border-primary/25 pb-2">
+<button class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Temple List</button>
+<span class="text-primary/25">/</span>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors uppercase tracking-widest">Events</button>
+</div>
+</div>
+<div class="flex overflow-x-auto custom-scrollbar pb-10 gap-gutter px-margin-mobile md:px-margin-desktop no-scrollbar">
+<!-- Venue Card 1 -->
+<div class="flex-none w-[350px] group cursor-pointer reveal-on-scroll">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A minimalist architectural detail shot of the Brihadisvara Temple's stone spire against a clear, deep blue dusk sky. The lighting is soft and directional, accentuating the intricate carvings and the warm bronze-colored stone. The composition is tight and graphic, highlighting the scale and geometry of the sacred structure in a premium, editorial photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCc4RLngwyNnbcWn_qY5_tQR-R2F17HIWH93w36-rp0lQCkhKMhT4TvFc0BVB5XoyJwB2REaW_ejj988QOq07CVfujV0VMiUbVR9uSu645riuPMgisB9aBoXW-fzkKFhcnMpQVvg0j8R6e3BLK5MOHFJjVWOQGnsU68PzNNi32Fdyiwl9dyPXR-B1LLQnRazsTRhIZCcClHTQwOBTK4xKTnzAVOa0Vzk01QAjGpkZ-mybDl0kxwrhu2g"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Brihadisvara Temple</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Thanjavur, Tamil Nadu</p>
+</div>
+<!-- Venue Card 2 -->
+<div class="flex-none w-[350px] group cursor-pointer reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="An atmospheric wide shot of the Shore Temple at Mahabalipuram as the sun sets over the Bay of Bengal. The ancient stone temples are silhouetted against a dramatic sky of amber and deep violet. The sea spray creates a soft haze around the structure, adding to the mystical, ancient feel. The shot is framed with significant dark space, emphasizing the isolation and sacredness of the venue." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATHOKJI968JYlBcnlltPdr5zERRJhcvKIUX5DUvnNL5oF2Zral6q9vxVKg9AutbOfr7zAtEzFOVnHIgXFaJyWU9IO6ANZWFkDzY4ypWir1f2Tn6MwPzmwJz0flQtHTJlqT1Ejvs641yrb81IhAq2cer3PwGPf4-_3SawG1Mm0gSw-G05NZQRzkhOE6_FeJXNIlzvC7YTiL4B1aL2xZrjbtMrwIxnDF0rXEMyRURsSSTccMagHNLRrhrg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Shore Temple</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Mahabalipuram</p>
+</div>
+<!-- Venue Card 3 -->
+<div class="flex-none w-[350px] group cursor-pointer reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A serene internal view of the Meenakshi Amman Temple's hall of a thousand pillars. The lighting is low and atmospheric, with sunlight streaming through small openings, creating sharp beams of light in the dusty air. The stone pillars are covered in complex mythological carvings, captured with extreme clarity and detail. The overall tone is meditative and grand, reflecting the luxury-minimalist aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFjla_M59VkBy9hu-5CZcoi519cGRdizFr96JFMguqTRoGeIhSTqcFANSTb58IuFWymPSdD6nuLKcQoWIbJNwl7cdgJsj3qKhubTgLbJkUI6sgy25noiD6d3uCpZXqRRnvJdl11EwkoM7GUf5D4fdr64byxutFeMw8AOpgqP2IeT69uqkLBZDBW0G-_mQ8ddj_IDoLezNIGfBvt4q-J7_tE7tWJFgTI5fw1LNF-2dPDWJtGG69O_b1GA"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Meenakshi Amman</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Madurai</p>
+</div>
+<!-- Venue Card 4 -->
+<div class="flex-none w-[350px] group cursor-pointer reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="A poetic shot of a sacred lotus pond at dawn within a temple complex. The surface of the water is perfectly still, reflecting the surrounding stone arches and the first light of day. A few vibrant pink lotus flowers are in full bloom, providing a focused point of color in an otherwise muted, monochromatic scene. The mood is quiet, holy, and sophisticated, embodying the 'Breath' of the design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDH3pefWqZMYysre0NUBXhPPWxQ4xIfECr_3BGK27aEzZ63Nu_x-Kk6-UFNi_tBqDt2WdpfUJDbUl5azXI3_PwxJeUGGQHmYmUeILA2gnJPdk7o8HJVyo4LhelwhrmsSLHIyyhmuvg-U0_5yHNaFsR_HOWVydgOoYfZv84g1b1y1aUXEzQfWbKya4saHByLgdi29G-2ppBLoxDqP2MMANEVRZpyq5YEX8Df0HBj5hCg-KS6lkoWShQiVA"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Lotus Sanctum</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Kanchipuram</p>
+</div>
+</div>
+</section>
+<!-- Booking & Inquiry Section -->
+<section class="mt-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto reveal-on-scroll">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Reservation</span>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-8">Schedule a Consultation</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">
+                    Our sessions are deeply curated experiences. Each booking begins with a spiritual dialogue to ensure your vision is captured with the reverence it deserves.
+                </p>
+<!-- Calendar Widget -->
+<div class="bg-surface-container-low p-8 border border-primary/10">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">October 2024</h3>
+<div class="flex gap-4">
+<button class="text-primary hover:opacity-50 transition-opacity"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="text-primary hover:opacity-50 transition-opacity"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="calendar-grid">
+<!-- Weekdays -->
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Mon</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Tue</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Wed</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Thu</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Fri</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Sat</div>
+<div class="calendar-day opacity-50 text-[10px] uppercase font-bold">Sun</div>
+<!-- Days -->
+<div class="calendar-day opacity-20">26</div>
+<div class="calendar-day opacity-20">27</div>
+<div class="calendar-day opacity-20">28</div>
+<div class="calendar-day">1</div>
+<div class="calendar-day">2</div>
+<div class="calendar-day active">3</div>
+<div class="calendar-day">4</div>
+<div class="calendar-day">5</div>
+<div class="calendar-day">6</div>
+<div class="calendar-day active">7</div>
+<div class="calendar-day">8</div>
+<div class="calendar-day">9</div>
+<div class="calendar-day">10</div>
+<div class="calendar-day">11</div>
+<div class="calendar-day active">12</div>
+<div class="calendar-day">13</div>
+<div class="calendar-day">14</div>
+<div class="calendar-day">15</div>
+<div class="calendar-day">16</div>
+<div class="calendar-day">17</div>
+<div class="calendar-day">18</div>
+<div class="calendar-day">19</div>
+<div class="calendar-day">20</div>
+<div class="calendar-day active">21</div>
+<div class="calendar-day">22</div>
+<div class="calendar-day">23</div>
+<div class="calendar-day">24</div>
+<div class="calendar-day">25</div>
+<div class="calendar-day">26</div>
+<div class="calendar-day">27</div>
+<div class="calendar-day">28</div>
+<div class="calendar-day">29</div>
+<div class="calendar-day">30</div>
+<div class="calendar-day">31</div>
+</div>
+<div class="mt-6 flex gap-4 items-center">
+<div class="w-3 h-3 bg-primary/30"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Consultation Available</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-12 border border-primary/5">
+<form class="space-y-12">
+<div class="relative group">
+<label class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-2">Event Type</label>
+<select class="w-full bg-transparent border-0 border-b border-primary/25 py-4 text-headline-sm focus:ring-0 focus:border-primary transition-all duration-500 appearance-none">
+<option class="bg-surface-container">Sacred Wedding</option>
+<option class="bg-surface-container">Temple Ceremony</option>
+<option class="bg-surface-container">Editorial Story</option>
+<option class="bg-surface-container">Private Ritual</option>
+</select>
+<span class="absolute right-0 bottom-4 material-symbols-outlined text-primary/50 pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<label class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-2">Preferred Date</label>
+<input class="w-full bg-transparent border-0 border-b border-primary/25 py-4 text-headline-sm focus:ring-0 focus:border-primary transition-all duration-500 placeholder:text-on-surface-variant/30" placeholder="OCT 21, 2024" type="text"/>
+</div>
+<div class="relative">
+<label class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-2">Your Vision</label>
+<textarea class="w-full bg-transparent border-0 border-b border-primary/25 py-4 text-body-lg focus:ring-0 focus:border-primary transition-all duration-500 resize-none placeholder:text-on-surface-variant/30" placeholder="Describe the atmosphere you wish to capture..." rows="4"></textarea>
+</div>
+<button class="w-full py-6 border border-primary text-label-lg font-label-lg uppercase tracking-[0.4em] hover:bg-primary-container hover:text-background transition-all duration-700 group flex items-center justify-center gap-4">
+                        Submit Inquiry
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Social Integration: Daily Moments -->
+<section class="mt-section-gap mb-section-gap reveal-on-scroll">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center mb-16">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Visual Diary</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Daily Moments</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 px-margin-mobile md:px-0">
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A high-end, minimalist Instagram-style shot of a single incense stick burning in a bronze holder. The smoke creates a graceful, swirling pattern against a pure black background. The lighting is sharp and dramatic, highlighting the texture of the grey ash and the glowing orange tip. The aesthetic is extremely clean and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjP0qxUeSrc5mn897-KSENImH3MijReMD9nWS_iySiMPNTB2FTF0xCD7_ttDDO-O1Gp1tA_BpeNzaXeO2piyY1FERqv-YY4drdCMVPqjDVN_1Hr5XQFZ4LNNyLx23IV6yQu2pZFZMSNFGbVYe-J-QWRlZtdEswnGBIH4I0jrokaP1QOB1rIImgAIwzNZGcUYde5UiA5B4-xMZloSIi7DOQ5a7LHZx3K6ATGi5FW1LuHec2-ZHpOAFJLA"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A minimalist overhead shot of a bronze ritual bell resting on a silk cloth. The focus is incredibly sharp on the intricate handle carvings, while the background is a soft, deep charcoal blur. The lighting is low-key, with a slight amber glow reflecting off the polished bronze surface, creating a sense of quiet sanctity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuSxNsXsztuO3_zmOmpo1COgy8VcKz-UXtr9eJSiGfrd-qF6UZzwO9GNc8NjCLtj6JIO9dCcK3lfeI_-_447bsP84iZIjmdS-fVg51LUQtm4wQcCkiBz8uSWKQ6UafexXIodEVPPC_yD2AP5TOH4S9GRANBIWawgMj4fhvJNw-CgNTtmheaIR0P30x5l6UWC_ifLd_-ekMsg-X0TxMwuqu-dqkoCsAVAadxun6hqFrDPBNYL1keKmT8Q"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A dramatic, close-up shot of a temple elephant's eye, showing extreme detail in the texture of the skin and the long lashes. The mood is powerful and empathetic, captured in a monochromatic dark-mode style. The lighting is side-lit, emphasizing the ancient, wise character of the subject in a cinematic, artistic manner." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu3h9kvcXRNfWydbXqSECC97Xqwx7EU2uxTdSj2blVOzks7mZeMxyALoC_WG6wwcpqoeva5LHS_xSt7OLKrecEvIonQMKB1azdWZ_cjtFJJabiJKDytlsn03w3QHR21eIVPPsrxjr_LI7WfLFsTGSDYfoGOEM_3QWLUVYip5H8ufAN-m1sA5Mh2kzhY6qXC9afCfzvAxTt3czsCr-ZMCio3PvGSrRD2M3T31DZovGPy8htvVeMNgueUg"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A poetic capture of saffron silk fabric flowing in the wind against a dark stone wall. The movement is captured with a slight motion blur, creating a sense of ethereal grace. The vibrant orange of the silk stands out as the only color in a dark, minimalist composition, symbolizing spiritual energy and life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA02la5viYEc2OvizeQaI2kMTfA0zJL1s0ooM6BjRDSX7i18n3m-aPGL91fBEGJMEYITof7xSEUugb31_RUbXtCQkDK9DxJvT7BI8a1rS7V3Y3KvXS8Xkh6J0Ldjy2C3Pf9lwE0FzwAGr6KkXYCdWXMLMr6RAmgqLl2Uf4n6Uf5AtyhHck46m7JycjUPmVWKrCGP_lyqqNLS7hTaotD62QV53e7J7NmTH0Eh01uYyIKa4Q9AjxQGMM0Xg"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A minimalist architectural shot of a single stone archway in a South Indian temple. A small oil lamp burns on a pedestal in the center of the frame, casting a warm bronze light that illuminates the surrounding stone carvings. The composition is perfectly symmetrical and quiet, emphasizing the meditative space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAffGpPy3hrnPuGxyICgZCrozbRIxfTowA_FVGRguTlN7XAkekhAm1JPjgyZ1vfYoxO35bOIieof8kXTYORqU7G3fQCWfK_E3I4GyUfwTT-9dXBII8MztZazk7GUUz82K75YHV6P1g2OLxS7hMjj4k5oycPWYXB2YHQ8-yD-Wnvs9R7eKwyGMhAZ-ZHJqOCpQTXlJ7UoWVbe0xjkyhYwu4TfVzV4DLftQD2v2AeD0_FLXHeXMweZW1_rg"/>
+</div>
+<div class="aspect-square bg-surface-container overflow-hidden group">
+<img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="A high-contrast shot of hands offering a coconut at a temple altar. The light from the ritual fire creates deep shadows and bright, warm highlights on the skin and the sacrificial fruit. The style is raw and cinematic, focusing on the intensity of the spiritual practice in a sophisticated, curated frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEu3aPHEjnxzs8eNZcVvOrPk-ktOdQTkfDhVQs4NZ0OxbpUIbEz3hql53EB9a2JBOW2lNDYFSPHcHT2JJbUHZZv2HXY8ettOmfUVzcRaTlfzImjWUyOL-VY-eOaQk-3G6aDbgeO5wPA16u5Y39tR0P4zISqzeEcxxVkUeO5GkOHjKPA4I1dHpSeMXLlhWZIowIf7u-uXW9DcsbPzRK_Q6HROoCk9LDMvbGAfI0mKvbdHgVGGfakjpMAA"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-primary/10 mt-section-gap">
+<div class="flex flex-col items-center justify-center w-full px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto fade-in duration-700">
+<div class="flex flex-col items-center mb-12">
+<span class="font-headline-md text-headline-md text-primary uppercase tracking-[0.4em]">Stories by GSB</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mt-2">Sacred Photography &amp; Cinema</span>
+</div>
+<div class="flex flex-wrap justify-center gap-10 mb-12">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300 uppercase tracking-widest" href="javascript:void(0)">Instagram</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300 uppercase tracking-widest" href="javascript:void(0)">Facebook</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300 uppercase tracking-widest" href="javascript:void(0)">Vimeo</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300 uppercase tracking-widest" href="javascript:void(0)">Terms</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300 uppercase tracking-widest" href="javascript:void(0)">Privacy</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant/50 tracking-wider">
+            © 2024 Stories by GSB. All Rights Reserved.
+        </p>
+</div>
+</footer>
+<script>
+    // Reveal on scroll observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-</body></html>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Horizontal scroll drag for venues
+    const scrollContainer = document.querySelector('.custom-scrollbar');
+    if (scrollContainer) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - scrollContainer.offsetLeft;
+            scrollLeft = scrollContainer.scrollLeft;
+        });
+        scrollContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        scrollContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            scrollContainer.scrollLeft = scrollLeft - walk;
+        });
+    }
+</script>
+
+        </section>
+        
+        <!-- SPA SCREEN SECTION: Rituals & Festivals (ID: c49ddbe24b9843ce80119f3ce87a2d23) -->
+        <section id="spa-screen-rituals" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>c49ddbe24b9843ce80119f3ce87a2d23</strong> (Rituals & Festivals)</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-primary/25">
+<nav class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Stories by GSB Logo" class="h-10 w-10 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxajnZiA062qKeF9FaK33Ohu6hSaelAJJpo9xysIgJt-54mgjUFd07qfE0atrJhtxve7cQEeg-7AVI9eR4vAxSneipSsHWNMO5WG6Nw5FsBEgkV4qCu6bH8sEvMO7llkJ15D-_SEpDomrK7W-0fqyUfCDQpeF6xVhIsza-wSecdOY298aZY1dPb0MKF6oQypf3jw9ZjbEzdiZOO4EMTriNe8sgA-Nyp1LC6An3kvS5MLwmnrVdnnOYpMWwylAOMbWB-3A"/>
+<span class="font-headline-sm text-headline-sm tracking-tighter text-on-surface">Stories by GSB</span>
+</div>
+<div class="hidden md:flex gap-margin-mobile items-center">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="javascript:void(0)">Gallery</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg text-primary font-bold border-b-2 border-primary pb-1" href="javascript:void(0)">Events</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors" href="javascript:void(0)">Inquiry</a>
+</div>
+<button class="border border-primary-container px-6 py-2 font-label-lg text-label-lg text-primary-container hover:bg-primary-container hover:text-surface-container-lowest transition-all duration-300 active:scale-95">
+                Book a Story
+            </button>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="w-full h-full hero-zoom grayscale opacity-60" data-alt="A cinematic, high-resolution monochrome photograph of a traditional Indian wedding ceremony. A couple sits before a sacred fire, hands intertwined, as jasmine petals fall softly around them. The lighting is dramatic and moody, capturing the reverence of the moment in a minimalist luxury aesthetic with deep obsidian shadows and luminous highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCe-8p5_LCqjoYndKFQlVct0NH7kdoB_Gh6TnkpSKvneJ4NcxQrZv9FmQ1q_-7fqIoQP46st-fRFBEOCityGY14OsFTMK-WJBnpK8_HSLaN_fheih3nzMSXB0Z47zSjHta62pw0GqNoVIourDdbO4bDIgVhBUbGLbcJcBpxg2VjMVDR1r2C659MWqBjKVXzRWNMx8eAPqMnfirOqlQ7g0gZDluByx67c84nSaQ8hJjpV5wNUr8_U-pRKQ')">
+</div>
+</div>
+<div class="relative z-20 text-center px-margin-mobile">
+<h1 class="font-display-lg text-display-lg md:text-display-lg text-headline-lg-mobile text-on-surface mb-6">Sacred Celebrations</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto italic">
+                    Capturing the eternal essence of your most revered milestones.
+                </p>
+<div class="mt-12 flex justify-center">
+<span class="material-symbols-outlined text-primary text-4xl animate-bounce">expand_more</span>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="py-12 bg-surface-container-lowest sticky top-[88px] z-40 border-b border-primary/10">
+<div class="max-w-container-max mx-auto px-margin-desktop overflow-x-auto">
+<div class="flex md:justify-center items-center gap-12 whitespace-nowrap min-w-max"><button class="font-label-lg text-label-lg text-primary active-dot">All Rituals</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Kodiyettam</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Aarat</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Rathotsavam</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Pujas &amp; Veshams</button><button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Pallakki Utsav</button></div>
+</div>
+</section>
+<!-- Event Gallery -->
+<section class="py-section-gap px-margin-desktop max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Bento Item 1 -->
+<div class="md:col-span-8 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[16/9] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A breathtaking wide-angle shot of a Royal Union wedding in Mysore." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9zZNfzp0z2oyaMb3duUyV4l6ZxmYbBJCNGhRiUjl3Y90QEgmrzVt7VE84jP_RDiwgu3y-2YvirrZdZQdYo4wyNEmil2q5xJPCuzTtzJkkpAU6Pfz8hRhTV0mWKV6WQMV_UtMbowTbPuXD4aQybgPhSA3i766UxnqdUn7Uilz34UpTOglEh8uySD5UB2l3Lu256VLgGNse5uhpNJyXGWOxU4XH-VyciiiL0fEvJzvONzRkEH_Q0bzHvg"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: KODIYETTAM CEREMONY</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Shree Venkatramana Temple</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Annual Rathotsavam &amp; Aarat</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">Documenting the divine moments of the ritual marking the beginning of the annual temple festival...</p></div></div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-4 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[4/5] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A minimalist close-up shot of hands performing a Divine Puja." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcPyQRy3dAr9uBfDyw-nMMpbuRniiNSshoDA7Ij78bXHnkXQcXLR-mHy2NZtlOQt_OqO121oUVg4aQBkZY8_Bh8XicQVhZR75ig2c_378hN50giGAMqWjssMdQ7EV0AHUI3MW9oGTH5pbQZcRYs4ZM5BIVvzq3Hehgp9RDbPVcnChyP68Sl3cGxr7S_SSrzpN3MnJw7BegyyOYWdbSZ20c3eSkSGD80T7tOF_hIeEeiDjogp9eHckGFw"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: DIVINE PUJA</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Hampi Heritage Site</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Maha Mangalarati Rituals</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">Capturing the sacred light and devotion during the evening rituals at the ancient temple...</p></div></div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[4/5] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="An atmospheric candid photograph of a traditional Upanayana ceremony." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoX6t1e5hRRcNZsyQL1TJ_Ct4vsWBt-5MsUygMYYB51V10gwnrSAicJ01wIAxhVkStnP2avgiCU5azvWHKGrcrrZ7PPZIAzFvmmlzIf5XuAwDCsky0rSDq2giLz3M1xvoqb7tVll1MiHC0Ken4Ig732rl8LPKad3THyoLJr0ouN0pUPiGkk-68Cm_PvvJxgfqs15DByBLhEZzAnKty4eAr4jhLFasUqW2zD-_HV3nqrGv105rh4Ge8kQ"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: PALLAKKI UTSAV</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Bengaluru Ashrams</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Sacred Palanquin Procession</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">The rhythmic movement of the deity through the temple grounds, a testament to timeless faith...</p></div></div>
+<!-- Bento Item 4 -->
+<div class="md:col-span-8 group relative overflow-hidden amber-glow gallery-item"><div class="aspect-[16/9] w-full bg-surface-container relative"><img class="w-full h-full object-cover" data-alt="A cinematic wide shot of a sunset wedding on the banks of the Ganges in Varanasi." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUh3zK1hrd4bj1VQCvm6JOqBB5iDxfl76F3V10oYjKdDaIaiP9DmiCLK32PmvS5OgQDDh94jAfnD6gh2W4vxLHIdWIxLz9AiHGMsupJbkWIsG2YY70NwZadjPtmBERasu--RzuwcFyqI5uoVx1FFLI7whOdkB-0viQoz5kuV_VBMmQo0uq0dDJhLcCX-BqZ63YO-Tb85WWIabEoken_QlYX1shqBBjG3WMtkwdSpyAj-AKv8n23oITYw"/><div class="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-label-sm text-on-surface/80 tracking-widest uppercase">Captured by @StoriesByGSB</div></div><div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><div class="bg-primary px-2 py-1 w-fit mb-4 rounded-sm"><p class="font-label-sm text-[10px] text-on-primary font-bold uppercase tracking-widest">TAG: GANGA ARATI</p></div><p class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-2">Varanasi Ghats</p><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Eternal Light Ceremony</h3><p class="font-body-md text-body-md text-on-surface-variant/80 line-clamp-2">A cinematic documentation of the evening prayers where fire and water meet in spiritual harmony...</p></div></div>
+</div>
+</section>
+<!-- Feature Section -->
+<section class="py-section-gap bg-surface-container-low border-y border-primary/10">
+<div class="max-w-4xl mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg mb-12 italic">A Narrative Crafted for You</h2>
+<div class="space-y-8 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                        At Stories by GSB, we believe that an event is more than a gathering; it is a sacred tapestry of moments that deserve to be preserved with the highest degree of artistry and reverence. Our approach is quiet, observant, and deeply respectful of the rituals we document.
+                    </p>
+<p>
+                        We strip away the noise of conventional event photography to focus on the raw, unspoken emotions—the flicker of a lamp, the weight of a tradition, the silent gaze of a loved one. Each frame is a testament to the milestone it captures, rendered in a cinematic style that transcends time.
+                    </p>
+</div>
+<div class="mt-16 h-px w-32 bg-primary/30 mx-auto"></div>
+</div>
+</section>
+<!-- Call to Action -->
+<section class="py-section-gap px-margin-desktop text-center relative">
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-8">Begin Your Story</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-12 max-w-xl mx-auto">
+                    Let us capture the quiet majesty of your upcoming celebration. Reach out for a bespoke consultation with our studio lead.
+                </p>
+<form class="max-w-md mx-auto space-y-8">
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md text-body-md transition-all placeholder:text-on-surface-variant/50" placeholder="Full Name" type="text"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="relative group">
+<input class="w-full bg-transparent border-0 border-b border-primary/25 focus:ring-0 focus:border-primary py-4 px-0 font-body-md text-body-md transition-all placeholder:text-on-surface-variant/50" placeholder="Email Address" type="email"/>
+<div class="absolute bottom-0 left-0 h-px w-0 bg-primary group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<div class="pt-8">
+<button class="w-full border border-primary text-primary font-label-lg text-label-lg py-5 hover:bg-primary hover:text-surface-container-lowest transition-all duration-500 tracking-[0.2em] uppercase" type="submit">
+                            Inquire for Date
+                        </button>
+</div>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-gap bg-surface-container-lowest border-t border-primary/25">
+<div class="flex flex-col items-center gap-unit py-section-gap px-margin-desktop w-full text-center max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md text-primary mb-4 tracking-tighter">Stories by GSB</div>
+<div class="flex gap-8 mb-8">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors" href="javascript:void(0)">Studio Location</a>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant/60">
+                © 2024 Stories by GSB. Captured with Reverence.
+            </p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('img').style.transform = 'scale(1.1)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('img').style.transform = 'scale(1)';
+            });
+        });
+
+        // Simple scroll reveal for sections
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+
+        </section>
+        
+        <!-- SPA SCREEN SECTION: Ritual Detail View (ID: 1ac70cd9a84548fbaed809e0d9a4e76e) -->
+        <section id="spa-screen-ritual-detail" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>1ac70cd9a84548fbaed809e0d9a4e76e</strong> (Ritual Detail View)</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
+<!-- Top Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-primary/25">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-container-max mx-auto">
+<a class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-widest" href="javascript:void(0)">Stories by GSB</a>
+<div class="hidden md:flex gap-12">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="javascript:void(0)">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Bookings</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors duration-300" href="javascript:void(0)">Client Portal</a>
+</div>
+<button class="font-label-lg text-label-lg px-8 py-3 border border-primary text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-500 uppercase tracking-widest">
+                Inquire
+            </button>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Filter Bar -->
+<div class="sticky top-24 z-40 bg-surface/60 backdrop-blur-md py-6 px-margin-desktop border-b border-primary/10 overflow-x-auto">
+<div class="flex gap-8 max-w-container-max mx-auto items-center justify-center">
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">All Rituals</button>
+<div class="w-1 h-1 bg-primary/20 rounded-full"></div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Kodiyettam</button>
+<div class="w-1 h-1 bg-primary/20 rounded-full"></div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Aarat</button>
+<div class="w-1 h-1 bg-primary/20 rounded-full"></div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-primary font-bold whitespace-nowrap">Rathotsavam</button>
+<div class="w-1 h-1 bg-primary/20 rounded-full"></div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Pujas &amp; Veshams</button>
+<div class="w-1 h-1 bg-primary/20 rounded-full"></div>
+<button class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors whitespace-nowrap">Pallakki Utsav</button>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="relative h-[921px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-10000 scale-110 hover:scale-100" data-alt="A cinematic, low-angle shot of a towering ancient temple chariot during the Rathotsavam festival at night. The air is thick with amber-colored dust and incense smoke, catchings the warm light of hundreds of traditional oil lamps. Thousands of devotees are silhouettes against the glowing structure, creating a sense of immense scale and spiritual fervor. The lighting is dramatic, high-contrast, and focuses on the intricate golden carvings of the Rath, maintaining a high-end minimalist dark mode aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC-uNTIMkvD8d0uw8yVfSJ9Z2_17Mel99H7bSOAfv1UnwNLZP2qvdltChNjIz1JdOyzpVpY5uFj9fdySDl-Qo7waeQaxdKedznEA5m389zIITQMjLVfTPIiksBHMtQv0nHxBW1K8JU0n0VLVLaVBtBKZ-DYnljZYKPwzKM7u2GiuApvLD14fianwiTRVFWK5qDyN4keOu3WfuPZcx_m6HnxXvKuVyJJa1klNnU9YKvG6zP2Dw6r8pEyDA')"></div>
+<div class="relative z-20 text-center px-margin-mobile">
+<span class="font-label-lg text-label-lg uppercase tracking-[0.3em] text-primary mb-6 block fade-in duration-700">The Sacred Procession</span>
+<h1 class="font-display-lg text-display-lg md:text-[96px] text-on-surface leading-tight mb-8">Brihadisvara Temple<br/><span class="italic font-normal">Annual Rathotsavam</span></h1>
+<div class="flex gap-4 justify-center">
+<span class="etched-border px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest">Thanjavur, Tamil Nadu</span>
+<span class="etched-border px-6 py-2 rounded-full font-label-sm text-label-sm uppercase tracking-widest">April Festival</span>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4">
+<span class="font-label-sm text-label-sm uppercase tracking-[0.2em] opacity-60">Scroll to Explore</span>
+<div class="w-[1px] h-16 bg-gradient-to-b from-primary/60 to-transparent"></div>
+</div>
+</section>
+<!-- Ritual Storytelling Block -->
+<section class="max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-12 gap-gutter items-start">
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-12 sticky top-48">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-6">The Sequence of the Sacred</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-8">
+                        The GSB (Gaud Saraswat Brahmin) ritual tradition at Brihadisvara is a meticulously preserved sequence of devotion. The Rathotsavam represents the peak of the annual festival, where the deity descends from the Garbhagriha to walk amongst the people.
+                    </p>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 group">
+<span class="font-display-lg text-headline-lg text-primary/20 group-hover:text-primary transition-colors duration-500">01</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Avahana</h4>
+<p class="text-on-surface-variant opacity-80">The divine invitation into the chariot, marked by intense Vedic chanting and traditional trumpet blasts.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<span class="font-display-lg text-headline-lg text-primary/20 group-hover:text-primary transition-colors duration-500">02</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Ratha Yatra</h4>
+<p class="text-on-surface-variant opacity-80">The celestial movement. Thousands pull the massive wooden ropes, symbolizing the collective journey of the soul towards divinity.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<span class="font-display-lg text-headline-lg text-primary/20 group-hover:text-primary transition-colors duration-500">03</span>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-2">Prasada Vitarana</h4>
+<p class="text-on-surface-variant opacity-80">The distribution of sacred offerings, concluding the street procession before the deity returns to the temple complex.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-6 lg:col-start-7 space-y-16">
+<div class="relative amber-glow">
+<img class="w-full aspect-[4/5] object-cover opacity-80 hover:opacity-100 transition-opacity duration-700 grayscale hover:grayscale-0" data-alt="A macro shot of a priest's hands performing an aarti with multiple lit oil lamps. The flame reflects on his copper ornaments and the dark obsidian temple stone in the background. The focus is razor-sharp on the orange flames, while the priest's face is softly blurred. Minimalist luxury photography style with deep shadows and warm highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc5Nyaz_2J7_a6TRg_2waNPY3E6LjyUpKg5MlWIVzv1rmDvZgG_9ROurW74q3JaX-wCtmx2D4kAHZAvQZf4egj0I9mfXoUi24dS_jjEGM2L3RuL8Vyo-2wPM6TdiwNYG_De2V2oB4Mw7azRIa3RSYczblrvDLLYCNDC6JDW7u3eyGaxvNb-w7q4c47CE3QSh9OC_Ugk44FeYBhwRK86DcSP6NVrF2nq4e7biGIbhEWsDXmbhnUZPAuWw"/>
+<div class="absolute -bottom-8 -right-8 p-12 bg-surface-container etched-border max-w-sm hidden md:block">
+<p class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-4">Golden Hour Ritual</p>
+<p class="font-body-md text-on-surface-variant italic">"The light at 6:14 PM hits the chariot's crest, creating a moment of pure transcendence."</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-12 etched-border space-y-8">
+<h3 class="font-headline-sm text-headline-sm border-b border-primary/20 pb-4 uppercase tracking-widest">Photography Protocol</h3>
+<div class="space-y-6">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase block mb-2">Garbhagriha (Sanctum)</span>
+<p class="text-on-surface-variant">Strictly prohibited. We observe a moment of silent reverence. No digital capture permitted to preserve the sanctity of the energetic core.</p>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase block mb-2">Outer Pradakshina</span>
+<p class="text-on-surface-variant">Allowed with wide-aperture lenses. Focus on the interplay of natural evening light and the ancient stone textures. Avoid flash photography.</p>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase block mb-2">Recommended Gear</span>
+<p class="text-on-surface-variant">35mm f/1.4 or 50mm f/1.2 primes are ideal for capturing the low-light atmosphere without disturbing the devotees.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Atmospheric Visual Divider -->
+<section class="h-[614px] relative overflow-hidden">
+
+<div class="absolute inset-0 flex items-center justify-center text-center">
+<div class="max-w-2xl px-margin-mobile">
+<span class="material-symbols-outlined text-primary text-6xl mb-6">temple_hindu</span>
+<h2 class="font-headline-lg text-headline-lg italic">"In the silence between the bells, the history of a thousand years breathes."</h2>
+</div>
+</div>
+</section>
+<!-- Related Rituals Carousel -->
+<section class="py-section-gap bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop mb-12 flex justify-between items-end">
+<div>
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.3em] mb-4 block">Archive</span>
+<h2 class="font-headline-lg text-headline-lg">Related Festival Moments</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary transition-colors text-primary">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary transition-colors text-primary">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto px-margin-desktop no-scrollbar pb-12">
+<!-- Card 1 -->
+<div class="ritual-card flex-shrink-0 w-[400px] group cursor-pointer">
+<div class="relative overflow-hidden aspect-[3/4] mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="A close-up vertical portrait of a temple deity adorned in deep blue silk and massive jasmine garlands during the Pallakki Utsav. Soft candle lighting creates a heavenly glow on the deity's features. The background is a dark, out-of-focus crowd of devotees. High-end, editorial photography style for a luxury brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV6TiVFo7K0asdXcobcbyToxGhkflHOdv-3x_L5Nxs7dMN6Gsy2kDeBf8SBuMRcQXRo3YEfoh97X91yYC3_1QXcsdcm3uz8Yy0SVO1ZteqX3wCrj2lbI8vuCgC1SdOH5eLqbzhDNAzijorJ8A8zOVNWwvIjtmxoplCloDqnG0yp-QHbYwvX7fhZ3NpuTC06cb25e6xO0lfx_BPo3x6Jxi11CUrWApPS7QoLGNxSrdbglUtwvS2qYzspA"/>
+<div class="meta-data absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 opacity-0 transition-all duration-500 translate-y-4">
+<p class="font-body-md text-white/80 mb-4">A rhythmic procession where the deity is carried on a silver palanquin through the inner courtyard.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-widest" href="javascript:void(0)">
+<span class="material-symbols-outlined text-sm">location_on</span> View Location
+                            </a>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Pallakki Utsav</h3>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Evening Ritual • 8:00 PM</p>
+</div>
+<!-- Card 2 -->
+<div class="ritual-card flex-shrink-0 w-[400px] group cursor-pointer">
+<div class="relative overflow-hidden aspect-[3/4] mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="An expansive wide-angle shot of the temple tank during the Aarat ritual. Hundreds of small oil lamps float on the dark water, reflecting like a sea of stars. The temple gopuram is silhouetted against a deep indigo twilight sky. The mood is tranquil and ethereal. Minimalist composition with a focus on light and symmetry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzpM6s27iyXjBiqVGPiNfoRqbFeJlLNAAPto3ntn2wGJI6c3YoYt1pQsSFdn6yMqy23WZB_WV2q5X0mTSMbrCaFU9WKj-zkxGSCehtEzRtzHau7Eql3v4zJabwbabwsmDILKcnASS7RzcMksYoNQk2LlJQAVwAJ6Zv_ty-drFSiH3nvtwKADgAZQify5wWVyEyLFG-oO8g8ZZIC2Rh2M-MIzm6KDiodw9WYHWE00sLCUegxdyaA7DHLg"/>
+<div class="meta-data absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 opacity-0 transition-all duration-500 translate-y-4">
+<p class="font-body-md text-white/80 mb-4">The holy immersion ceremony in the sacred temple tank, cleansing the energies of the festival.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-widest" href="javascript:void(0)">
+<span class="material-symbols-outlined text-sm">location_on</span> View Location
+                            </a>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Aarat Ceremony</h3>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Waterside • 10:00 PM</p>
+</div>
+<!-- Card 3 -->
+<div class="ritual-card flex-shrink-0 w-[400px] group cursor-pointer">
+<div class="relative overflow-hidden aspect-[3/4] mb-6">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="A detailed shot of a traditional temple musician playing the Nadaswaram instrument. Sweat glimmers on his brow under the warm festival lights. The background is filled with the blur of red and gold silks of the temple authorities. Deep contrast and rich textures characterize the photography, emphasizing the intensity of the performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL0F6bEY6-Okpj3oMb5-AcNPnvvcTIHcxblcc5HNZlDUBG11an9fgvAuApkSswxvsLNFCrHFYbKKY6nkP0Rs2SkBRdzr_hdl7QaezN_pS_F0BElCePeprjsCYzkgiIYzGxreC8rWxPu882E8e03g2EWdaq7YqjHI-lNAYuRTgPaXFno-KBWwkutvnEkV0o8UQFHZr7dJcDdGFbaCGLWfu7_Qyb3rJ7D43H50CquEKcdqeeLNx1MiZBQg"/>
+<div class="meta-data absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8 opacity-0 transition-all duration-500 translate-y-4">
+<p class="font-body-md text-white/80 mb-4">Classical Nadaswaram performances that provide the spiritual soundscape for the Rathotsavam.</p>
+<a class="flex items-center gap-2 text-primary font-label-sm uppercase tracking-widest" href="javascript:void(0)">
+<span class="material-symbols-outlined text-sm">location_on</span> View Location
+                            </a>
+</div>
+</div>
+<h3 class="font-headline-sm text-headline-sm group-hover:text-primary transition-colors">Veda Parayana</h3>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Main Hall • Ongoing</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-primary/10 mt-section-gap">
+<div class="flex flex-col items-center justify-center w-full px-margin-desktop py-20 max-w-container-max mx-auto text-center">
+<h2 class="font-headline-md text-headline-md text-primary mb-12 tracking-widest uppercase">Stories by GSB</h2>
+<div class="flex flex-wrap justify-center gap-12 mb-16">
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Instagram</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Facebook</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Vimeo</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Terms</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Privacy</a>
+</div>
+<p class="font-label-sm text-label-sm tracking-wider text-on-surface-variant/60">
+                © 2024 Stories by GSB. All Rights Reserved.
+            </p>
+</div>
+</footer>
+<script>
+        // Subtle scroll reveal interaction
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-8');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.ritual-card, section h2, .fade-in').forEach(el => {
+                el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+        </section>
+        
+        <!-- SPA SCREEN SECTION: Temples (Hover Overlays) (ID: c4b988c18a0545f6b3e24cfd3da8d9f8) -->
+        <section id="spa-screen-temples" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>c4b988c18a0545f6b3e24cfd3da8d9f8</strong> (Temples (Hover Overlays))</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-background border-b border-primary/25 transition-colors duration-500">
+<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-container-max mx-auto">
+<a class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-widest" href="javascript:void(0)" data-route="master">Stories by GSB</a>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-all duration-500" href="javascript:void(0)">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="javascript:void(0)">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-all duration-500" href="javascript:void(0)">Bookings</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-all duration-500" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface-variant hover:text-primary transition-all duration-500" href="javascript:void(0)">Client Portal</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="flex items-center justify-center w-10 h-10 rounded-full border border-primary/20 text-primary hover:bg-primary/10 transition-all duration-300" id="theme-toggle">
+<span class="material-symbols-outlined hidden" id="theme-icon-light">light_mode</span>
+<span class="material-symbols-outlined" id="theme-icon-dark">dark_mode</span>
+</button>
+<button class="font-label-lg text-label-lg px-8 py-3 border border-primary-container/40 text-primary hover:bg-primary-container hover:text-on-primary-container transition-all duration-300">
+                Inquire
+            </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-40">
+<!-- Hero Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto text-center mb-section-gap">
+<div class="inline-block mb-6 h-px w-24 bg-primary/25"></div>
+<h1 class="font-display-lg text-display-lg mb-8 text-on-surface">Venerable Sanctuaries</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto text-on-surface-variant italic leading-relaxed">
+            A visual pilgrimage through the granite poetry of South India. Capturing the divine interplay of light, shadow, and ancient Dravidian architecture across timeless horizons.
+        </p>
+</section>
+<!-- Category Filter -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-16">
+<div class="flex justify-center items-center space-x-8 border-b border-primary/10 pb-6">
+<button class="font-label-lg text-label-lg text-primary tracking-widest border-b border-primary pb-2">ALL</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors tracking-widest">UNESCO HERITAGE</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors tracking-widest">DRAVIDIAN</button>
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors tracking-widest">SHORE TEMPLES</button>
+</div>
+</section>
+<!-- Gallery Grid -->
+<section class="px-margin-desktop max-w-container-max mx-auto mb-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+<!-- Large Feature Item -->
+<div class="md:col-span-8 group gallery-item relative overflow-hidden aspect-[16/10] bg-surface-container"><img class="w-full h-full object-cover grayscale-[20%] transition-transform duration-500 group-hover:scale-[1.03]" data-alt="A cinematic, low-angle shot of the Brihadisvara Temple gopuram in Thanjavur at sunset. The intricate granite carvings are highlighted by golden hour light against a deep obsidian sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAayoRBT-kf_urFDTB4BSZNZVOVevmeHOzEf4fJQKxPbLdAJ0bv0Rp6SlVQ3dG-1In4iN-03LhKXYjm0cW8MZedOrScFwlYYOVs7CZd4iVhDqdIEZogwQr-8qYXXCD7yAEwoogqaMVONZa1AIF2RC8tEHFXURZnUvsQ8WXCQlIqHGH3TaCKmbDbpK2Hc3QhRUIh9jWJfd6nDxABdf5Hz8hMA72rdKWjFBCclag5kPdt--7iMgGLwQ3Bg"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">UNESCO HERITAGE SITE</span><h3 class="font-headline-md text-headline-md text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Brihadisvara, Thanjavur</h3></div><a aria-label="View details for Brihadisvara Temple" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+<!-- Portrait Item -->
+<div class="md:col-span-4 group gallery-item relative overflow-hidden aspect-[3/4] bg-surface-container mt-0 md:mt-24"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" data-alt="A detailed vertical shot of a stone sculpture on a temple pillar in Hampi." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4M0ewoI-wQbboK-HofJTyxj7U4gwB6sYuvXPZ5H2OD94-2mbXePl5wFMmD3KhypPCPvhuk104LIh-UmnzMXwstC9loGnZ0M1b19Rqqv5RPTcK8-oxt0uLAeMIUxcDqSetfZw0ztXHdErASFljXOVgyRLzRbEn-R6Xq-k9GrW83C_uEJ0Q7IUfXhWGVVMYVAMt5TwM8kxuiopbNaXvhevjJtX7QZFrVYLafFZHcXIgFeT9LKQr5SSctg"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">VIJAYANAGARA ARCHITECTURE</span><h3 class="font-headline-sm text-headline-sm text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Virupaksha, Hampi</h3></div><a aria-label="View details for Virupaksha Temple" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+<!-- Wide Item -->
+<div class="md:col-span-5 group gallery-item relative overflow-hidden aspect-[4/5] bg-surface-container"><img class="w-full h-full object-cover grayscale-[30%] transition-transform duration-500 group-hover:scale-[1.03]" data-alt="The Shore Temple of Mahabalipuram viewed from the beach during a blue hour twilight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUm3yMfq8jChW0ykWj6jc6i1z2YDmHSl-ax9XnqR-wf9k3l_DvWdEnLTRjAXW7mZliH-SgJcZZTK5ImUlfsTII30ZRRLMMyVr4cuN2jrUfwfnmMUSwSc1Kt-ipGTW82xeMTxd68sJMsw-y9USyytYQBfNbP3BEOI05HER_62WsXVIkn6YkSErFHprrx8PMLfWPj082LbFUsqXjkpsG-T8FFsrQLW1GadzKzMeLoIf8eTt3fwcaa85_kA"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">PALLAVA DYNASTY</span><h3 class="font-headline-sm text-headline-sm text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Shore Temple, Mahabalipuram</h3></div><a aria-label="View details for Shore Temple" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+<!-- Feature Grid Right -->
+<div class="md:col-span-7 group gallery-item relative overflow-hidden aspect-[1/1] bg-surface-container"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" data-alt="A wide-angle, symmetrical perspective of the Meenakshi Amman Temple's thousand-pillar hall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_MbR5racKSdUxb8PlydSpG8Hui0XMSd8wnjeNda0a632DYSKlMZ0G7DnHmBx5MLqc1llmVkMMvznWuF0qbI33ICYiEKvyamcevsDoAxD3kv6GZzuzWlHVSbuR-4EyhPCIb7Fb7I6OVgOoQln-BAe4UQWRwY6nvPuodAlxmE4lY98KIQTHjE-hPqcSBOKIr3MAD1nvzLrurUxxWwpZHCtARkfzgBW3yKX4oPD-xgwskSuDgr2NegKE4Q"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-10"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">SACRED GEOMETRY</span><h3 class="font-headline-md text-headline-md text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Meenakshi Amman, Madurai</h3></div><a aria-label="View details for Meenakshi Amman Temple" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+<!-- Extra Row -->
+<div class="md:col-span-6 group gallery-item relative overflow-hidden aspect-[4/3] bg-surface-container"><img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" data-alt="A serene close-up of a Nandi bull statue carved from single black rock." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1ZZ5ffQZyH7QPFmuLcfJzVXaMHwVLZowkfV2UCztgVOx0Dj-5z4mZ43hYxp-35hCFc9BDRp48zgj4rNuERZ0t_evDO6xX7KcfaOt_FxtGR1YFPhIbyh8VkORgIby1lQXy8rLD_zDyxmXySp8zpsrDqkfh61MFAafyoJsQN4qDGlyJlpU1W2Yc6MVJFCfw6X97uYseT1WqzBcwk2ZR0ZSWRf6rSukRzRJHIo6CWIaqrJx3aZm_B-iySg"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">RITUAL SILENCE</span><h3 class="font-headline-sm text-headline-sm text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Monolithic Nandi, Lepakshi</h3></div><a aria-label="View details for Monolithic Nandi" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+<div class="md:col-span-6 group gallery-item relative overflow-hidden aspect-[4/3] bg-surface-container"><img class="w-full h-full object-cover grayscale-[10%] transition-transform duration-500 group-hover:scale-[1.03]" data-alt="An expansive aerial-style view of the Arunachaleswarar Temple at dawn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWYlw9mX1otE7HDIupefwbjqPZQ3VWxrre9PPIuJzlzAFD5dLA2qonGCGdaqTow23hRJNzI1f8S67Qkhptn9ywKdbbm2Flp9gRVZCv1tNHk8zYzb617n6_mG4ZfWVssIrE_qcnuk74sjuN2pUv7jo9oxuJKCEg2hEyJSvchjk31sz9jKCs3-1XJ_laDPNg74rsqW7omfJwJm9SesPgeglY_Qrq4M9GkDWFN50j9IIb9jq6hnlXwb6yQQ"/><div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8"><span class="font-label-sm text-label-sm text-primary tracking-widest block mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">HOLY MOUNTAIN</span><h3 class="font-headline-sm text-headline-sm text-on-surface transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Arunachaleswarar, Tiruvannamalai</h3></div><a aria-label="View details for Arunachaleswarar Temple" class="absolute inset-0 z-10" href="javascript:void(0)"></a></div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-margin-desktop max-w-container-max mx-auto text-center py-section-gap border-t border-primary/10">
+<h2 class="font-headline-lg text-headline-lg mb-8 text-on-surface">Bring the Divine into Your Space</h2>
+<p class="font-body-lg text-body-lg max-w-xl mx-auto text-on-surface-variant mb-12">
+            Limited edition archival prints available for collectors. Each piece is a testament to India's sacred heritage, captured on large-format film.
+        </p>
+<button class="px-12 py-5 border border-primary-container text-primary font-label-lg text-label-lg tracking-[0.2em] uppercase hover:bg-primary hover:text-on-primary transition-all duration-500 glow-accent">
+            VIEW PRINT CATALOG
+        </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-primary/10 mt-section-gap transition-colors duration-500">
+<div class="flex flex-col items-center justify-center w-full px-margin-desktop py-20 max-w-container-max mx-auto space-y-12">
+<div class="text-center">
+<span class="font-headline-md text-headline-md text-primary uppercase tracking-widest block mb-4">Stories by GSB</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant/60 max-w-xs mx-auto">Archiving the sacred through the lens of devotion and design.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6">
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300" href="javascript:void(0)">Instagram</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300" href="javascript:void(0)">Facebook</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300" href="javascript:void(0)">Vimeo</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300" href="javascript:void(0)">Terms</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all duration-300" href="javascript:void(0)">Privacy</a>
+</div>
+<div class="text-center">
+<p class="font-label-sm text-label-sm tracking-wider text-on-surface-variant/40">© 2024 Stories by GSB. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeIconLight = document.getElementById('theme-icon-light');
+    const themeIconDark = document.getElementById('theme-icon-dark');
+    const htmlElement = document.documentElement;
+
+    themeToggleBtn.addEventListener('click', () => {
+        if (htmlElement.classList.contains('dark')) {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeIconLight.classList.remove('hidden');
+            themeIconDark.classList.add('hidden');
+        } else {
+            htmlElement.classList.remove('light');
+            htmlElement.classList.add('dark');
+            themeIconLight.classList.add('hidden');
+            themeIconDark.classList.remove('hidden');
+        }
+    });
+
+    // Smooth entrance animation for gallery items
+    document.addEventListener('DOMContentLoaded', () => {
+        const items = document.querySelectorAll('.gallery-item');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        items.forEach(item => {
+            item.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-1000');
+            observer.observe(item);
+        });
+    });
+</script>
+
+        </section>
+        
+        <!-- SPA SCREEN SECTION: Temple Detail (Restored) (ID: e9c5e36286184b86bfbf4e0b11de877f) -->
+        <section id="spa-screen-temple-detail" class="spa-screen transition-opacity duration-500 ease-in-out" style="display: none;">
+          <div class="px-4 py-2 bg-[#D4AF37]/10 border-b border-[#D4AF37]/30 text-[#D4AF37] text-xs font-mono flex justify-between items-center max-w-container-max mx-auto my-2 rounded-lg">
+            <span>Stitch Screen ID: <strong>e9c5e36286184b86bfbf4e0b11de877f</strong> (Temple Detail (Restored))</span>
+            <span class="text-gray-400">Connected via JS SPA Router</span>
+          </div>
+          
+<!-- Top Navigation -->
+<nav class="docked full-width top-0 border-b border-primary/25 bg-background z-50">
+<div class="flex justify-between items-center w-full px-margin-desktop py-8 max-w-container-max mx-auto">
+<span class="font-headline-sm text-headline-sm text-on-surface uppercase tracking-widest">Stories by GSB</span>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors" href="javascript:void(0)">Portfolio</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-primary after:rounded-full" href="javascript:void(0)">Temples</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors" href="javascript:void(0)">Bookings</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors" href="javascript:void(0)">About</a>
+<a class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors" href="javascript:void(0)">Client Portal</a>
+</div>
+<button class="font-label-lg text-label-lg tracking-[0.2em] uppercase text-primary border border-primary/40 px-6 py-2 hover:bg-primary hover:text-background transition-all">Inquire</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-[921px] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A breathtaking cinematic wide-angle shot of the Brihadisvara Temple in Thanjavur at sunset. The massive granite Vimana tower glows in deep golden amber light against a moody, indigo storm sky. Professional architectural photography style with a focus on ancient textures, intricate carvings, and an atmosphere of sacred grandeur. Minimalist dark-mode aesthetic with high contrast and sharp detailing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5SQpyynZ6k4SNHMQ9CyYQh3Y9vdJAAW-BS1Z1CZk8mNi2dGoR_O9aHF7vtffYRndFo1tj_Fjoe6FhZyWeb3U_JEsFRSmkxoGKOBw-1bpx8XUJ0q6edgy8PwG8NXD2KlCz8FiDmCHqxYAcYli2X4F66Gy33KU-8MNcl9OUNQFHRSLnHaW5rk-MF_iv33QPgPI-qECOeIY_bWvnhZVomboyZRAqrEG5tfi9HeeTpLH4ayQNCiR4Gj9_Kg"/>
+<div class="absolute inset-0 hero-vignette"></div>
+<!-- Watermark Badge -->
+<div class="absolute bottom-10 right-margin-desktop flex items-center gap-3 bg-background/40 backdrop-blur-md px-4 py-2 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[18px]">photo_camera</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase opacity-70">Photographed by @StoriesByGSB</span>
+</div>
+</header>
+<!-- Header Info -->
+<section class="max-w-container-max mx-auto px-margin-desktop -mt-24 relative z-10">
+<div class="flex flex-col items-start gap-4">
+<div class="inline-block px-4 py-1 etched-border bg-surface-container-low">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-[0.2em]">UNESCO Heritage Site</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface max-md:text-headline-lg-mobile max-md:font-headline-lg-mobile">Brihadisvara Temple</h1>
+<div class="flex gap-6 mt-2">
+<a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[16px]">public</span>
+                @storiesbygsb_culture
+            </a>
+<a class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors" href="javascript:void(0)">
+<span class="material-symbols-outlined text-[16px]">podcasts</span>
+                Thanjavur Stories
+            </a>
+</div>
+</div>
+</section>
+<!-- Content Body -->
+<main class="max-w-container-max mx-auto px-margin-desktop py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: History & Architecture -->
+<div class="lg:col-span-8 space-y-12">
+<div class="space-y-6">
+<h2 class="font-headline-lg text-headline-lg text-primary">History &amp; Architecture</h2>
+<div class="w-24 h-[1px] bg-primary/25"></div>
+</div>
+<div class="prose prose-invert max-w-none space-y-8 font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                Commissioned by Rajaraja I of the Chola dynasty and completed in 1010 CE, the Brihadisvara Temple stands as a monumental testament to the architectural brilliance of medieval South India. Known locally as <span class="text-primary italic">Thanjai Periya Kovil</span>, it is one of the largest Hindu temples and an exemplary masterpiece of fully realized Dravidian architecture.
+            </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 py-8">
+<div class="etched-border p-8 bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-4 block">architecture</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">Granite Monolith</h3>
+<p class="font-body-md text-body-md opacity-80">The temple is built entirely of granite, a feat considering no granite sources were found within 100 kilometers of the site.</p>
+</div>
+<div class="etched-border p-8 bg-surface-container-low">
+<span class="material-symbols-outlined text-primary mb-4 block">height</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-3">The Vimana</h3>
+<p class="font-body-md text-body-md opacity-80">Standing 66 meters tall, the temple tower (Vimana) is among the tallest in the world, topped by an 80-ton single stone cap.</p>
+</div>
+</div>
+<p>
+                The temple complex is part of the UNESCO World Heritage Site known as the "Great Living Chola Temples." Beyond its architectural scale, the temple is renowned for its intricate frescoes and inscriptions that provide a detailed record of the socio-economic life of the Chola empire.
+            </p>
+</div>
+</div>
+<!-- Right: Sidebar Action Box -->
+<aside class="lg:col-span-4 lg:sticky lg:top-32 h-fit">
+<div class="bg-surface-container p-10 etched-border space-y-8">
+<div class="space-y-4">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Event &amp; Booking</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Planning a photoshoot or a traditional wedding ceremony amidst this timeless heritage?</p>
+</div>
+<div class="space-y-4">
+<a class="block w-full text-center font-label-lg text-label-lg text-background bg-primary-container py-4" href="javascript:void(0)">
+                    Inquire for Bookings
+                </a>
+<a class="block w-full text-center font-label-lg text-label-lg text-primary py-4 border border-primary/25 hover:border-primary transition-colors" href="javascript:void(0)">
+                    View Sample Gallery
+                </a>
+</div>
+<div class="pt-8 border-t border-primary/10">
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+                    Permit assistance provided
+                </p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Footer / Map Section -->
+<section class="w-full bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop py-24 flex flex-col items-center">
+<div class="text-center space-y-6 mb-16">
+<span class="font-label-lg text-label-lg text-primary uppercase tracking-widest">Journey to Thanjavur</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Find Your Narrative</h2>
+</div>
+<!-- Map Visualization -->
+<div class="w-full h-[500px] etched-border overflow-hidden relative">
+<div class="w-full h-full" data-location="Brihadisvara Temple, Thanjavur, Tamil Nadu, India">
+<img class="w-full h-full object-cover" data-alt="A sophisticated, minimalist map visualization of Thanjavur city, centered on the Brihadisvara Temple. The map design is custom dark mode with deep charcoal streets, obsidian water bodies, and subtle primary orange highlights for the temple complex. It has a clean, high-end editorial look, devoid of clutter, focusing on the geographical context of the historical monument." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmtmzM1l_zLJ1ZFA61IBDzVqkG2jlC0cu-mGtV8Kjaoh-gEi4fuId9tND8CJ2_bBrAxsnEaUEgbTEFzmosTnP0jVirg5Muoax4uzvV88jHMPzz9mjoU0GAq9bEvGUKnHl8wCTkJVjwLkc4Es7dCT_j-9xBm11OwBwTY_7vhC598XfVoOuCRouG6Ax3_OUogX4N9Mw8A-ppq7UJ4JmLANHbOiCO3jHsqQMWtRq2acPRdWk2YHROjLXwyA"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none"></div>
+</div>
+<div class="mt-12">
+<button class="bg-primary-container text-background font-label-lg text-label-lg uppercase tracking-widest px-10 py-5 flex items-center gap-4">
+<span class="material-symbols-outlined">location_on</span>
+                Open Directions in Google Maps
+            </button>
+</div>
+</div>
+</section>
+<!-- Global Footer -->
+<footer class="border-t border-primary/10 mt-section-gap bg-surface-container-lowest">
+<div class="flex flex-col items-center justify-center w-full px-margin-desktop py-20 max-w-container-max mx-auto">
+<span class="font-headline-md text-headline-md text-primary mb-12">Stories by GSB</span>
+<div class="flex flex-wrap justify-center gap-10 mb-12">
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Instagram</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Facebook</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Vimeo</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Terms</a>
+<a class="font-label-sm text-label-sm tracking-wider text-on-surface-variant hover:text-on-surface hover:underline decoration-primary/50 underline-offset-4 transition-all" href="javascript:void(0)">Privacy</a>
+</div>
+<p class="font-label-sm text-label-sm tracking-wider opacity-50">© 2024 Stories by GSB. All Rights Reserved.</p>
+</div>
+</footer>
+
+        </section>
+        
+  </main>
+
+  <!-- SPA Router JS Engine -->
+  <script src="app.js"></script>
+</body>
+</html>
