@@ -185,6 +185,25 @@ stories-of-gsb/
 
 ---
 
+## 🛡️ Admin Moderation & Event Approval Guide
+
+When visitors submit events through the **"➕ Submit Event"** modal on the website, their submissions are saved in Supabase with `is_approved = false`. **Unapproved submissions are NOT visible to public visitors.**
+
+### How to Access Admin Mode & Moderate Submissions:
+
+1. Open your website with **`?admin=true`** added to the URL:
+   👉 **`https://prabhu-07.github.io/stories-of-gsb/?admin=true`**
+
+2. The **🛡️ Admin Moderation Panel** banner will automatically appear above the 12-Month Calendar section.
+
+3. You will see a list of all **Pending Submissions**:
+   - Click **`✅ Approve & Publish Live`** → Sets `is_approved = true` so the event is published publicly for everyone in the world.
+   - Click **`🗑️ Reject & Delete`** → Deletes the event submission from Supabase.
+
+4. To exit Admin Mode, click **"Exit Admin Mode"** in the top right of the moderation panel banner.
+
+---
+
 ## 🔗 Quick Links
 
 - **Cloudinary Dashboard:** [https://console.cloudinary.com/pm/a1g89w9n/media-explorer](https://console.cloudinary.com/pm/a1g89w9n/media-explorer)
