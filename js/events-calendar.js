@@ -1,7 +1,7 @@
 /**
  * STORIES BY GSB - FULL YEAR CALENDAR & EVENTS SYSTEM
  * Compatible with unified index.html scroll section AND standalone rituals.html
- * Includes Viewer Community Event Submission & LocalStorage persistence!
+ * Powered by Supabase Real-Time Database with LocalStorage & Static Fallbacks!
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,26 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const addEventModal = document.getElementById('add-event-modal');
   const addEventForm = document.getElementById('add-event-form');
 
-  // Helper: Get user events from LocalStorage
-  function getUserEvents() {
+  // LocalStorage Fallback Helpers
+  function getLocalEvents() {
     try {
       const stored = localStorage.getItem('user_submitted_events');
       return stored ? JSON.parse(stored) : [];
     } catch (e) {
-      console.error("Error reading user events from localStorage:", e);
       return [];
     }
   }
 
-  // Helper: Save user event to LocalStorage
-  function saveUserEvent(newEvent) {
+  function saveLocalEvent(ev) {
     try {
-      const current = getUserEvents();
-      current.unshift(newEvent); // Add to top
+      const current = getLocalEvents();
+      current.unshift(ev);
       localStorage.setItem('user_submitted_events', JSON.stringify(current));
-    } catch (e) {
-      console.error("Error saving user event:", e);
-    }
+    } catch (e) {}
   }
 
   // ── Modal Handlers ──────────────────────────────────────────────────────
@@ -69,9 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Form Submit Handler
+  // Form Submit Handler (Saves to Supabase if configured, or LocalStorage)
   if (addEventForm) {
-    addEventForm.addEventListener('submit', (e) => {
+    addEventForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const title = document.getElementById('new-event-title').value.trim();
@@ -89,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const newEventObj = {
-        id: 'user-ev-' + Date.now(),
         month: month,
         date: date,
         tithi: tithi,
@@ -102,14 +97,44 @@ document.addEventListener('DOMContentLoaded', () => {
         isUserSubmitted: true
       };
 
-      saveUserEvent(newEventObj);
+      // 1. Try Supabase Insert
+      let savedToSupabase = false;
+      if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+        try {
+          const { data, error } = await supabaseClient
+            .from('events')
+            .insert([{
+              month: newEventObj.month,
+              date: newEventObj.date,
+              tithi: newEventObj.tithi,
+              title: newEventObj.title,
+              category: newEventObj.category,
+              location: newEventObj.location,
+              description: newEventObj.description,
+              image: newEventObj.image
+            }]);
+          
+          if (!error) {
+            savedToSupabase = true;
+            console.log("⚡ Event successfully saved to Supabase cloud database!");
+          } else {
+            console.warn("Supabase insert error:", error);
+          }
+        } catch (err) {
+          console.warn("Supabase insert exception:", err);
+        }
+      }
+
+      // 2. LocalStorage Fallback if Supabase not configured yet
+      if (!savedToSupabase) {
+        saveLocalEvent({ ...newEventObj, id: 'user-ev-' + Date.now() });
+      }
+
       addEventForm.reset();
       hideModal();
 
-      // Reset month filter if needed or switch to month of added event
       currentMonthFilter = month;
       
-      // Update month buttons UI
       if (monthBarContainer) {
         monthBarContainer.querySelectorAll('.month-tab-btn').forEach(b => {
           const active = b.dataset.month === currentMonthFilter;
@@ -121,8 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      renderEvents();
-      alert("✨ Your event has been successfully added to the sacred almanac!");
+      await renderEvents();
+      alert("✨ Event submitted successfully!");
     });
   }
 
@@ -176,23 +201,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ── Render Events ───────────────────────────────────────────────────────
-  function renderEvents() {
+  // ── Render Events (Fetches Supabase + LocalStorage + Static Data) ───────
+  async function renderEvents() {
     if (!eventsGridContainer) return;
 
-    const baseEvents = (typeof YEAR_EVENTS_DATA !== 'undefined') ? YEAR_EVENTS_DATA : [];
-    const userEvents = getUserEvents();
-    const allEvents = [...userEvents, ...baseEvents];
+    let supabaseEvents = [];
+
+    // Fetch from Supabase if active
+    if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+      try {
+        const { data, error } = await supabaseClient
+          .from('events')
+          .select('*')
+          .order('created_at', { ascending: false });
+        
+        if (!error && data) {
+          supabaseEvents = data.map(item => ({
+            ...item,
+            isUserSubmitted: true
+          }));
+        }
+      } catch (err) {
+        console.warn("Error fetching Supabase events:", err);
+      }
+    }
+
+    const staticEvents = (typeof YEAR_EVENTS_DATA !== 'undefined') ? YEAR_EVENTS_DATA : [];
+    const localEvents  = getLocalEvents();
+
+    const allEvents = [...supabaseEvents, ...localEvents, ...staticEvents];
 
     const filtered = allEvents.filter(ev => {
       const matchMonth = currentMonthFilter === "All Months" || ev.month === currentMonthFilter;
       const matchCat   = currentCategoryFilter === "all" || ev.category === currentCategoryFilter;
       const q = currentSearchQuery;
       const matchSearch = !q ||
-        ev.title.toLowerCase().includes(q) ||
-        ev.location.toLowerCase().includes(q) ||
-        ev.description.toLowerCase().includes(q) ||
-        ev.tithi.toLowerCase().includes(q);
+        (ev.title && ev.title.toLowerCase().includes(q)) ||
+        (ev.location && ev.location.toLowerCase().includes(q)) ||
+        (ev.description && ev.description.toLowerCase().includes(q)) ||
+        (ev.tithi && ev.tithi.toLowerCase().includes(q));
       return matchMonth && matchCat && matchSearch;
     });
 
@@ -210,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="bg-surface-variant/60 border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 shadow-lg group flex flex-col justify-between">
         <div>
           <div class="relative h-48 overflow-hidden">
-            <img src="${ev.image}" onerror="this.onerror=null; this.src='${ev.fallbackImage || ev.image}'" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <img src="${ev.image || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80'}" onerror="this.onerror=null; this.src='${ev.fallbackImage || ev.image || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80'}'" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
             <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-3 py-1 rounded-full text-[11px] font-mono text-primary flex items-center gap-1.5">
               <span>📅</span> <span>${ev.date}</span>
@@ -226,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="p-6">
             <div class="text-[11px] font-serif tracking-widest text-primary uppercase mb-1 font-semibold">
-              ${ev.tithi} &bull; ${ev.location}
+              ${ev.tithi || ''} &bull; ${ev.location}
             </div>
             <h3 class="font-serif text-lg text-white font-bold mb-2 group-hover:text-primary transition-colors">
               ${ev.title}
@@ -237,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
         <div class="px-6 pb-6 pt-0">
-          <a href="ritual-detail.html?event=${ev.id}" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+          <a href="ritual-detail.html?event=${ev.id || ''}" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
             View Ritual Specifications &amp; Guides →
           </a>
         </div>
