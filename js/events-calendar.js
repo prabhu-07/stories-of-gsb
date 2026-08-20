@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     eventsGridContainer.innerHTML = filtered.map(ev => `
       <div class="bg-surface-variant/60 border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 shadow-lg group">
         <div class="relative h-48 overflow-hidden">
-          <img src="${ev.image}" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <img src="${ev.image}" onerror="this.onerror=null; this.src='${ev.fallbackImage || ev.image}'" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
           <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
           <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-3 py-1 rounded-full text-[11px] font-mono text-primary">
             📅 ${ev.date}
