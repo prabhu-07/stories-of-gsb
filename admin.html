@@ -127,9 +127,7 @@
 </head>
 <body class="p-4 md:p-8">
 
-  <!-- ════════════════════════════════════
-       ADMIN HEADER & TOP NAVIGATION
-  ════════════════════════════════════ -->
+  <!-- ADMIN HEADER & TOP NAVIGATION -->
   <header class="max-w-7xl mx-auto mb-8 bg-surface-variant/80 border border-primary/30 rounded-3xl p-5 md:p-6 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
     <div class="flex items-center gap-4">
       <a href="index.html" class="flex items-center gap-3 group">
@@ -160,9 +158,7 @@
 
   <main class="max-w-7xl mx-auto">
 
-    <!-- ════════════════════════════════════
-         TAB SELECTOR
-    ════════════════════════════════════ -->
+    <!-- TAB SELECTOR -->
     <div class="flex items-center gap-3 mb-8 overflow-x-auto pb-2">
       <button class="tab-btn active" data-tab="tab-add-temple">
         🏛️ Add &amp; Manage Temple Cards
@@ -175,21 +171,19 @@
       </button>
     </div>
 
-    <!-- ════════════════════════════════════
-         TAB 1: ADD & MANAGE TEMPLE CARDS
-    ════════════════════════════════════ -->
+    <!-- TAB 1: ADD & MANAGE TEMPLE CARDS -->
     <section id="tab-add-temple" class="tab-content block space-y-10">
       
       <!-- Top Grid: Form + Real-time Live Preview -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        <!-- Left Column: The 7-Field Temple Card Form -->
+        <!-- Left Column: The 7-Field Temple Card Form (Add / Edit) -->
         <div class="lg:col-span-7 bg-surface-variant border border-primary/35 rounded-3xl p-6 md:p-8 shadow-2xl">
           <div class="mb-6">
-            <div class="section-label mb-2">Sacred Sanctuary Entry</div>
-            <h2 class="font-serif text-2xl font-bold text-white">Add New Temple Card</h2>
-            <p class="text-xs text-gray-400 mt-1">
-              Provide temple details in the structured format below. Your card will sync to Supabase &amp; display on the live site.
+            <div class="section-label mb-2" id="form-section-label">Sacred Sanctuary Entry</div>
+            <h2 class="font-serif text-2xl font-bold text-white" id="form-main-title">Add New Temple Card</h2>
+            <p class="text-xs text-gray-400 mt-1" id="form-subtitle">
+              Provide temple details in the structured 7-field format below. Your card will sync &amp; display on the live site.
             </p>
           </div>
 
@@ -201,7 +195,7 @@
                 <label class="block text-xs font-bold text-primary uppercase tracking-wider">
                   First : Temple Image (Optional)
                 </label>
-                <span class="text-[11px] text-amber-300/80">Cover Photo (Optional)</span>
+                <span class="text-[11px] text-amber-300/80">Cover Photo</span>
               </div>
               <input type="text" id="temple-input-image"
                      placeholder="Leave blank to use 1st photo from Google Drive Folder / Images list below"
@@ -221,7 +215,7 @@
                      class="input-field">
             </div>
 
-            <!-- THIRD: TEMPLE INSTA LINK (OPTIONAL) -->
+            <!-- THIRD: TEMPLE INSTA LINK -->
             <div>
               <div class="flex items-center justify-between mb-1">
                 <label class="block text-xs font-bold text-primary uppercase tracking-wider">
@@ -303,12 +297,12 @@
             </div>
 
             <!-- Form Actions -->
-            <div class="flex items-center justify-end gap-4 pt-3 border-t border-primary/20">
+            <div class="flex items-center justify-end gap-3 pt-3 border-t border-primary/20 flex-wrap">
               <button type="button" id="reset-temple-form-btn" class="px-5 py-2.5 rounded-full text-xs font-semibold text-gray-400 hover:text-white transition-colors">
                 Reset Form
               </button>
               <button type="submit" class="btn-gold flex items-center gap-2">
-                <span>✨</span> <span>Publish Temple Card</span>
+                <span>✨</span> <span id="submit-btn-text">Publish Temple Card</span>
               </button>
             </div>
           </form>
@@ -401,7 +395,6 @@
         </div>
 
         <div id="temples-admin-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Populated by JavaScript -->
           <div class="col-span-full text-center py-10 text-gray-400 font-serif">
             Loading temple directory...
           </div>
@@ -410,9 +403,7 @@
 
     </section>
 
-    <!-- ════════════════════════════════════
-         TAB 2: FESTIVAL & PUJA MODERATION
-    ════════════════════════════════════ -->
+    <!-- TAB 2: FESTIVAL & PUJA MODERATION -->
     <section id="tab-event-moderation" class="tab-content hidden space-y-6">
       <div class="bg-surface-variant border border-primary/30 rounded-3xl p-6 md:p-8 shadow-2xl">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-primary/20">
@@ -426,7 +417,6 @@
           </button>
         </div>
 
-        <!-- Pending Events List Container -->
         <div id="admin-pending-events-container">
           <div class="text-center py-12 text-gray-400 font-serif">
             Loading moderation queue from Supabase...
@@ -435,9 +425,7 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════════
-         TAB 3: GOOGLE DRIVE & MEDIA HELPER
-    ════════════════════════════════════ -->
+    <!-- TAB 3: GOOGLE DRIVE & MEDIA HELPER -->
     <section id="tab-drive-toolkit" class="tab-content hidden space-y-6">
       <div class="bg-surface-variant border border-primary/30 rounded-3xl p-6 md:p-8 shadow-2xl">
         <div class="mb-6">
@@ -501,19 +489,18 @@
 
   </main>
 
-  <!-- ════════════════════════════════════
-       SCRIPTS
-  ════════════════════════════════════ -->
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase-config.js"></script>
   <script src="js/data.js"></script>
 
   <script>
+    let currentEditingTempleId = null;
+
     document.addEventListener('DOMContentLoaded', async () => {
-      // Ensure Admin Mode flag is active
       localStorage.setItem('gsb_admin_mode', 'true');
 
-      // ── Tab Switcher ────────────────────────────────────────────────────────
+      // Tab Switcher
       const tabBtns = document.querySelectorAll('.tab-btn');
       const tabContents = document.querySelectorAll('.tab-content');
 
@@ -533,7 +520,7 @@
         });
       });
 
-      // ── Form & Live Preview Elements ───────────────────────────────────────
+      // Form & Live Preview Elements
       const form = document.getElementById('admin-add-temple-form');
       const resetBtn = document.getElementById('reset-temple-form-btn');
       
@@ -563,11 +550,9 @@
         const galleryRaw = inputGallery.value.trim();
         const galleryItems = galleryRaw ? galleryRaw.split(/[\n,]+/).map(s => s.trim()).filter(Boolean) : [];
 
-        // Determine cover photo: Explicit Field 1 OR 1st photo from Field 7
         const coverImg = rawImg || (galleryItems.length > 0 ? galleryItems[0] : '');
         prevImg.src = coverImg ? normalizeImageUrl(coverImg) : 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=800&q=80';
 
-        // Badge indicator
         const badgeStatus = document.getElementById('preview-badge-status');
         if (badgeStatus) {
           if (!rawImg && galleryItems.length > 0) {
@@ -577,15 +562,12 @@
           }
         }
 
-        // Name
         const nameVal = inputName.value.trim();
         prevName.textContent = nameVal || 'Temple Name Appears Here';
 
-        // About
         const aboutVal = inputAbout.value.trim();
         prevAbout.textContent = aboutVal || 'About temple info and heritage history will be rendered dynamically right here...';
 
-        // Location
         const locVal = inputLoc.value.trim();
         prevLoc.textContent = locVal ? `📍 ${locVal.replace(/^https?:\/\/[^\s]+/, 'Google Maps Location')}` : '📍 Location will appear here';
         if (locVal.startsWith('http')) {
@@ -596,11 +578,9 @@
           prevMapBtn.href = '#';
         }
 
-        // Contact Info
         const contactVal = inputContact.value.trim();
         prevContact.textContent = contactVal || 'Contact info will appear here';
 
-        // Instagram
         let instaVal = inputInsta.value.trim();
         if (instaVal) {
           if (!instaVal.startsWith('http') && !instaVal.startsWith('@')) {
@@ -618,7 +598,6 @@
           prevInstaBtn.classList.remove('inline-flex');
         }
 
-        // Google Drive Folder
         const driveFolderVal = inputDriveFolder.value.trim();
         if (driveFolderVal && isGoogleDriveFolder(driveFolderVal)) {
           prevDriveBtn.classList.remove('hidden');
@@ -627,24 +606,28 @@
           prevDriveBtn.classList.add('hidden');
         }
 
-        // Gallery count
         const totalImgs = (rawImg ? 1 : 0) + (rawImg ? galleryItems.length : (galleryItems.length > 0 ? galleryItems.length : 1));
         prevGalleryBadge.textContent = `${totalImgs} Photo${totalImgs > 1 ? 's' : ''}`;
       }
 
-      // Attach input listeners for live updates
       [inputImg, inputName, inputInsta, inputAbout, inputLoc, inputContact, inputGallery, inputDriveFolder].forEach(inp => {
         inp.addEventListener('input', updateLivePreview);
       });
 
       if (resetBtn) {
         resetBtn.addEventListener('click', () => {
-          form.reset();
-          updateLivePreview();
+          if (currentEditingTempleId) {
+            if (confirm('Cancel editing and reset form?')) {
+              resetToAddNewMode();
+            }
+          } else {
+            form.reset();
+            updateLivePreview();
+          }
         });
       }
 
-      // ── Form Submission Handler ────────────────────────────────────────────
+      // Form Submission Handler (Supports both Add & Edit)
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -657,245 +640,304 @@
         const galleryRaw = inputGallery.value.trim();
         const driveFolderVal = inputDriveFolder.value.trim();
 
-        if (!nameVal || !aboutVal || !locVal) {
-          alert("Please fill in the required fields (Temple Name, About info, and Google Location).");
-          return;
-        }
-
-        // Normalize Instagram URL
-        if (instaVal && !instaVal.startsWith('http')) {
-          instaVal = instaVal.startsWith('@') ? 'https://instagram.com/' + instaVal.substring(1) : 'https://instagram.com/' + instaVal;
-        }
-
-        // Parse gallery image list
         const galleryItems = galleryRaw ? galleryRaw.split(/[\n,]+/).map(s => s.trim()).filter(Boolean) : [];
-        
-        // Pick primary cover photo (Field 1 OR 1st photo from Field 7)
-        const primaryCover = rawImg || (galleryItems.length > 0 ? galleryItems[0] : '');
-        const allImages = (rawImg ? [rawImg, ...galleryItems] : galleryItems).map(img => normalizeImageUrl(img));
+        const coverImg = rawImg || (galleryItems.length > 0 ? galleryItems[0] : 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=800&q=80');
 
-        // Create ID from name
-        const cleanId = nameVal.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || ('temple-' + Date.now());
+        if (instaVal) {
+          if (!instaVal.startsWith('http') && !instaVal.startsWith('@')) {
+            instaVal = 'https://instagram.com/' + instaVal;
+          } else if (instaVal.startsWith('@')) {
+            instaVal = 'https://instagram.com/' + instaVal.substring(1);
+          }
+        }
 
-        // Construct complete Temple Object
-        const newTempleObj = {
-          id: cleanId,
+        const templeData = {
           name: nameVal,
-          subtitle: "Sacred Saraswat Heritage Shrine",
-          location: locVal.startsWith('http') ? nameVal : locVal,
-          geoLocationUrl: locVal.startsWith('http') ? locVal : `https://maps.google.com/?q=${encodeURIComponent(nameVal + ' ' + locVal)}`,
-          instaLink: instaVal || null,
-          contactInfo: contactVal || null,
-          description: aboutVal,
-          image: normalizeImageUrl(primaryCover),
-          images: allImages.length > 0 ? allImages : [normalizeImageUrl(primaryCover)],
-          driveFolderUrl: driveFolderVal || null,
-          established: "Ancient Heritage",
-          deity: "Lord Supreme",
-          architecture: "Saraswat Dravidian Fusion",
-          restorationYear: "Preserved Sanctuary",
-          created_at: new Date().toISOString()
+          image: coverImg,
+          insta: instaVal,
+          about: aboutVal,
+          location: locVal,
+          contact: contactVal,
+          gallery: galleryItems,
+          drive_folder: driveFolderVal,
+          updated_at: new Date().toISOString()
         };
 
         try {
-          await saveCustomTemple(newTempleObj);
-          alert(`✅ Temple Card for "${nameVal}" has been saved successfully!`);
-          form.reset();
-          updateLivePreview();
-          await renderAdminTemples();
+          if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            if (currentEditingTempleId) {
+              const { error } = await supabaseClient.from('temples').update(templeData).eq('id', currentEditingTempleId);
+              if (error) throw error;
+            } else {
+              templeData.created_at = new Date().toISOString();
+              const { error } = await supabaseClient.from('temples').insert([templeData]);
+              if (error) throw error;
+            }
+          } else {
+            let localTemples = JSON.parse(localStorage.getItem('gsb_temples') || '[]');
+            if (currentEditingTempleId) {
+              const index = localTemples.findIndex(t => (t.id || localTemples.indexOf(t)) == currentEditingTempleId);
+              if (index !== -1) {
+                localTemples[index] = { ...localTemples[index], ...templeData };
+              }
+            } else {
+              templeData.created_at = new Date().toISOString();
+              localTemples.unshift(templeData);
+            }
+            localStorage.setItem('gsb_temples', JSON.stringify(localTemples));
+          }
+
+          alert(currentEditingTempleId ? '✨ Temple card successfully updated!' : '✨ Temple card successfully published!');
+          resetToAddNewMode();
+          loadAdminTemples();
         } catch (err) {
-          console.error("Error saving temple:", err);
-          alert("Notice: Temple saved to local storage! " + (err.message || ''));
+          console.error(err);
+          alert('Error saving temple: ' + err.message);
         }
       });
 
-      // ── Render Temples in Admin Directory ──────────────────────────────────
-      async function renderAdminTemples() {
-        const container = document.getElementById('temples-admin-grid');
-        const countElem = document.getElementById('total-temples-count');
-        if (!container) return;
+      // Load Admin Temples Table/Grid
+      window.loadAdminTemples = async function() {
+        const grid = document.getElementById('temples-admin-grid');
+        const countEl = document.getElementById('total-temples-count');
+        if (!grid) return;
 
-        const allTemples = await getAllTemples();
-        if (countElem) countElem.textContent = `${allTemples.length} Temple(s) Registered`;
+        let temples = [];
+        try {
+          if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            const { data, error } = await supabaseClient.from('temples').select('*').order('created_at', { ascending: false });
+            if (!error && data) temples = data;
+          }
+          if (temples.length === 0 && typeof GSB_TEMPLES !== 'undefined') {
+            temples = GSB_TEMPLES;
+          }
+        } catch (e) {
+          if (typeof GSB_TEMPLES !== 'undefined') temples = GSB_TEMPLES;
+        }
 
-        container.innerHTML = allTemples.map(t => {
-          const mainPhoto = t.image || (t.images && t.images[0]) || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80';
-          const isCustom = Boolean(t.isUserSubmitted);
+        if (countEl) countEl.textContent = `${temples.length} Sanctuaries Registered`;
 
-          return `
-            <div class="gold-card flex flex-col justify-between overflow-hidden bg-surface">
-              <div>
-                <div class="relative h-40 bg-surface-raised overflow-hidden">
-                  <img src="${normalizeImageUrl(mainPhoto)}" alt="${t.name}" class="w-full h-full object-cover">
-                  <div class="absolute top-2 left-2 bg-black/80 border border-primary/40 px-2 py-0.5 rounded-full text-[10px] text-primary">
-                    ${isCustom ? '🌟 Custom Added' : '🏛️ System Temple'}
-                  </div>
-                  ${t.instaLink ? `
-                    <a href="${t.instaLink}" target="_blank" class="absolute top-2 right-2 bg-pink-500/80 text-white p-1 rounded-full text-[10px] flex items-center justify-center w-6 h-6 hover:scale-110 transition-transform" title="Instagram">
-                      📷
-                    </a>
-                  ` : ''}
-                </div>
+        if (temples.length === 0) {
+          grid.innerHTML = '<div class="col-span-full text-center py-10 text-gray-400 font-serif">No temples found in directory.</div>';
+          return;
+        }
 
-                <div class="p-4 space-y-2">
-                  <h4 class="font-serif text-base font-bold text-white line-clamp-1">${t.name}</h4>
-                  <p class="text-xs text-gray-400 line-clamp-2">${t.description}</p>
-                  
-                  <div class="text-[11px] text-primary/80 font-mono line-clamp-1">
-                    📍 ${t.location}
-                  </div>
-
-                  ${t.contactInfo ? `
-                    <div class="text-[10px] text-gray-400 bg-background/60 p-2 rounded-lg border border-primary/10 line-clamp-1">
-                      📞 ${t.contactInfo}
-                    </div>
-                  ` : ''}
-
-                  ${t.driveFolderUrl ? `
-                    <a href="${t.driveFolderUrl}" target="_blank" class="inline-flex items-center gap-1 text-[10px] text-amber-300 font-semibold hover:underline">
-                      📁 Google Drive Album Linked
-                    </a>
-                  ` : ''}
-                </div>
-              </div>
-
-              <div class="p-4 pt-0 border-t border-primary/10 flex items-center justify-between gap-2 mt-3">
-                <a href="temple-detail.html?id=${t.id}" target="_blank" class="text-xs text-primary font-bold hover:underline">
-                  View Detail Page →
-                </a>
-
-                ${isCustom ? `
-                  <button onclick="handleDeleteTemple('${t.id}')" class="px-3 py-1 bg-red-500/20 text-red-300 border border-red-500/40 rounded-lg text-xs hover:bg-red-500 hover:text-white transition-all">
-                    Delete
-                  </button>
-                ` : `
-                  <span class="text-[10px] text-gray-500">Built-in</span>
-                `}
+        grid.innerHTML = temples.map((t, idx) => `
+          <div class="gold-card bg-surface flex flex-col overflow-hidden">
+            <div class="relative h-40 bg-surface-raised">
+              <img src="${normalizeImageUrl(t.image || t.coverImage || '')}" alt="${t.name}" class="w-full h-full object-cover">
+              <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-2.5 py-1 rounded-full text-[10px] font-mono text-primary">
+                Temple #${idx + 1}
               </div>
             </div>
-          `;
-        }).join('');
-      }
-
-      window.handleDeleteTemple = async (id) => {
-        if (!confirm("Are you sure you want to delete this temple card?")) return;
-        await deleteCustomTemple(id);
-        alert("Temple deleted.");
-        await renderAdminTemples();
+            <div class="p-4 flex-1 space-y-2">
+              <h4 class="font-serif text-base font-bold text-white">${t.name}</h4>
+              <p class="text-xs text-gray-400 line-clamp-2">${t.about || t.description || ''}</p>
+              <div class="text-[11px] text-primary/80 font-mono truncate">📍 ${t.location || ''}</div>
+            </div>
+            <div class="p-4 pt-0 flex items-center justify-between gap-2 border-t border-primary/10 mt-2">
+              <button onclick="editTemple('${t.id || idx}')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-black transition-all">Edit</button>
+              <button onclick="deleteTemple('${t.id || idx}')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-500/10 text-red-400 border border-red-500/30 hover:bg-red-500 hover:text-white transition-all">Delete</button>
+            </div>
+          </div>
+        `).join('');
       };
 
-      // ── Event Moderation Queue ─────────────────────────────────────────────
+      // Edit Temple Handler (Populates the 7-field form)
+      window.editTemple = async function(id) {
+        let temple = null;
+        try {
+          if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            const { data, error } = await supabaseClient.from('temples').select('*').eq('id', id).single();
+            if (!error && data) temple = data;
+          }
+          if (!temple && typeof GSB_TEMPLES !== 'undefined') {
+            temple = GSB_TEMPLES.find((t, idx) => (t.id || idx) == id);
+          }
+        } catch (e) {
+          console.error(e);
+        }
+
+        if (!temple) {
+          alert('Temple not found for editing.');
+          return;
+        }
+
+        currentEditingTempleId = id;
+
+        // Populate fields matching the exact 7-field specification
+        inputImg.value = temple.image || '';
+        inputName.value = temple.name || '';
+        inputInsta.value = temple.insta || '';
+        inputAbout.value = temple.about || temple.description || '';
+        inputLoc.value = temple.location || '';
+        inputContact.value = temple.contact || '';
+        
+        if (Array.isArray(temple.gallery)) {
+          inputGallery.value = temple.gallery.join('\n');
+        } else {
+          inputGallery.value = temple.gallery || '';
+        }
+        inputDriveFolder.value = temple.drive_folder || temple.driveFolder || '';
+
+        // Update form titles for Edit mode
+        document.getElementById('form-section-label').textContent = 'Editing Sacred Entry';
+        document.getElementById('form-main-title').textContent = `Edit: ${temple.name}`;
+        document.getElementById('form-subtitle').textContent = 'Modify temple details in the structured format below and click update.';
+        document.getElementById('submit-btn-text').textContent = 'Update Temple Card';
+
+        // Add Cancel Edit button if not present
+        let cancelEditBtn = document.getElementById('cancel-edit-btn');
+        if (!cancelEditBtn) {
+          const resetFormBtn = document.getElementById('reset-temple-form-btn');
+          cancelEditBtn = document.createElement('button');
+          cancelEditBtn.type = 'button';
+          cancelEditBtn.id = 'cancel-edit-btn';
+          cancelEditBtn.className = 'px-4 py-2.5 rounded-full text-xs font-semibold text-amber-400 hover:text-white transition-colors bg-amber-500/10 border border-amber-500/30';
+          cancelEditBtn.textContent = 'Cancel Edit';
+          cancelEditBtn.onclick = resetToAddNewMode;
+          resetFormBtn.parentNode.insertBefore(cancelEditBtn, resetFormBtn);
+        }
+
+        document.getElementById('admin-add-temple-form').scrollIntoView({ behavior: 'smooth' });
+        updateLivePreview();
+      };
+
+      function resetToAddNewMode() {
+        currentEditingTempleId = null;
+        form.reset();
+        document.getElementById('form-section-label').textContent = 'Sacred Sanctuary Entry';
+        document.getElementById('form-main-title').textContent = 'Add New Temple Card';
+        document.getElementById('form-subtitle').textContent = 'Provide temple details in the structured 7-field format below. Your card will sync & display on the live site.';
+        document.getElementById('submit-btn-text').textContent = 'Publish Temple Card';
+        
+        const cancelEditBtn = document.getElementById('cancel-edit-btn');
+        if (cancelEditBtn) cancelEditBtn.remove();
+        updateLivePreview();
+      }
+
+      // Load Moderation Events
       async function loadModerationEvents() {
         const container = document.getElementById('admin-pending-events-container');
         if (!container) return;
 
-        let pending = [];
-        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
-          try {
-            const { data, error } = await supabaseClient
-              .from('events')
-              .select('*')
-              .eq('is_approved', false)
-              .order('created_at', { ascending: false });
-
-            if (!error && data) pending = data;
-          } catch (e) {
-            console.warn("Error fetching moderation events:", e);
+        let events = [];
+        try {
+          if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+            const { data, error } = await supabaseClient.from('events').select('*').eq('status', 'pending').order('created_at', { ascending: false });
+            if (!error && data) events = data;
           }
+        } catch (e) {
+          console.error(e);
         }
 
-        if (pending.length === 0) {
+        if (events.length === 0) {
           container.innerHTML = `
-            <div class="text-center py-16 bg-surface border border-primary/20 rounded-2xl">
-              <span class="text-4xl mb-3 block">✨</span>
-              <h4 class="text-lg font-serif text-primary font-bold">All Clear!</h4>
-              <p class="text-xs text-gray-400 mt-1">No pending festival or puja submissions awaiting review.</p>
+            <div class="text-center py-12 text-gray-400 font-serif space-y-2">
+              <p class="text-base text-gray-300">🎉 No pending festival or puja submissions in the queue!</p>
+              <p class="text-xs">All devotee contributions have been reviewed and approved.</p>
             </div>
           `;
           return;
         }
 
-        container.innerHTML = `
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            ${pending.map(p => `
-              <div class="bg-surface border border-amber-500/40 rounded-2xl p-5 flex flex-col justify-between space-y-4">
-                <div>
-                  <div class="flex items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-mono text-amber-400">📅 ${p.date} • ${p.month}</span>
-                    <span class="text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full font-bold">PENDING REVIEW</span>
-                  </div>
-                  <h4 class="font-serif font-bold text-white text-lg">${p.title}</h4>
-                  <p class="text-xs text-gray-300 mt-2 leading-relaxed">${p.description}</p>
-                  <span class="text-xs text-gray-400 block mt-2">📍 ${p.location}</span>
-                </div>
-
-                <div class="flex items-center justify-end gap-3 pt-3 border-t border-primary/15">
-                  <button onclick="rejectEvent('${p.id}')" class="px-4 py-2 rounded-xl text-xs font-semibold text-red-300 bg-red-500/20 border border-red-500/40 hover:bg-red-500 hover:text-white transition-all">
-                    🗑️ Reject &amp; Delete
-                  </button>
-                  <button onclick="approveEvent('${p.id}')" class="px-5 py-2 rounded-xl text-xs font-bold text-black bg-primary hover:bg-primary-light transition-all shadow-lg">
-                    ✅ Approve &amp; Publish
-                  </button>
-                </div>
+        container.innerHTML = events.map(ev => `
+          <div class="bg-surface border border-primary/30 rounded-2xl p-5 mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded font-mono">${ev.category || 'Festival'}</span>
+                <span class="text-xs text-gray-400">Submitted by: ${ev.submitter_name || 'Anonymous Devotee'}</span>
               </div>
-            `).join('')}
+              <h4 class="font-serif text-lg font-bold text-white">${ev.title}</h4>
+              <p class="text-xs text-gray-300">${ev.description || ''}</p>
+              <div class="text-[11px] text-primary">📅 Date: ${ev.date || 'TBD'} | 🏛️ Temple: ${ev.temple || 'General'}</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="approveEvent('${ev.id}')" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500 hover:text-black transition-all">Approve</button>
+              <button onclick="rejectEvent('${ev.id}')" class="px-4 py-2 rounded-xl text-xs font-bold bg-red-500/20 text-red-300 border border-red-500/40 hover:bg-red-500 hover:text-white transition-all">Reject</button>
+            </div>
           </div>
-        `;
+        `).join('');
       }
 
-      window.approveEvent = async (id) => {
-        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
-          await supabaseClient.from('events').update({ is_approved: true }).eq('id', id);
-          alert("✅ Event approved and published live!");
-          loadModerationEvents();
-        }
-      };
+      // Drive Converter Tool
+      const testDriveBtn = document.getElementById('test-drive-convert-btn');
+      const driveConverterInput = document.getElementById('drive-converter-input');
+      const driveConvertResult = document.getElementById('drive-convert-result');
+      const driveConvertedUrlOutput = document.getElementById('drive-converted-url-output');
+      const driveConvertedPreviewImg = document.getElementById('drive-converted-preview-img');
 
-      window.rejectEvent = async (id) => {
-        if (!confirm("Are you sure you want to delete this submission?")) return;
-        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
-          await supabaseClient.from('events').delete().eq('id', id);
-          alert("🗑️ Event deleted.");
-          loadModerationEvents();
-        }
-      };
-
-      const refreshEventsBtn = document.getElementById('refresh-events-btn');
-      if (refreshEventsBtn) refreshEventsBtn.addEventListener('click', loadModerationEvents);
-
-      // ── Google Drive Converter Tool ────────────────────────────────────────
-      const convertBtn = document.getElementById('test-drive-convert-btn');
-      const driveInput = document.getElementById('drive-converter-input');
-      const driveResult = document.getElementById('drive-convert-result');
-      const driveOutput = document.getElementById('drive-converted-url-output');
-      const drivePrevImg = document.getElementById('drive-converted-preview-img');
-
-      if (convertBtn && driveInput) {
-        convertBtn.addEventListener('click', () => {
-          const val = driveInput.value.trim();
+      if (testDriveBtn) {
+        testDriveBtn.addEventListener('click', () => {
+          const val = driveConverterInput.value.trim();
           if (!val) {
-            alert("Please paste a Google Drive file link!");
+            alert('Please paste a Google Drive file link.');
             return;
           }
-          const normalized = normalizeImageUrl(val);
-          driveOutput.value = normalized;
-          drivePrevImg.src = normalized;
-          driveResult.classList.remove('hidden');
+          const directUrl = normalizeImageUrl(val);
+          driveConvertedUrlOutput.value = directUrl;
+          driveConvertedPreviewImg.src = directUrl;
+          driveConvertResult.classList.remove('hidden');
         });
       }
 
-      // Logout handler
+      // Logout Handler
       const logoutBtn = document.getElementById('admin-logout-btn');
       if (logoutBtn) {
         logoutBtn.addEventListener('click', () => {
           localStorage.removeItem('gsb_admin_mode');
+          alert('Logged out from Admin Portal.');
           window.location.href = 'index.html';
         });
       }
 
-      // Initial Load
-      await renderAdminTemples();
+      const refreshEventsBtn = document.getElementById('refresh-events-btn');
+      if (refreshEventsBtn) {
+        refreshEventsBtn.addEventListener('click', loadModerationEvents);
+      }
+
+      updateLivePreview();
+      loadAdminTemples();
     });
+
+    // Global helper actions
+    window.deleteTemple = async function(id) {
+      if (!confirm('Are you sure you want to delete this temple card?')) return;
+      try {
+        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+          const { error } = await supabaseClient.from('temples').delete().eq('id', id);
+          if (error) throw error;
+        }
+        alert('Temple deleted successfully.');
+        location.reload();
+      } catch (err) {
+        alert('Error deleting temple: ' + err.message);
+      }
+    };
+
+    window.approveEvent = async function(id) {
+      try {
+        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+          await supabaseClient.from('events').update({ status: 'approved' }).eq('id', id);
+        }
+        alert('Event approved and published to calendar!');
+        location.reload();
+      } catch (e) {
+        alert('Error approving event: ' + e.message);
+      }
+    };
+
+    window.rejectEvent = async function(id) {
+      try {
+        if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+          await supabaseClient.from('events').update({ status: 'rejected' }).eq('id', id);
+        }
+        alert('Event rejected.');
+        location.reload();
+      } catch (e) {
+        alert('Error rejecting event: ' + e.message);
+      }
+    };
   </script>
 </body>
 </html>
