@@ -254,26 +254,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     eventsGridContainer.innerHTML = filtered.map(ev => `
-      <div class="bg-surface-variant/60 border border-primary/20 rounded-2xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 shadow-lg group flex flex-col justify-between">
+      <div class="${ev.isUserSubmitted ? 'bg-surface-variant/80 border-2 border-amber-500/60 shadow-[0_0_20px_rgba(245,158,11,0.25)]' : 'bg-surface-variant/60 border border-primary/20'} rounded-2xl overflow-hidden hover:border-primary/60 transition-all duration-300 hover:-translate-y-1 shadow-lg group flex flex-col justify-between relative">
         <div>
           <div class="relative h-48 overflow-hidden">
             <img src="${ev.image || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80'}" onerror="this.onerror=null; this.src='${ev.fallbackImage || ev.image || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=600&q=80'}'" alt="${ev.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
             <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
-            <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-3 py-1 rounded-full text-[11px] font-mono text-primary flex items-center gap-1.5">
+            <div class="absolute top-3 left-3 bg-black/80 border border-primary/40 px-3 py-1 rounded-full text-[11px] font-mono text-primary flex items-center gap-1.5 shadow-md">
               <span>📅</span> <span>${ev.date}</span>
             </div>
-            <div class="absolute top-3 right-3 bg-primary/90 text-black px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase">
+            <div class="absolute top-3 right-3 bg-primary/90 text-black px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase shadow-md">
               ${ev.month}
             </div>
             ${ev.isUserSubmitted ? `
-              <div class="absolute bottom-3 left-3 bg-amber-500/90 text-black font-bold px-2 py-0.5 rounded text-[9px] uppercase tracking-wider">
-                Community Submission
+              <div class="absolute bottom-3 left-3 bg-gradient-to-r from-amber-500 to-amber-600 text-black font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wider shadow-lg flex items-center gap-1">
+                <span>🌟</span> <span>Community Submission</span>
               </div>
             ` : ''}
           </div>
           <div class="p-6">
-            <div class="text-[11px] font-serif tracking-widest text-primary uppercase mb-1 font-semibold">
-              ${ev.tithi || ''} &bull; ${ev.location}
+            <div class="flex items-center justify-between gap-2 mb-1">
+              <div class="text-[11px] font-serif tracking-widest text-primary uppercase font-semibold">
+                ${ev.tithi || ''} &bull; ${ev.location}
+              </div>
+              ${ev.isUserSubmitted ? `<span class="text-[9px] text-amber-400 font-mono bg-amber-500/10 border border-amber-500/30 px-2 py-0.5 rounded-full">Devotee Contributed</span>` : ''}
             </div>
             <h3 class="font-serif text-lg text-white font-bold mb-2 group-hover:text-primary transition-colors">
               ${ev.title}
@@ -283,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </p>
           </div>
         </div>
-        <div class="px-6 pb-6 pt-0">
+        <div class="px-6 pb-6 pt-0 flex items-center justify-between">
           <a href="ritual-detail.html?event=${ev.id || ''}" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
             View Ritual Specifications &amp; Guides →
           </a>
