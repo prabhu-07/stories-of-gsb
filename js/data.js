@@ -46,13 +46,57 @@ function cloudImg(publicId, opts = {}) {
   return `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/f_${f},q_${q},w_${w}${extra}/${publicId}`;
 }
 
+// ── Image Normalizer (Cloudinary, Google Drive, Direct URLs) ───────
+/**
+ * Converts any input into a direct renderable image URL.
+ * Handles:
+ * - Google Drive shared image links (e.g. drive.google.com/file/d/ID/view)
+ * - Cloudinary public IDs (e.g. "kochitirumaladevesowm1")
+ * - Direct HTTP/HTTPS URLs (e.g. Unsplash, Imgur, Cloudinary CDN)
+ */
+function normalizeImageUrl(src) {
+  if (!src || typeof src !== 'string') return "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80";
+  src = src.trim();
+  if (!src) return "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80";
+
+  // Google Drive File Link Handler
+  const driveFileRegex = /drive\.google\.com\/(?:file\/d\/|open\?id=)([a-zA-Z0-9_-]+)/i;
+  const driveMatch = src.match(driveFileRegex);
+  if (driveMatch && driveMatch[1]) {
+    const fileId = driveMatch[1];
+    return `https://lh3.googleusercontent.com/d/${fileId}`;
+  }
+
+  // Direct Web URL
+  if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('data:') || src.startsWith('assets/')) {
+    return src;
+  }
+
+  // Cloudinary Public ID fallback
+  return cloudImg(src);
+}
+
+/**
+ * Checks if a string is a Google Drive folder link
+ */
+function isGoogleDriveFolder(url) {
+  if (!url || typeof url !== 'string') return false;
+  return /drive\.google\.com\/(?:drive\/folders\/|drive\/u\/\d+\/folders\/|open\?id=)/i.test(url);
+}
+
 // Thumbnail helper (small cards / event cards)
 function cloudThumb(publicId) {
+  if (publicId && (publicId.startsWith('http') || publicId.includes('drive.google.com'))) {
+    return normalizeImageUrl(publicId);
+  }
   return cloudImg(publicId, { width: 600, quality: "auto" });
 }
 
 // Hero-size helper (large banners)
 function cloudHero(publicId) {
+  if (publicId && (publicId.startsWith('http') || publicId.includes('drive.google.com'))) {
+    return normalizeImageUrl(publicId);
+  }
   return cloudImg(publicId, { width: 1400, quality: "90" });
 }
 
@@ -380,3 +424,156 @@ const YEAR_EVENTS_DATA = [
     description: "Special Naga Devata pujas and continuous 18-chapter Bhagavad Geeta chanting across all GSB institutions."
   }
 ];
+
+// ══════════════════════════════════════════════════════════════════
+//  DYNAMIC TEMPLE STORAGE & RETRIEVAL HELPERS (SUPABASE + LOCAL)
+// ══════════════════════════════════════════════════════════════════
+
+/**
+ * Get all custom temples saved in localStorage
+ */
+function getLocalCustomTemples() {
+  try {
+    const raw = localStorage.getItem('user_submitted_temples');
+    return raw ? JSON.parse(raw) : [];
+  } catch (e) {
+    console.warn("Could not read local temples:", e);
+    return [];
+  }
+}
+
+/**
+ * Save custom temples list to localStorage
+ */
+function saveLocalCustomTemples(templesList) {
+  try {
+    localStorage.setItem('user_submitted_temples', JSON.stringify(templesList));
+  } catch (e) {
+    console.warn("Could not save local temples:", e);
+  }
+}
+
+/**
+ * Fetches all temples combining built-in TEMPLES_DATA + Supabase + LocalStorage
+ */
+async function getAllTemples() {
+  const localList = getLocalCustomTemples();
+  let supabaseTemples = [];
+
+  if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+    try {
+      const { data, error } = await supabaseClient
+        .from('temples')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (!error && data) {
+        supabaseTemples = data.map(item => ({
+          ...item,
+          isUserSubmitted: true,
+          images: Array.isArray(item.images) ? item.images : (item.images ? [item.images] : []),
+          image: item.image || (item.images && item.images[0]) || ''
+        }));
+      }
+    } catch (err) {
+      console.warn("Error fetching Supabase temples:", err);
+    }
+  }
+
+  // Deduplicate by ID
+  const map = new Map();
+  // 1. Static temples first
+  TEMPLES_DATA.forEach(t => map.set(t.id, t));
+  // 2. Supabase temples
+  supabaseTemples.forEach(t => map.set(t.id, t));
+  // 3. LocalStorage custom temples
+  localList.forEach(t => map.set(t.id, t));
+
+  return Array.from(map.values());
+}
+
+/**
+ * Saves a new temple or updates an existing one
+ */
+async function saveCustomTemple(temple) {
+  if (!temple.id) {
+    temple.id = 'temple-' + Date.now();
+  }
+  temple.isUserSubmitted = true;
+  temple.created_at = temple.created_at || new Date().toISOString();
+
+  // Ensure images array
+  if (!Array.isArray(temple.images)) {
+    temple.images = temple.images ? [temple.images] : [];
+  }
+
+  // If primary image is empty/optional, automatically use 1st image from folder / gallery
+  if (!temple.image || temple.image.trim() === '') {
+    if (temple.images.length > 0 && temple.images[0]) {
+      temple.image = normalizeImageUrl(temple.images[0]);
+    } else {
+      temple.image = "https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=1200&q=80";
+    }
+  } else if (!temple.images.includes(temple.image)) {
+    temple.images.unshift(temple.image);
+  }
+
+  // 1. Save to LocalStorage
+  const localList = getLocalCustomTemples();
+  const existingIdx = localList.findIndex(t => t.id === temple.id);
+  if (existingIdx >= 0) {
+    localList[existingIdx] = temple;
+  } else {
+    localList.unshift(temple);
+  }
+  saveLocalCustomTemples(localList);
+
+  // 2. Save to Supabase (if table exists)
+  if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+    try {
+      const { data, error } = await supabaseClient
+        .from('temples')
+        .upsert([temple]);
+      
+      if (error) {
+        console.warn("Supabase temple upsert warning (stored locally):", error.message);
+      } else {
+        console.log("⚡ Temple synced to Supabase successfully!", data);
+      }
+    } catch (e) {
+      console.warn("Supabase upsert exception:", e);
+    }
+  }
+
+  return temple;
+}
+
+/**
+ * Delete a temple
+ */
+async function deleteCustomTemple(templeId) {
+  // 1. Remove from LocalStorage
+  const localList = getLocalCustomTemples().filter(t => t.id !== templeId);
+  saveLocalCustomTemples(localList);
+
+  // 2. Remove from Supabase
+  if (typeof supabaseClient !== 'undefined' && supabaseClient) {
+    try {
+      await supabaseClient
+        .from('temples')
+        .delete()
+        .eq('id', templeId);
+    } catch (e) {
+      console.warn("Supabase temple delete exception:", e);
+    }
+  }
+  return true;
+}
+
+/**
+ * Get a single temple by ID
+ */
+async function getTempleById(id) {
+  const all = await getAllTemples();
+  return all.find(t => t.id === id) || all[0];
+}

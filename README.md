@@ -177,6 +177,11 @@ stories-of-gsb/
 |---------|-------------|
 | 🏛️ Temple Cards | Each temple has images, description, deity info, and a Google Maps geo-location link |
 | 📅 12-Month Calendar | Filter festivals by month (Jan–Dec), category, or search |
+| 🏛️ Add Temple Card | 7-field form in Admin Portal (`admin.html`) & on-site modal to add shrines |
+| 📁 Google Drive Integration | Auto-converts Google Drive file links & links complete Google Drive photo albums |
+| 📷 Instagram Integration | One-click Instagram profile links on temple cards and detail pages |
+| 📞 Contact Information | Displays temple office phone, email, and visitor guidelines |
+| 📅 12-Month Calendar | Filter festivals by month (Jan–Dec), category, or search |
 | 🔄 Restoration Toggle | Compare vintage vs. restored temple states |
 | ✨ Gold Shimmer UI | Animated gold gradient text, glowing cards, scroll-reveal animations |
 | 📱 Responsive | Works on desktop, tablet, and mobile |
@@ -185,27 +190,48 @@ stories-of-gsb/
 
 ---
 
-## 🛡️ Admin Moderation & Event Approval Guide
+## 🛡️ Admin Portal & Temple Card Management Guide
 
-When visitors submit events through the **"➕ Submit Event"** modal on the website, their submissions are saved in Supabase with `is_approved = false`. **Unapproved submissions are NOT visible to public visitors.**
+### 1. Opening the Admin Portal
+- Navigate to **[`admin.html`](admin.html)** directly in your browser:
+  👉 **`https://prabhu-07.github.io/stories-of-gsb/admin.html`**
+- Or click the **"🛡️ Admin Portal"** / **"➕ Add Temple Card"** buttons on the homepage or open with **`?admin=true`**.
 
-### How to Access Admin Mode & Moderate Submissions:
+---
 
-1. Open your website with **`?admin=true`** added to the URL:
-   👉 **`https://prabhu-07.github.io/stories-of-gsb/?admin=true`**
+### 2. How to Add a Temple Card (7-Field Format):
 
-2. The **🛡️ Admin Moderation Panel** banner will automatically appear above the 12-Month Calendar section.
+In **`admin.html`**, fill in the 7 fields:
 
-3. You will see a list of all **Pending Submissions**:
-   - Click **`✅ Approve & Publish Live`** → Sets `is_approved = true` so the event is published publicly for everyone in the world.
-   - Click **`🗑️ Reject & Delete`** → Deletes the event submission from Supabase.
+1. **First : Temple Image (Optional)**
+   - *Optional:* If left blank, the **1st image from your Google Drive folder or Images list** (Field 7) will automatically be used as the temple card cover photo.
+   - Or enter a custom Cloudinary Public ID / direct image URL.
+2. **Second : Temple Name**
+   - e.g. `Shri Mangeshi Temple, Priol`
+3. **Third : Temple Insta Link (Optional)**
+   - e.g. `https://instagram.com/shrimangeshi_official` or `@shrimangeshi`
+4. **Fourth : About Temple info**
+   - Detail the spiritual history, presiding deity (Kuladevata), architecture, and cultural significance.
+5. **Fifth : Google Location**
+   - Google Maps link (e.g. `https://maps.google.com/?q=...`) or location name (`Priol, Ponda, Goa`).
+6. **Sixth : Contact info of temple**
+   - Phone numbers, office email, poojari contact, and timings.
+7. **Seventh : Images & Google Drive Folder**
+   - **Additional Gallery Images:** Comma-separated list of image URLs, Cloudinary IDs, or Google Drive photo links.
+   - **Google Drive Folder Link:** Paste a Google Drive shared folder link (`https://drive.google.com/drive/folders/...`) to give devotees a direct button to browse the high-resolution photo archive album!
 
-4. To exit Admin Mode, click **"Exit Admin Mode"** in the top right of the moderation panel banner.
+---
+
+### 3. Festival & Puja Moderation Queue:
+- View all pending community submissions in **`admin.html`** or on the calendar banner in **`index.html?admin=true`**.
+- Click **`✅ Approve & Publish Live`** to publish the event live to the global community calendar.
+- Click **`🗑️ Reject & Delete`** to discard inappropriate entries.
 
 ---
 
 ## 🔗 Quick Links
 
+- **Admin Portal:** [`admin.html`](admin.html)
 - **Cloudinary Dashboard:** [https://console.cloudinary.com/pm/a1g89w9n/media-explorer](https://console.cloudinary.com/pm/a1g89w9n/media-explorer)
 - **GitHub Repository:** [https://github.com/prabhu-07/stories-of-gsb](https://github.com/prabhu-07/stories-of-gsb)
 - **Data File (edit temples/events):** [`js/data.js`](js/data.js)

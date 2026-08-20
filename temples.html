@@ -297,16 +297,24 @@
     });
 </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
     <script src="js/data.js"></script>
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        // Make every temple card & image clickable
-        const cards = document.querySelectorAll('article, .grid > div, [class*="card"]');
-        const templeIds = ['mangeshi', 'shantadurga', 'venkataramana', 'kashi-math', 'gokarna-partagali', 'ernakulam-td'];
+      document.addEventListener('DOMContentLoaded', async () => {
+        // Fetch all temples including custom ones
+        const allTemples = (typeof getAllTemples === 'function') ? await getAllTemples() : (typeof TEMPLES_DATA !== 'undefined' ? TEMPLES_DATA : []);
         
+        // Make every temple card clickable
+        const cards = document.querySelectorAll('.gallery-item');
         cards.forEach((card, index) => {
-          const tId = templeIds[index % templeIds.length];
+          const t = allTemples[index % allTemples.length];
+          const tId = t ? t.id : 'mangeshi';
           card.style.cursor = 'pointer';
+          const link = card.querySelector('a');
+          if (link) {
+            link.href = `temple-detail.html?id=${tId}`;
+          }
           card.addEventListener('click', (e) => {
             if (!e.target.closest('a')) {
               window.location.href = `temple-detail.html?id=${tId}`;
@@ -315,5 +323,4 @@
         });
       });
     </script>
-    
 </body></html>

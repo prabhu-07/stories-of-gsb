@@ -329,20 +329,39 @@
     <section id="temples" class="py-24 border-b border-primary/15">
       <div class="max-w-7xl mx-auto px-6">
 
-        <!-- Section Header -->
-        <div class="text-center mb-16 reveal">
-          <div class="section-label mx-auto mb-5">Architectural Sanctums</div>
-          <h2 class="font-serif text-white font-bold mb-4" style="font-size:clamp(2rem,4vw,3.5rem);">
-            Historic GSB Temples &amp; Mathas
-          </h2>
-          <div class="divider-gold mb-5"></div>
-          <p class="text-gray-400 font-serif max-w-xl mx-auto text-sm leading-relaxed">
-            Click any temple card to view restoration details, deity specifications,<br>
-            and open the direct geo-location link in Google Maps.
-          </p>
+        <!-- Header + Action Bar (Side by Side matching Events layout) -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12 reveal">
+          <div>
+            <div class="section-label mb-5">Architectural Sanctums</div>
+            <h2 class="font-serif text-white font-bold mb-3" style="font-size:clamp(1.8rem,3.5vw,3rem);">
+              Historic GSB Temples &amp; Mathas
+            </h2>
+            <div class="divider-gold" style="margin:0 0 14px 0;"></div>
+            <p class="text-gray-400 font-serif text-sm max-w-xl leading-relaxed">
+              Click any temple card to view restoration details, deity specifications,<br class="hidden sm:inline">
+              and open the direct geo-location link in Google Maps.
+            </p>
+          </div>
+
+          <!-- Temple Search & Submit Action Bar (Side by Side Button) -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto flex-shrink-0">
+            <div class="relative w-full sm:w-64">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm">🔍</span>
+              <input type="text" id="temple-search-input"
+                     placeholder="Search temples, deities, locations..."
+                     class="w-full rounded-full pl-11 pr-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none transition-all font-sans"
+                     style="background:#161322; border:1px solid #D4AF3740;">
+            </div>
+            <button id="open-add-temple-modal" class="btn-gold flex items-center justify-center gap-2 whitespace-nowrap py-3 px-6 shadow-xl">
+              <span>➕</span> <span>Submit Temple</span>
+            </button>
+            <a href="admin.html" class="btn-outline flex items-center justify-center gap-1.5 whitespace-nowrap py-3 px-5 text-xs">
+              <span>🛡️</span> <span>Admin</span>
+            </a>
+          </div>
         </div>
 
-        <!-- Temples Cards Grid (Populated by JS from TEMPLES_DATA in js/data.js) -->
+        <!-- Temples Cards Grid (Populated by JS from TEMPLES_DATA + Custom Temples) -->
         <div id="unified-temples-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Loading state -->
           <div class="col-span-full flex justify-center py-12">
@@ -642,64 +661,135 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    /* ── Render Temples Grid ───────────────────────────────── */
-    document.addEventListener('DOMContentLoaded', () => {
+    /* ── Render Temples Grid (Loads Default + Custom Temples) ────────── */
+    async function renderTemplesGrid(searchQuery = '') {
       const grid = document.getElementById('unified-temples-grid');
-      if (grid && typeof TEMPLES_DATA !== 'undefined') {
-        grid.innerHTML = TEMPLES_DATA.map((t, i) => {
-          const primaryImg   = t.images && t.images[0] ? t.images[0] : t.fallbackImage;
-          return `
-            <div class="gold-card flex flex-col reveal" style="animation-delay:${i * 0.08}s;">
+      if (!grid) return;
 
-              <!-- Image -->
-              <div class="temple-img-wrap" style="height:220px; border-radius:20px 20px 0 0;">
-                <img src="${primaryImg}"
-                     onerror="this.onerror=null; this.src='${t.fallbackImage}'"
+      const allTemples = (typeof getAllTemples === 'function') ? await getAllTemples() : (typeof TEMPLES_DATA !== 'undefined' ? TEMPLES_DATA : []);
+      const q = searchQuery.toLowerCase().trim();
+
+      const filtered = allTemples.filter(t => {
+        if (!q) return true;
+        return (t.name && t.name.toLowerCase().includes(q)) ||
+               (t.location && t.location.toLowerCase().includes(q)) ||
+               (t.deity && t.deity.toLowerCase().includes(q)) ||
+               (t.description && t.description.toLowerCase().includes(q));
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-16 bg-surface-variant/40 border border-primary/20 rounded-2xl">
+            <span class="text-4xl mb-3 block">🏛️</span>
+            <h3 class="text-lg font-serif text-primary font-semibold">No Temples Found</h3>
+            <p class="text-sm text-gray-400 mt-1">Try adjusting your temple search keyword.</p>
+          </div>
+        `;
+        return;
+      }
+      
+      grid.innerHTML = filtered.map((t, i) => {
+        const primaryImg = t.image || (t.images && t.images[0]) || t.fallbackImage || 'https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=800&q=80';
+        const isCustom = Boolean(t.isUserSubmitted);
+        const resolvedImg = (typeof normalizeImageUrl === 'function') ? normalizeImageUrl(primaryImg) : primaryImg;
+
+        return `
+          <div class="gold-card flex flex-col justify-between reveal ${isCustom ? 'border-amber-500/50 shadow-[0_0_25px_rgba(212,175,55,0.15)]' : ''}" style="animation-delay:${(i % 6) * 0.08}s;">
+
+            <div>
+              <!-- Image (Field 1) -->
+              <div class="temple-img-wrap relative" style="height:220px; border-radius:20px 20px 0 0;">
+                <img src="${resolvedImg}"
+                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542640244-7e672d6cef4e?auto=format&fit=crop&w=800&q=80'"
                      alt="${t.name}" class="crisp-img"
                      style="height:220px; border-radius:20px 20px 0 0;">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#161322] via-transparent to-transparent"></div>
+                
+                ${isCustom ? `
+                  <span class="absolute top-3 left-3 bg-amber-500/90 text-black font-bold text-[9px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow-md">
+                    🌟 Custom Added
+                  </span>
+                ` : ''}
+
+                ${t.instaLink ? `
+                  <a href="${t.instaLink}" target="_blank" rel="noopener noreferrer"
+                     class="absolute top-3 right-3 bg-pink-600/90 text-white text-[10px] px-2.5 py-1 rounded-full font-bold shadow-md hover:scale-105 transition-transform flex items-center gap-1"
+                     title="Temple Instagram">
+                    <span>📷</span> <span>Instagram</span>
+                  </a>
+                ` : ''}
               </div>
 
               <!-- Badge row -->
-              <div class="px-5 pt-4 flex items-center justify-between">
+              <div class="px-5 pt-4 flex items-center justify-between gap-2">
                 <span class="text-[10px] font-sans font-semibold tracking-widest uppercase"
                       style="color:#D4AF37; background:#D4AF3712; border:1px solid #D4AF3740; border-radius:999px; padding:3px 10px;">
-                  Est. ${t.established}
+                  Est. ${t.established || 'Ancient'}
                 </span>
-                <span class="text-[10px] text-gray-500 font-sans">${t.deity}</span>
+                <span class="text-[10px] text-gray-400 font-sans">${t.deity || 'GSB Shrine'}</span>
               </div>
 
-              <!-- Text -->
-              <div class="p-5 flex-1">
+              <!-- Text (Field 2: Name & Field 4: About) -->
+              <div class="p-5 flex-1 space-y-2">
                 <div class="text-[10px] font-sans tracking-widest uppercase mb-1" style="color:#D4AF3799;">
                   📍 ${t.location}
                 </div>
-                <h3 class="font-serif text-lg text-white font-bold mb-2 leading-snug">${t.name}</h3>
-                <p class="text-xs text-gray-400 leading-relaxed font-sans">${t.description}</p>
-              </div>
+                <h3 class="font-serif text-lg text-white font-bold leading-snug">${t.name}</h3>
+                <p class="text-xs text-gray-300 leading-relaxed font-sans line-clamp-3">${t.description}</p>
 
-              <!-- Buttons -->
-              <div class="px-5 pb-5 pt-2 flex flex-col gap-2.5 border-t border-primary/10">
-                <a href="${t.geoLocationUrl}" target="_blank" rel="noopener noreferrer"
-                   class="w-full text-center py-2.5 rounded-xl font-sans font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2"
-                   style="background:#D4AF3715; border:1px solid #D4AF3750; color:#D4AF37;"
-                   onmouseover="this.style.background='#D4AF37'; this.style.color='#000';"
-                   onmouseout="this.style.background='#D4AF3715'; this.style.color='#D4AF37';">
-                  <span>📍</span><span>View Geo Location</span>
-                </a>
-                <a href="temple-detail.html?id=${t.id}"
-                   class="w-full text-center py-2 rounded-xl text-xs font-sans font-medium transition-all"
-                   style="background:#0E0C16; border:1px solid #D4AF3725; color:#B8B3C3;"
-                   onmouseover="this.style.color='#fff'; this.style.borderColor='#D4AF3760';"
-                   onmouseout="this.style.color='#B8B3C3'; this.style.borderColor='#D4AF3725';">
-                  Inspect Restoration &amp; Details →
-                </a>
+                <!-- Field 6: Contact Info (if present) -->
+                ${t.contactInfo ? `
+                  <div class="mt-3 p-2.5 rounded-xl bg-background/80 border border-primary/20 text-[11px] text-gray-300 flex items-start gap-2">
+                    <span class="text-primary text-xs">📞</span>
+                    <span class="line-clamp-2">${t.contactInfo}</span>
+                  </div>
+                ` : ''}
+
+                <!-- Field 7: Google Drive Album (if present) -->
+                ${t.driveFolderUrl ? `
+                  <div class="pt-1">
+                    <a href="${t.driveFolderUrl}" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-amber-300 hover:text-amber-200 transition-colors">
+                      <span>📁</span> <span>Google Drive Photo Album →</span>
+                    </a>
+                  </div>
+                ` : ''}
               </div>
             </div>
-          `;
-        }).join('');
 
-        /* Re-observe newly added cards */
-        grid.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+            <!-- Buttons (Field 5: Google Location & Detail Link) -->
+            <div class="px-5 pb-5 pt-2 flex flex-col gap-2.5 border-t border-primary/10">
+              <a href="${t.geoLocationUrl || `https://maps.google.com/?q=${encodeURIComponent(t.name)}`}" target="_blank" rel="noopener noreferrer"
+                 class="w-full text-center py-2.5 rounded-xl font-sans font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2"
+                 style="background:#D4AF3715; border:1px solid #D4AF3750; color:#D4AF37;"
+                 onmouseover="this.style.background='#D4AF37'; this.style.color='#000';"
+                 onmouseout="this.style.background='#D4AF3715'; this.style.color='#D4AF37';">
+                <span>📍</span><span>View Google Location</span>
+              </a>
+              <a href="temple-detail.html?id=${t.id}"
+                 class="w-full text-center py-2 rounded-xl text-xs font-sans font-medium transition-all flex items-center justify-center gap-1.5"
+                 style="background:#0E0C16; border:1px solid #D4AF3725; color:#B8B3C3;"
+                 onmouseover="this.style.color='#fff'; this.style.borderColor='#D4AF3760';"
+                 onmouseout="this.style.color='#B8B3C3'; this.style.borderColor='#D4AF3725';">
+                <span>Inspect Restoration &amp; Gallery</span> <span>→</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      /* Re-observe newly added cards */
+      grid.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTemplesGrid();
+
+      const searchInp = document.getElementById('temple-search-input');
+      if (searchInp) {
+        searchInp.addEventListener('input', (e) => {
+          renderTemplesGrid(e.target.value);
+        });
       }
     });
 
@@ -727,6 +817,102 @@
       });
     }
   </script>
+
+  <!-- ════════════════════════════════════
+       ADD TEMPLE CARD MODAL (7-FIELD SPECIFICATION)
+  ════════════════════════════════════ -->
+  <div id="add-temple-modal" class="fixed inset-0 z-[1000] hidden items-center justify-center p-4 bg-black/85 backdrop-blur-sm">
+    <div class="relative w-full max-w-2xl bg-surface-variant border border-primary/40 rounded-3xl p-6 md:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <button id="close-add-temple-modal" class="absolute top-5 right-5 text-gray-400 hover:text-primary text-xl font-bold transition-colors">
+        ✕
+      </button>
+
+      <div class="mb-6">
+        <div class="section-label mb-2">Sacred Sanctuary Contribution</div>
+        <h3 class="font-serif text-2xl text-white font-bold">Add Temple Card</h3>
+        <p class="text-xs text-gray-400 mt-1 font-serif">
+          Add a historic GSB temple or matha to the sacred directory archive.
+        </p>
+      </div>
+
+      <form id="add-temple-form" class="space-y-4">
+        <!-- FIRST: TEMPLE IMAGE (OPTIONAL) -->
+        <div>
+          <div class="flex items-center justify-between mb-1">
+            <label class="block text-xs font-semibold text-primary uppercase tracking-wider">
+              First : Temple Image (Optional)
+            </label>
+            <span class="text-[10px] text-amber-300">Cover Photo (Optional)</span>
+          </div>
+          <input type="text" id="modal-temple-image" placeholder="Leave blank to use 1st photo from Google Drive / Images list below" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+          <p class="text-[10px] text-gray-400 mt-1">
+            💡 <em>(Optional)</em> If left blank, the 1st photo in Field 7 will automatically be used as the temple card cover picture.
+          </p>
+        </div>
+
+        <!-- SECOND: TEMPLE NAME -->
+        <div>
+          <label class="block text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+            Second : Temple Name *
+          </label>
+          <input type="text" id="modal-temple-name" required placeholder="e.g. Shri Mangeshi Temple, Priol" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+        </div>
+
+        <!-- THIRD: TEMPLE INSTA LINK (OPTIONAL) -->
+        <div>
+          <label class="block text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+            Third : Temple Insta Link (Optional)
+          </label>
+          <input type="text" id="modal-temple-insta" placeholder="e.g. https://instagram.com/shrimangeshi or @shrimangeshi" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+        </div>
+
+        <!-- FOURTH: ABOUT TEMPLE INFO -->
+        <div>
+          <label class="block text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+            Fourth : About Temple Info *
+          </label>
+          <textarea id="modal-temple-about" required rows="3" placeholder="Detail the spiritual history, presiding deity, architecture, and festivals..." class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary"></textarea>
+        </div>
+
+        <!-- FIFTH: GOOGLE LOCATION -->
+        <div>
+          <label class="block text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+            Fifth : Google Location *
+          </label>
+          <input type="text" id="modal-temple-location" required placeholder="e.g. https://maps.google.com/?q=Shri+Mangeshi+Temple OR Priol, Ponda, Goa" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+        </div>
+
+        <!-- SIXTH: CONTACT INFO OF TEMPLE -->
+        <div>
+          <label class="block text-xs font-semibold text-primary uppercase tracking-wider mb-1">
+            Sixth : Contact Info of Temple
+          </label>
+          <input type="text" id="modal-temple-contact" placeholder="e.g. Phone: +91 832 2343240 | Email: office@mangeshi.org" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+        </div>
+
+        <!-- SEVENTH: IMAGES & GOOGLE DRIVE FOLDER -->
+        <div class="space-y-3 p-3 rounded-xl bg-background/60 border border-primary/20">
+          <div class="flex items-center justify-between">
+            <label class="block text-xs font-semibold text-primary uppercase tracking-wider">
+              Seventh : Images &amp; Google Drive Folder
+            </label>
+            <span class="text-[10px] text-amber-300 font-bold">1st Image = Card Cover</span>
+          </div>
+          <textarea id="modal-temple-gallery" rows="2" placeholder="Google Drive image links or image URLs separated by comma. (1st image becomes card cover if Field 1 is blank)..." class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary"></textarea>
+          <input type="url" id="modal-temple-drive" placeholder="Google Drive Folder Link (e.g. https://drive.google.com/drive/folders/...)" class="w-full bg-background border border-primary/30 rounded-xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-primary">
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-3">
+          <button type="button" id="cancel-add-temple-modal" class="px-5 py-2.5 rounded-full text-xs font-medium text-gray-300 hover:text-white transition-colors">
+            Cancel
+          </button>
+          <button type="submit" class="btn-gold px-6 py-2.5">
+            Publish Temple Card ✨
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 
   <!-- ════════════════════════════════════
        VIEWER SUBMIT EVENT MODAL (SUPABASE & COMMUNITY POWERED)
@@ -817,6 +1003,102 @@
       </form>
     </div>
   </div>
+
+  <!-- Modal script handler for Add Temple -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const openTempleBtn = document.getElementById('open-add-temple-modal');
+      const closeTempleBtn = document.getElementById('close-add-temple-modal');
+      const cancelTempleBtn = document.getElementById('cancel-add-temple-modal');
+      const templeModal = document.getElementById('add-temple-modal');
+      const templeForm = document.getElementById('add-temple-form');
+
+      const showTempleModal = () => {
+        if (templeModal) {
+          templeModal.classList.remove('hidden');
+          templeModal.classList.add('flex');
+        }
+      };
+
+      const hideTempleModal = () => {
+        if (templeModal) {
+          templeModal.classList.add('hidden');
+          templeModal.classList.remove('flex');
+        }
+      };
+
+      if (openTempleBtn) openTempleBtn.addEventListener('click', showTempleModal);
+      if (closeTempleBtn) closeTempleBtn.addEventListener('click', hideTempleModal);
+      if (cancelTempleBtn) cancelTempleBtn.addEventListener('click', hideTempleModal);
+
+      if (templeModal) {
+        templeModal.addEventListener('click', (e) => {
+          if (e.target === templeModal) hideTempleModal();
+        });
+      }
+
+      if (templeForm) {
+        templeForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+
+          const rawImg = document.getElementById('modal-temple-image').value.trim();
+          const name = document.getElementById('modal-temple-name').value.trim();
+          let insta = document.getElementById('modal-temple-insta').value.trim();
+          const about = document.getElementById('modal-temple-about').value.trim();
+          const location = document.getElementById('modal-temple-location').value.trim();
+          const contact = document.getElementById('modal-temple-contact').value.trim();
+          const gallery = document.getElementById('modal-temple-gallery').value.trim();
+          const driveFolder = document.getElementById('modal-temple-drive').value.trim();
+
+          if (!name || !about || !location) {
+            alert("Please fill in the required fields (Name, About info, and Location).");
+            return;
+          }
+
+          if (insta && !insta.startsWith('http')) {
+            insta = insta.startsWith('@') ? 'https://instagram.com/' + insta.substring(1) : 'https://instagram.com/' + insta;
+          }
+
+          const galleryItems = gallery ? gallery.split(/[\n,]+/).map(s => s.trim()).filter(Boolean) : [];
+          const primaryCover = rawImg || (galleryItems.length > 0 ? galleryItems[0] : '');
+          const allImgs = (rawImg ? [rawImg, ...galleryItems] : galleryItems).map(s => typeof normalizeImageUrl === 'function' ? normalizeImageUrl(s) : s);
+
+          const cleanId = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || ('temple-' + Date.now());
+
+          const newTemple = {
+            id: cleanId,
+            name: name,
+            subtitle: "Sacred Saraswat Heritage Shrine",
+            location: location.startsWith('http') ? name : location,
+            geoLocationUrl: location.startsWith('http') ? location : `https://maps.google.com/?q=${encodeURIComponent(name + ' ' + location)}`,
+            instaLink: insta || null,
+            contactInfo: contact || null,
+            description: about,
+            image: typeof normalizeImageUrl === 'function' ? normalizeImageUrl(primaryCover) : primaryCover,
+            images: allImgs.length > 0 ? allImgs : [typeof normalizeImageUrl === 'function' ? normalizeImageUrl(primaryCover) : primaryCover],
+            driveFolderUrl: driveFolder || null,
+            established: "Ancient Heritage",
+            deity: "Lord Supreme",
+            architecture: "Saraswat Dravidian Fusion",
+            restorationYear: "Preserved Sanctuary",
+            restorationDetails: "Dedicated preservation and digital archival of sanctum architecture.",
+            created_at: new Date().toISOString()
+          };
+
+          if (typeof saveCustomTemple === 'function') {
+            await saveCustomTemple(newTemple);
+          }
+
+          alert(`✨ Temple Card for "${name}" has been published!`);
+          templeForm.reset();
+          hideTempleModal();
+          if (typeof renderTemplesGrid === 'function') {
+            await renderTemplesGrid();
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
